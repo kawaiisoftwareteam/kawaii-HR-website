@@ -2,9 +2,8 @@
 
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ChevronDown, ShieldCheck } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
-
 import type { Variants } from "framer-motion";
 
 interface HeroSectionProps {
@@ -19,29 +18,29 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.12,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.9, ease: "easeOut" },
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-black text-white select-none">
-      {/* Background Video with Slow Initial Zoom Out */}
+    <section className="relative w-full h-svh min-h-[640px] max-h-[1100px] flex items-stretch overflow-hidden bg-[#0A0A0A] text-white">
+      {/* Background video */}
       <motion.div
-        initial={{ scale: 1.08, opacity: 0 }}
-        animate={{ scale: 1.0, opacity: 1 }}
-        transition={{ duration: 2.2, ease: "easeOut" }}
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        initial={{ scale: 1.06, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute inset-0 pointer-events-none"
       >
         <video
           ref={videoRef}
@@ -49,76 +48,57 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[center_30%]"
         >
           <source src="/Create_a_premium_cinematic_bac.mp4" type="video/mp4" />
         </video>
 
-        {/* Cinematic Multi-layered Dark Vignette Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-black/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-black/25" />
       </motion.div>
 
-      {/* Subtle Japanese Minimal Grid Watermark */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none japanese-grid-pattern-dark" />
-
-      {/* Hero Content Container */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 md:px-10 flex flex-col justify-between h-full pt-32 pb-12">
-        {/* Top Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.25em] font-semibold"
-        >
-          <span className="inline-flex items-center space-x-2 bg-black/60 backdrop-blur-md border border-white/20 text-white px-3.5 py-1.5 rounded-none">
-            <span className="w-2 h-2 rounded-full bg-[#A71728] inline-block animate-pulse" />
-            <span>JAPAN × BANGLADESH</span>
-          </span>
-          <span className="text-white/60 hidden sm:inline">•</span>
-          <span className="text-white/80 tracking-[0.2em] hidden sm:inline">
-            CAREER & HR SOLUTIONS
-          </span>
-        </motion.div>
-
-        {/* Main Central Typography */}
+      {/* Content — vertically centered, tighter spacing */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 flex flex-col justify-center pt-20 md:pt-24 pb-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl space-y-6 my-auto"
+          className="max-w-6xl"
         >
-          {/* Huge Editorial Headings */}
-          <div className="space-y-1 md:space-y-2 font-bold tracking-[-0.03em] uppercase leading-[0.92]">
-            <motion.div variants={itemVariants} className="overflow-hidden">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[88px] font-extrabold text-white">
-                CONNECTING <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">PEOPLE.</span>
-              </h1>
-            </motion.div>
-            <motion.div variants={itemVariants} className="overflow-hidden">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[88px] font-extrabold text-white">
-                BUILDING <span className="text-[#A71728]">FUTURES.</span>
-              </h1>
-            </motion.div>
+          <motion.p
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 text-sm sm:text-base md:text-lg font-semibold tracking-[0.18em] uppercase text-white/85 mb-4 sm:mb-5"
+          >
+            <span className="w-10 h-0.5 bg-[#A71728]" />
+            Japan × Bangladesh HR Bridge
+          </motion.p>
+
+          <div className="space-y-1 sm:space-y-1.5">
+            <motion.h1
+              variants={itemVariants}
+              className="text-[clamp(2.35rem,6.2vw,5.75rem)] font-bold tracking-[-0.03em] uppercase leading-[1.02] text-white whitespace-nowrap"
+            >
+              Connecting People.
+            </motion.h1>
+            <motion.h1
+              variants={itemVariants}
+              className="text-[clamp(2.35rem,6.2vw,5.75rem)] font-bold tracking-[-0.03em] uppercase leading-[1.02] text-white whitespace-nowrap"
+            >
+              Building <span className="text-[#A71728]">Futures.</span>
+            </motion.h1>
           </div>
 
-          {/* Supporting Brand Sub-heading */}
-          <motion.div variants={itemVariants} className="space-y-3 pt-2">
-            <div className="text-sm sm:text-base font-semibold tracking-widest text-white uppercase flex items-center space-x-2">
-              <span className="text-[#A71728]">Kawaii Japan</span>
-              <span className="text-white/50">/</span>
-              <span className="text-white/80">Career & HR Solutions BD</span>
-            </div>
-            <p className="text-sm sm:text-base md:text-lg text-white/75 max-w-2xl font-light leading-relaxed tracking-wide">
-              Connecting organizations with the right people through Japanese-inspired ethics, discipline, efficiency and trust.
-            </p>
-          </motion.div>
+          <motion.p
+            variants={itemVariants}
+            className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-white/85 max-w-2xl font-light leading-relaxed"
+          >
+            Connecting organizations with the right people through
+            Japanese-inspired ethics, discipline, efficiency and trust.
+          </motion.p>
 
-          {/* Action CTAs */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center gap-4 pt-4"
+            className="flex flex-wrap items-center gap-3 sm:gap-4 mt-5 sm:mt-6"
           >
             <RedButton
               variant="primary"
@@ -127,48 +107,48 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
             >
               For Employers
             </RedButton>
-
             <RedButton
               variant="outline"
               size="lg"
               onClick={() => onOpenModal("jobseeker")}
+              className="!border-white/40 backdrop-blur-sm bg-white/5 hover:!bg-white/10"
             >
               For Job Seekers
             </RedButton>
           </motion.div>
         </motion.div>
 
-        {/* Bottom Bar: Scroll indicator & quick badges */}
+        {/* Bottom meta row */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="flex items-center justify-between border-t border-white/10 pt-4 text-xs text-white/60 uppercase tracking-widest"
+          transition={{ duration: 0.9, delay: 0.8 }}
+          className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-white/15 pt-4"
         >
-          <div className="flex items-center space-x-4">
-            <span className="flex items-center space-x-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#A71728]" />
-              <span>Japanese Corporate Standards</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] sm:text-[11px] tracking-[0.16em] uppercase text-white/55">
+            <span className="inline-flex items-center gap-1.5 text-white/70">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#A71728] shrink-0" />
+              Japanese Corporate Standards
             </span>
-            <span className="hidden md:inline text-white/30">•</span>
-            <span className="hidden md:inline">Sister Concern of Kawaii Group</span>
+            <span className="hidden sm:inline text-white/25">·</span>
+            <span className="hidden sm:inline">
+              Sister Concern of Kawaii Group
+            </span>
           </div>
 
-          {/* Animated Scroll to Explore */}
           <a
             href="#stats"
-            className="flex items-center space-x-2 text-white/70 hover:text-white transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-medium text-white/60 hover:text-white transition-colors self-start sm:self-auto group"
             data-cursor="action"
           >
-            <span className="text-[10px] md:text-xs tracking-[0.2em] font-medium">
-              SCROLL TO EXPLORE
-            </span>
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+            Scroll to explore
+            <motion.span
+              animate={{ y: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="inline-flex"
             >
-              <ChevronDown className="w-4 h-4 text-[#A71728] group-hover:translate-y-1 transition-transform" />
-            </motion.div>
+              <ChevronDown className="w-4 h-4 text-[#A71728]" />
+            </motion.span>
           </a>
         </motion.div>
       </div>

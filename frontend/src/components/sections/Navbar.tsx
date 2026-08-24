@@ -2,174 +2,229 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
 
 interface NavbarProps {
   onOpenModal: (tab: "employer" | "jobseeker") => void;
 }
 
+const primaryLinks = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Employers", href: "#employers" },
+  { label: "Job Seekers", href: "#job-seekers" },
+  { label: "Contact", href: "#contact" },
+];
+
+const moreLinks = [
+  { label: "Japan × BD", href: "#japan-bangladesh" },
+  { label: "Industries", href: "#industries" },
+  { label: "Process", href: "#process" },
+  { label: "Why Us", href: "#why-us" },
+];
+
+const allLinks = [...primaryLinks, ...moreLinks];
+
 export function Navbar({ onOpenModal }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Japan × BD", href: "#japan-bangladesh" },
-    { label: "Employers", href: "#employers" },
-    { label: "Job Seekers", href: "#job-seekers" },
-    { label: "Services", href: "#services" },
-    { label: "Industries", href: "#industries" },
-    { label: "Process", href: "#process" },
-    { label: "Why Us", href: "#why-us" },
-    { label: "Contact", href: "#contact" },
-  ];
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? "bg-[#0A0A0A]/95 backdrop-blur-md py-4 border-b border-white/10 shadow-2xl"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-6"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/10"
+            : "bg-gradient-to-b from-black/55 via-black/25 to-transparent"
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#"
-            className="group flex flex-col items-start select-none"
-            data-cursor="action"
-          >
-            <div className="flex items-center space-x-2">
-              <span className="text-xl md:text-2xl font-bold tracking-tight text-white font-sans uppercase">
+        {/* 3 equal visual zones: Logo | Nav | CTAs — no floating box, no empty middle gap */}
+        <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 h-20 md:h-[88px]">
+            {/* LEFT — Logo */}
+            <a
+              href="#"
+              className="justify-self-start flex flex-col select-none min-w-0"
+              data-cursor="action"
+            >
+              <span className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-white uppercase leading-none">
                 KAWAII <span className="text-[#A71728]">JAPAN</span>
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A71728] animate-pulse" />
-            </div>
-            <span className="text-[9px] tracking-[0.22em] text-white/60 uppercase font-medium">
-              Career & HR Solutions BD
-            </span>
-          </a>
+              <span className="mt-1.5 text-[9px] sm:text-[10px] tracking-[0.18em] text-white/55 uppercase font-medium leading-none whitespace-nowrap">
+                Career & HR Solutions BD
+              </span>
+            </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-xs tracking-wider uppercase font-medium text-white/80 hover:text-white transition-colors duration-300 relative py-1 group"
-                data-cursor="action"
+            {/* CENTER — Nav links (no glass box) */}
+            <nav
+              className="hidden xl:flex items-center justify-center gap-1"
+              aria-label="Primary"
+            >
+              {primaryLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="px-3.5 py-2 text-[15px] lg:text-base font-semibold uppercase tracking-[0.06em] text-white/85 hover:text-white transition-colors duration-200 whitespace-nowrap relative group"
+                  data-cursor="action"
+                >
+                  {link.label}
+                  <span className="absolute left-3.5 right-3.5 -bottom-0.5 h-[2px] bg-[#A71728] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                </a>
+              ))}
+
+              <div
+                className="relative"
+                onMouseEnter={() => setMoreOpen(true)}
+                onMouseLeave={() => setMoreOpen(false)}
               >
-                <span>{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#A71728] transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
-          </nav>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-[15px] lg:text-base font-semibold uppercase tracking-[0.06em] text-white/85 hover:text-white transition-colors duration-200"
+                  aria-expanded={moreOpen}
+                  aria-haspopup="true"
+                >
+                  More
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      moreOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-          {/* Right Action CTA & Mobile Menu Toggle */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden sm:flex items-center space-x-2">
+                <AnimatePresence>
+                  {moreOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50"
+                    >
+                      <div className="min-w-[220px] bg-[#0A0A0A] border border-white/15 shadow-2xl py-1">
+                        {moreLinks.map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            className="block px-5 py-3 text-[15px] font-semibold uppercase tracking-[0.05em] text-white/75 hover:text-white hover:bg-white/5 transition-colors"
+                            data-cursor="action"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </nav>
+
+            {/* RIGHT — Square CTAs */}
+            <div className="justify-self-end flex items-center gap-3 shrink-0">
               <button
+                type="button"
                 onClick={() => onOpenModal("employer")}
-                className="text-xs uppercase tracking-wider font-semibold text-white/90 hover:text-white px-3 py-2 border border-white/20 hover:border-[#A71728] transition-all"
+                className="hidden md:inline-flex items-center justify-center h-12 px-5 text-[15px] font-semibold uppercase tracking-[0.06em] text-white border border-white/40 hover:border-[#A71728] hover:bg-[#A71728] transition-all duration-300 whitespace-nowrap rounded-none"
                 data-cursor="action"
               >
                 For Employers
               </button>
-              <RedButton
-                size="sm"
-                variant="primary"
+
+              <button
+                type="button"
                 onClick={() => onOpenModal("jobseeker")}
+                className="hidden sm:inline-flex items-center justify-center gap-2 h-12 px-5 text-[15px] font-semibold uppercase tracking-[0.06em] text-white bg-[#A71728] border border-[#A71728] hover:bg-white hover:text-[#A71728] transition-all duration-300 whitespace-nowrap rounded-none"
+                data-cursor="action"
               >
                 Find Jobs
-              </RedButton>
-            </div>
+                <ArrowRight className="w-4 h-4 -rotate-45" />
+              </button>
 
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-white hover:text-[#A71728] transition-colors"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen((v) => !v)}
+                className="xl:hidden inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white hover:border-[#A71728] hover:text-[#A71728] transition-colors rounded-none"
+                aria-label="Toggle navigation menu"
+                aria-expanded={mobileMenuOpen}
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Fullscreen Mobile Navigation Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-[#0A0A0A] text-white flex flex-col justify-between p-8 pt-28 overflow-y-auto lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[#0A0A0A] xl:hidden"
           >
-            {/* Background Japanese Watermark */}
-            <div className="absolute right-4 bottom-12 text-[120px] font-bold text-white/[0.03] select-none pointer-events-none">
-              可愛い
-            </div>
-
-            <div className="space-y-6">
-              <div className="text-[11px] font-bold tracking-widest text-[#A71728] uppercase">
-                Navigation
+            <div className="flex flex-col h-full pt-24 pb-8 px-6 sm:px-10 overflow-y-auto">
+              <div className="text-xs font-semibold tracking-[0.2em] text-[#A71728] uppercase mb-6">
+                Menu
               </div>
-              <div className="flex flex-col space-y-4">
-                {navLinks.map((link, idx) => (
+
+              <nav className="flex flex-col flex-1">
+                {allLinks.map((link, idx) => (
                   <motion.a
                     key={link.label}
                     href={link.href}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 + 0.1 }}
+                    transition={{ delay: idx * 0.04 + 0.05 }}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl md:text-3xl font-bold tracking-tight text-white/90 hover:text-[#A71728] transition-colors flex items-center justify-between border-b border-white/10 pb-3"
+                    className="group flex items-center justify-between py-4 border-b border-white/10 text-2xl font-semibold tracking-tight text-white/90 hover:text-[#A71728] transition-colors"
                   >
                     <span>{link.label}</span>
-                    <ArrowRight className="w-5 h-5 text-white/30" />
+                    <ArrowRight className="w-5 h-5 text-white/25 group-hover:text-[#A71728] group-hover:translate-x-1 transition-all" />
                   </motion.a>
                 ))}
-              </div>
-            </div>
+              </nav>
 
-            <div className="pt-8 border-t border-white/15 space-y-4">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 mt-8">
                 <button
+                  type="button"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenModal("employer");
                   }}
-                  className="w-full py-3 text-xs uppercase tracking-wider font-semibold text-white bg-white/10 hover:bg-[#A71728] border border-white/20 transition-all text-center"
+                  className="h-14 text-base uppercase tracking-[0.06em] font-semibold text-white border border-white/30 rounded-none hover:border-[#A71728] transition-all"
                 >
                   For Employers
                 </button>
                 <button
+                  type="button"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenModal("jobseeker");
                   }}
-                  className="w-full py-3 text-xs uppercase tracking-wider font-semibold text-white bg-[#A71728] hover:bg-black border border-[#A71728] transition-all text-center"
+                  className="h-14 text-base uppercase tracking-[0.06em] font-semibold text-white bg-[#A71728] rounded-none hover:bg-[#8e1321] transition-all"
                 >
-                  For Job Seekers
+                  Find Jobs
                 </button>
-              </div>
-
-              <div className="text-xs text-white/50 text-center tracking-wider">
-                Japan × Bangladesh Corporate HR Solutions
               </div>
             </div>
           </motion.div>
