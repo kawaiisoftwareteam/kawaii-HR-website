@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
@@ -49,8 +50,8 @@ export function Navbar({ onOpenModal }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/10"
-            : "bg-gradient-to-b from-black/55 via-black/25 to-transparent"
+            ? "bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-xl border-b border-white/15 shadow-lg shadow-black/20"
+            : "bg-gradient-to-b from-black/35 via-black/10 to-transparent"
         }`}
       >
         {/* 3 equal visual zones: Logo | Nav | CTAs — no floating box, no empty middle gap */}
@@ -59,15 +60,18 @@ export function Navbar({ onOpenModal }: NavbarProps) {
             {/* LEFT — Logo */}
             <a
               href="#"
-              className="justify-self-start flex flex-col select-none min-w-0"
+              className="justify-self-start flex items-center select-none min-w-0 group"
               data-cursor="action"
+              aria-label="Kawaii Japan Career & HR Solutions BD"
             >
-              <span className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-white uppercase leading-none">
-                KAWAII <span className="text-[#A71728]">JAPAN</span>
-              </span>
-              <span className="mt-1.5 text-[9px] sm:text-[10px] tracking-[0.18em] text-white/55 uppercase font-medium leading-none whitespace-nowrap">
-                Career & HR Solutions BD
-              </span>
+              <Image
+                src="/kawaiihrlogo-white.webp"
+                alt="Kawaii Japan Career & HR Solutions BD"
+                width={280}
+                height={84}
+                className="h-10 sm:h-12 md:h-[50px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                priority
+              />
             </a>
 
             {/* CENTER — Nav links (no glass box) */}
@@ -183,8 +187,14 @@ export function Navbar({ onOpenModal }: NavbarProps) {
             className="fixed inset-0 z-40 bg-[#0A0A0A] xl:hidden"
           >
             <div className="flex flex-col h-full pt-24 pb-8 px-6 sm:px-10 overflow-y-auto">
-              <div className="text-xs font-semibold tracking-[0.2em] text-[#A71728] uppercase mb-6">
-                Menu
+              <div className="mb-6 flex items-center justify-between">
+                <Image
+                  src="/kawaiihrlogo-white.webp"
+                  alt="Kawaii Japan Career & HR Solutions BD"
+                  width={220}
+                  height={66}
+                  className="h-10 w-auto object-contain"
+                />
               </div>
 
               <nav className="flex flex-col flex-1">

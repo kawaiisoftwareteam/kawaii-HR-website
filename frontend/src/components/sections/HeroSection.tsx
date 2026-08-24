@@ -53,8 +53,8 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
           <source src="/Create_a_premium_cinematic_bac.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/50 via-transparent to-black/15" />
       </motion.div>
 
       {/* Content — vertically centered, tighter spacing */}
@@ -73,16 +73,16 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
             Japan × Bangladesh HR Bridge
           </motion.p>
 
-          <div className="space-y-1 sm:space-y-1.5">
+          <div className="space-y-1 sm:space-y-2">
             <motion.h1
               variants={itemVariants}
-              className="text-[clamp(2.35rem,6.2vw,5.75rem)] font-bold tracking-[-0.03em] uppercase leading-[1.02] text-white whitespace-nowrap"
+              className="text-[clamp(2.75rem,8vw,7.5rem)] font-extrabold tracking-[-0.035em] uppercase leading-[0.98] text-white whitespace-nowrap"
             >
               Connecting People.
             </motion.h1>
             <motion.h1
               variants={itemVariants}
-              className="text-[clamp(2.35rem,6.2vw,5.75rem)] font-bold tracking-[-0.03em] uppercase leading-[1.02] text-white whitespace-nowrap"
+              className="text-[clamp(2.75rem,8vw,7.5rem)] font-extrabold tracking-[-0.035em] uppercase leading-[0.98] text-white whitespace-nowrap"
             >
               Building <span className="text-[#A71728]">Futures.</span>
             </motion.h1>

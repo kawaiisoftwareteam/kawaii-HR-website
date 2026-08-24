@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowUp, MapPin, Mail, Phone, Globe, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyData";
 
@@ -20,11 +21,14 @@ export function Footer() {
         {/* Top Tier: Brand Manifesto & Big Statement */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-16 border-b border-white/10">
           <div className="lg:col-span-6 space-y-6">
-            <div className="flex items-center space-x-2">
-              <span className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-white font-sans">
-                KAWAII <span className="text-[#A71728]">JAPAN</span>
-              </span>
-              <span className="w-2 h-2 rounded-full bg-[#A71728] animate-pulse" />
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/kawaiihrlogo-white.webp"
+                alt="Kawaii Japan Career & HR Solutions BD"
+                width={280}
+                height={84}
+                className="h-12 sm:h-14 w-auto object-contain"
+              />
             </div>
 
             <div className="text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
