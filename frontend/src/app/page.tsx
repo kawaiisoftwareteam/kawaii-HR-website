@@ -9,7 +9,6 @@ import { StatsSection } from "@/components/sections/StatsSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { JapanBridge } from "@/components/sections/JapanBridge";
 import { DualAudience } from "@/components/sections/DualAudience";
-import { ServicesSection } from "@/components/sections/ServicesSection";
 import { EmployerFocus } from "@/components/sections/EmployerFocus";
 import { JobSeekerFocus } from "@/components/sections/JobSeekerFocus";
 import { ExpertiseSection } from "@/components/sections/ExpertiseSection";
@@ -66,10 +65,7 @@ export default function HomePage() {
       {/* 05: Dynamic 50/50 Hover-Expandable Split Row */}
       <DualAudience onOpenModal={handleOpenModal} />
 
-      {/* 06: Numbered Core Services Explorer */}
-      <ServicesSection onOpenModal={handleOpenModal} />
-
-      {/* 07: Dedicated Enterprise Employer Capabilities */}
+      {/* 06: Dedicated Enterprise Employer Capabilities */}
       <EmployerFocus onOpenModal={handleOpenModal} />
 
       {/* 08: Dedicated Candidate Career Guidance */}

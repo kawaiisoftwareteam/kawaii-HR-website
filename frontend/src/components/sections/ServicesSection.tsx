@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { SERVICES_LIST, ServiceItem } from "@/data/companyData";
 import { RedButton } from "../ui/RedButton";
 
@@ -28,14 +29,22 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: (tab: "employer"
             </p>
           </div>
 
-          <div className="pt-6 md:pt-0">
+          <div className="flex flex-wrap items-center gap-3 pt-6 md:pt-0">
+            <Link
+              href="/services"
+              className="inline-flex items-center space-x-2 px-5 py-3.5 bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-[#A71728] transition-colors"
+            >
+              <span>Explore Dedicated Services Page</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+
             <RedButton
               variant="outline"
               size="md"
               className="text-black border-black/30 hover:bg-[#A71728] hover:text-white hover:border-[#A71728]"
               onClick={() => onOpenModal("employer")}
             >
-              Request Sourcing Proposal
+              Request Proposal
             </RedButton>
           </div>
         </div>
@@ -153,7 +162,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: (tab: "employer"
                     ))}
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-4 space-y-2">
                     <button
                       onClick={() => onOpenModal("employer")}
                       className="w-full py-3 bg-[#A71728] hover:bg-white hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-all text-center flex items-center justify-center space-x-2"
@@ -161,6 +170,13 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: (tab: "employer"
                       <span>Inquire About This Service</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
+
+                    <Link
+                      href="/services"
+                      className="w-full py-2.5 bg-white/10 hover:bg-white/20 text-white/90 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all text-center flex items-center justify-center space-x-2"
+                    >
+                      <span>View Full Service Breakdown & SLA →</span>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

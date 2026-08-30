@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUp, MapPin, Mail, Phone, Globe, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyData";
 
@@ -51,49 +52,50 @@ export function Footer() {
             </div>
             <ul className="space-y-2.5 text-xs uppercase tracking-wider text-white/70 font-medium">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link href="/#about" className="hover:text-white transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#japan-bangladesh" className="hover:text-white transition-colors">
+                <Link href="/services" className="text-white font-bold hover:text-[#A71728] transition-colors flex items-center space-x-1">
+                  <span>All Services & Workflows</span>
+                  <span className="text-[#A71728]">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#japan-bangladesh" className="hover:text-white transition-colors">
                   Japan × Bangladesh
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#employers" className="hover:text-white transition-colors">
+                <Link href="/#employers" className="hover:text-white transition-colors">
                   For Employers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#job-seekers" className="hover:text-white transition-colors">
+                <Link href="/#job-seekers" className="hover:text-white transition-colors">
                   For Job Seekers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#industries" className="hover:text-white transition-colors">
+                <Link href="/#industries" className="hover:text-white transition-colors">
                   Industries
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors">
+                <Link href="/#process" className="hover:text-white transition-colors">
                   Working Process
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-white transition-colors">
+                <Link href="/#why-us" className="hover:text-white transition-colors">
                   Why Choose Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <Link href="/#contact" className="hover:text-white transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
