@@ -3,39 +3,36 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Award, Globe, Compass, CheckCircle } from "lucide-react";
-import { JapaneseSeal } from "../ui/JapanesePattern";
+import { ChevronRight, Globe, Compass } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
 
 export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | "jobseeker") => void }) {
-  const [activeTab, setActiveTab] = useState<"profile" | "vision" | "values">("profile");
+  const [activeTab, setActiveTab] = useState<"profile" | "vision">("profile");
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <section id="about" className="relative py-24 md:py-36 bg-[#F8F9FA] text-[#111111] overflow-hidden border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left: Large Vertical Editorial Image Frame */}
-          <div className="lg:col-span-5 relative" data-cursor="image">
-            <div className="relative aspect-[4/5] w-full overflow-hidden shadow-2xl bg-black">
+        <div className="space-y-12 lg:space-y-14">
+          {/* Horizontal company image */}
+          <div className="relative w-full overflow-hidden shadow-xl bg-white border border-gray-200" data-cursor="image">
+            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full">
               <Image
-                src="/images/japanese_office_team.jpg"
-                alt="Kawaii Japan Corporate Boardroom and Management Team"
+                src="/about/kawaii.png"
+                alt="Kawaii Group Japan — Japan-Bangladesh joint venture headquarters"
                 fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className="object-cover object-center"
               />
 
-              {/* Floating Japanese Seal Overlay */}
-              <div className="absolute top-6 left-6 bg-black/80 backdrop-blur-md px-4 py-2 border border-white/20 text-white flex items-center space-x-2">
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/90 backdrop-blur-sm px-4 py-2 border border-gray-200 text-[#111] flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-[#A71728]" />
                 <span className="text-[10px] tracking-[0.2em] uppercase font-bold">
                   TOKYO × DHAKA HEADQUARTERS
                 </span>
               </div>
 
-              {/* Bottom Tagline Banner */}
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 text-white">
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-5 sm:p-6 text-white">
                 <div className="text-[11px] tracking-widest text-[#A71728] font-bold uppercase mb-1">
                   ESTABLISHED 2025
                 </div>
@@ -44,13 +41,10 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
                 </div>
               </div>
             </div>
-
-            {/* Red Accent Offset Frame */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[#A71728] -z-10 pointer-events-none hidden sm:block opacity-30" />
           </div>
 
-          {/* Right: Editorial Content */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Editorial content */}
+          <div className="max-w-4xl space-y-8">
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <span className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
@@ -89,16 +83,6 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
                 }`}
               >
                 Vision & Mission
-              </button>
-              <button
-                onClick={() => setActiveTab("values")}
-                className={`pb-2 text-xs md:text-sm uppercase font-bold tracking-wider transition-colors border-b-2 ${
-                  activeTab === "values"
-                    ? "border-[#A71728] text-black"
-                    : "border-transparent text-gray-400 hover:text-gray-700"
-                }`}
-              >
-                Japanese Principles
               </button>
             </div>
 
@@ -163,25 +147,6 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
                 </div>
               )}
 
-              {activeTab === "values" && (
-                <div className="space-y-3 pt-2">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {[
-                      { title: "Ethics (倫理)", desc: "100% moral transparency" },
-                      { title: "Discipline (規律)", desc: "Punctual structured process" },
-                      { title: "Efficiency (効率)", desc: "Kaizen agile pipelines" },
-                      { title: "Respect (敬意)", desc: "Human-centric partnership" },
-                      { title: "Quality (品質)", desc: "Zero compromise matching" },
-                      { title: "Trust (信頼)", desc: "Long-term bilateral bonds" },
-                    ].map((val) => (
-                      <div key={val.title} className="p-3 bg-white border border-gray-200 space-y-1">
-                        <div className="text-xs font-bold text-black uppercase">{val.title}</div>
-                        <div className="text-[11px] text-gray-500">{val.desc}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* CTAs */}

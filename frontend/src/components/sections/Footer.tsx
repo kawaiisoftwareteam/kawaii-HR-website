@@ -64,7 +64,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/#japan-bangladesh" className="hover:text-white transition-colors">
-                  Japan × Bangladesh
+                  Global Careers
                 </Link>
               </li>
               <li>

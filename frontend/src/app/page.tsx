@@ -8,7 +8,6 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { JapanBridge } from "@/components/sections/JapanBridge";
-import { DualAudience } from "@/components/sections/DualAudience";
 import { EmployerFocus } from "@/components/sections/EmployerFocus";
 import { JobSeekerFocus } from "@/components/sections/JobSeekerFocus";
 import { ExpertiseSection } from "@/components/sections/ExpertiseSection";
@@ -59,13 +58,10 @@ export default function HomePage() {
       {/* 03: About & Company Profile */}
       <AboutSection onOpenModal={handleOpenModal} />
 
-      {/* 04: Japan × Bangladesh Bilateral Corridor */}
+      {/* 04: Bangladesh to global job placement */}
       <JapanBridge />
 
-      {/* 05: Dynamic 50/50 Hover-Expandable Split Row */}
-      <DualAudience onOpenModal={handleOpenModal} />
-
-      {/* 06: Dedicated Enterprise Employer Capabilities */}
+      {/* 05: Dedicated Enterprise Employer Capabilities */}
       <EmployerFocus onOpenModal={handleOpenModal} />
 
       {/* 08: Dedicated Candidate Career Guidance */}
