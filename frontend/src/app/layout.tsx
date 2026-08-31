@@ -10,6 +10,11 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   title: "Kawaii Japan Career & HR Solutions BD | Career & HR Solutions",
   description:
     "Kawaii Japan Career & HR Solutions BD connects organizations with the right talent through reliable recruitment, staffing, career matching and Japanese-inspired HR solutions.",
