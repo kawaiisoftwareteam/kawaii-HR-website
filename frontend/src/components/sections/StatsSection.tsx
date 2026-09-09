@@ -7,9 +7,9 @@ import { JapaneseSeal } from "../ui/JapanesePattern";
 
 export function StatsSection() {
   return (
-    <section id="stats" className="relative py-24 md:py-32 bg-[#FFFFFF] text-[#111111] overflow-hidden border-b border-gray-100">
+    <section id="stats" className="relative py-24 md:py-32 bg-premium-white text-[#111111] overflow-hidden border-b border-black/5">
       {/* Background Subtle Grid */}
-      <div className="absolute inset-0 japanese-grid-pattern opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 japanese-grid-pattern opacity-50 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         {/* Editorial Statement */}

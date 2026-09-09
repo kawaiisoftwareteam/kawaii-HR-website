@@ -18,6 +18,7 @@ import { JapaneseSystem } from "@/components/sections/JapaneseSystem";
 import { PhilosophySection } from "@/components/sections/PhilosophySection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 
@@ -35,7 +36,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-white text-black selection:bg-[#A71728] selection:text-white font-sans overflow-x-hidden">
+    <main className="relative min-h-screen bg-premium-white text-black selection:bg-[#A71728] selection:text-white font-sans overflow-x-hidden">
       {/* Desktop Custom Interactive Magnetic Cursor */}
       <CustomCursor />
 
@@ -91,10 +92,13 @@ export default function HomePage() {
       {/* 16: Testimonials & Trust */}
       <TestimonialsSection />
 
-      {/* 17: Contact & Corporate Registry Info */}
+      {/* 17: FAQ chat accordion */}
+      <FaqSection />
+
+      {/* 18: Contact & Corporate Registry Info */}
       <ContactSection onOpenModal={handleOpenModal} />
 
-      {/* 18: Luxury Black Footer */}
+      {/* 19: Luxury Black Footer */}
       <Footer />
     </main>
   );

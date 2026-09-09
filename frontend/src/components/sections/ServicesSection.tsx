@@ -12,7 +12,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: (tab: "employer"
   const [activeService, setActiveService] = useState<ServiceItem>(SERVICES_LIST[0]);
 
   return (
-    <section id="services" className="relative py-28 md:py-36 bg-[#FFFFFF] text-[#111111] overflow-hidden border-b border-gray-200">
+    <section id="services" className="relative py-28 md:py-36 bg-premium-white text-[#111111] overflow-hidden border-b border-black/5">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 pb-8 border-b border-gray-200">

@@ -45,7 +45,9 @@ export function EmployerFocus({
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(167,23,40,0.12),transparent_55%)]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">

@@ -20,7 +20,7 @@ export function JapanBridge() {
   return (
     <section
       id="japan-bangladesh"
-      className="relative py-24 md:py-32 bg-white text-[#111111] overflow-hidden border-b border-gray-200"
+      className="relative py-24 md:py-32 bg-premium-white text-[#111111] overflow-hidden border-b border-black/5"
     >
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         {/* Section Header */}

@@ -37,7 +37,7 @@ export function JobSeekerFocus({
   return (
     <section
       id="job-seekers"
-      className="relative py-16 md:py-24 bg-[#F8F9FA] text-[#111111] border-b border-gray-200"
+      className="relative py-16 md:py-24 bg-premium-light text-[#111111] border-b border-black/5 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:items-center gap-6 lg:gap-0">

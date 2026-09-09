@@ -8,8 +8,9 @@ import { RedButton } from "../ui/RedButton";
 
 export function ExpertiseSection({ onOpenModal }: { onOpenModal: (tab: "employer" | "jobseeker") => void }) {
   return (
-    <section className="relative py-28 md:py-36 bg-[#0E0E0E] text-white overflow-hidden select-none border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section className="relative py-28 md:py-36 bg-premium-dark bg-premium-noise text-white overflow-hidden select-none border-b border-white/10">
+      <div className="absolute inset-0 japanese-grid-pattern-dark opacity-35 pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
           <div className="inline-flex items-center space-x-2 text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">

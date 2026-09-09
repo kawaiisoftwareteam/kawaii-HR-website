@@ -18,8 +18,9 @@ export function PhilosophySection({ onOpenModal }: { onOpenModal: (tab: "employe
           sizes="100vw"
           className="object-cover object-center brightness-40 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/75 to-black/88" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(167,23,40,0.08),transparent_60%)]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center space-y-10">

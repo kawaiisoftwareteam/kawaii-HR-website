@@ -20,8 +20,8 @@ export function TestimonialsSection() {
   const current = TESTIMONIALS_DATA[currentIndex];
 
   return (
-    <section className="relative py-28 md:py-36 bg-[#000000] text-white overflow-hidden select-none border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section className="relative py-28 md:py-36 bg-premium-ink bg-premium-noise text-white overflow-hidden select-none border-b border-white/10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/15">
           <div className="space-y-3">

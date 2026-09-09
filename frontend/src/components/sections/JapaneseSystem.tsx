@@ -8,9 +8,9 @@ import { JapaneseSeal } from "../ui/JapanesePattern";
 
 export function JapaneseSystem() {
   return (
-    <section className="relative py-28 md:py-36 bg-[#FFFFFF] text-[#111111] overflow-hidden border-b border-gray-200">
+    <section className="relative py-28 md:py-36 bg-premium-white text-[#111111] overflow-hidden border-b border-black/5">
       {/* Background Pattern */}
-      <div className="absolute inset-0 japanese-grid-pattern opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 japanese-grid-pattern opacity-45 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}

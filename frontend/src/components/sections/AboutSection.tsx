@@ -11,7 +11,7 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="about" className="relative py-24 md:py-36 bg-[#F8F9FA] text-[#111111] overflow-hidden border-b border-gray-200">
+    <section id="about" className="relative py-24 md:py-36 bg-premium-light text-[#111111] overflow-hidden border-b border-black/5">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="space-y-12 lg:space-y-14">
           {/* Horizontal company image */}

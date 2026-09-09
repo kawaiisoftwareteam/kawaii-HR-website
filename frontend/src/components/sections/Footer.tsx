@@ -3,8 +3,26 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUp, MapPin, Mail, Phone, Globe, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUp, MapPin, Mail, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyData";
+
+const exploreLinks = [
+  { label: "About Us", href: "/#about" },
+  { label: "Services", href: "/services" },
+  { label: "News & Articles", href: "/news" },
+  { label: "Working Process", href: "/#process" },
+  { label: "Why Choose Us", href: "/#why-us" },
+  { label: "FAQ", href: "/#faq" },
+];
+
+const audienceLinks = [
+  { label: "For Employers", href: "/#employers" },
+  { label: "For Job Seekers", href: "/#job-seekers" },
+  { label: "Global Careers", href: "/#japan-bangladesh" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Contact", href: "/#contact" },
+];
 
 export function Footer() {
   const scrollToTop = () => {
@@ -12,136 +30,155 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#000000] text-white overflow-hidden border-t border-white/10 pt-20 pb-12 select-none">
-      {/* Background Subtle Watermark */}
-      <div className="absolute right-10 bottom-0 text-[160px] md:text-[220px] font-bold text-white/[0.02] pointer-events-none select-none">
-        KAWAII
+    <footer className="relative bg-premium-light text-[#111111] overflow-hidden border-t border-black/5 select-none">
+      {/* Soft brand wash + grid */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 70% 50% at 0% 0%, rgba(167,23,40,0.06), transparent 55%),
+              radial-gradient(ellipse 50% 40% at 100% 100%, rgba(0,0,0,0.03), transparent 50%)
+            `,
+          }}
+        />
+        <div className="absolute inset-0 japanese-grid-pattern opacity-35" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 space-y-16">
-        {/* Top Tier: Brand Manifesto & Big Statement */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-16 border-b border-white/10">
-          <div className="lg:col-span-6 space-y-6">
-            <div className="flex items-center space-x-3">
-              <Image
-                src="/kawaiihrlogo-white.webp"
-                alt="Kawaii Japan Career & HR Solutions BD"
-                width={280}
-                height={84}
-                className="h-12 sm:h-14 w-auto object-contain"
-              />
-            </div>
+      {/* Top accent rule */}
+      <div className="relative h-px w-full bg-gradient-to-r from-transparent via-[#A71728]/60 to-transparent" />
 
-            <div className="text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
-              Career & HR Solutions BD • Sister Concern of Kawaii Group
-            </div>
-
-            <p className="text-sm text-white/70 font-light leading-relaxed max-w-lg">
-              Connecting organizations with the right people through Japanese-inspired ethics, discipline, efficiency and trust.
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-10">
+        {/* Brand row */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-14 border-b border-black/8"
+        >
+          <div className="space-y-5 max-w-xl">
+            <Image
+              src="/kawaiihrlogo.webp"
+              alt="Kawaii Japan Career & HR Solutions BD"
+              width={280}
+              height={84}
+              className="h-11 sm:h-12 w-auto object-contain"
+            />
+            <p className="text-sm text-gray-600 font-light leading-relaxed">
+              Connecting organizations with the right people through Japanese-inspired
+              ethics, discipline, efficiency, and trust.
             </p>
-
-            <div className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white/90">
-              PEOPLE. OPPORTUNITY. <span className="text-[#A71728]">FUTURE.</span>
-            </div>
+            <p className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-black">
+              People. Opportunity.{" "}
+              <span className="text-[#A71728]">Future.</span>
+            </p>
           </div>
 
-          {/* Quick Links Column */}
-          <div className="lg:col-span-3 space-y-4">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#A71728]">
-              NAVIGATION
+          <div className="text-xs uppercase tracking-[0.2em] text-gray-500 font-medium lg:text-right">
+            <div>Sister Concern of {COMPANY_INFO.group}</div>
+            <div className="mt-1 text-[#A71728] font-bold tracking-[0.25em]">
+              Est. {COMPANY_INFO.establishedYear}
             </div>
-            <ul className="space-y-2.5 text-xs uppercase tracking-wider text-white/70 font-medium">
-              <li>
-                <Link href="/#about" className="hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-white font-bold hover:text-[#A71728] transition-colors flex items-center space-x-1">
-                  <span>All Services & Workflows</span>
-                  <span className="text-[#A71728]">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#japan-bangladesh" className="hover:text-white transition-colors">
-                  Global Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/#employers" className="hover:text-white transition-colors">
-                  For Employers
-                </Link>
-              </li>
-              <li>
-                <Link href="/#job-seekers" className="hover:text-white transition-colors">
-                  For Job Seekers
-                </Link>
-              </li>
-              <li>
-                <Link href="/#industries" className="hover:text-white transition-colors">
-                  Industries
-                </Link>
-              </li>
-              <li>
-                <Link href="/#process" className="hover:text-white transition-colors">
-                  Working Process
-                </Link>
-              </li>
-              <li>
-                <Link href="/#why-us" className="hover:text-white transition-colors">
-                  Why Choose Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
+          </div>
+        </motion.div>
+
+        {/* Link + contact grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 py-14 border-b border-black/8">
+          <div className="lg:col-span-3 space-y-4">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
+              Explore
+            </div>
+            <ul className="space-y-2.5">
+              {exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Institutional Data Column */}
-          <div className="lg:col-span-3 space-y-4 text-xs text-white/70">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#A71728]">
-              REGISTRY
+          <div className="lg:col-span-3 space-y-4">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
+              Audiences
             </div>
-            <div className="space-y-2 font-light">
-              <p>
-                <strong className="text-white font-medium">Head Office:</strong> <br />
-                {COMPANY_INFO.address}
-              </p>
-              <p>
-                <strong className="text-white font-medium">Established:</strong> {COMPANY_INFO.establishedYear}
-              </p>
-              <p>
-                <strong className="text-white font-medium">Chairman:</strong> {COMPANY_INFO.chairman}
-              </p>
-              <p>
-                <strong className="text-white font-medium">Bank:</strong> {COMPANY_INFO.bank}
-              </p>
+            <ul className="space-y-2.5">
+              {audienceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-6 space-y-4">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
+              Head Office
+            </div>
+            <div className="space-y-4 text-sm text-gray-700">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-[#A71728] shrink-0 mt-0.5" />
+                <span className="font-light leading-relaxed">{COMPANY_INFO.address}</span>
+              </div>
+              {!COMPANY_INFO.email.includes("[") && (
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-[#A71728] shrink-0" />
+                  <span className="font-light">{COMPANY_INFO.email}</span>
+                </div>
+              )}
+              {!COMPANY_INFO.phone.includes("[") && (
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-[#A71728] shrink-0" />
+                  <span className="font-light">{COMPANY_INFO.phone}</span>
+                </div>
+              )}
+              <div className="pt-1 text-xs text-gray-500 font-light leading-relaxed">
+                Chairman: {COMPANY_INFO.chairman}
+                <span className="mx-2 text-black/20">·</span>
+                Banking Partner: {COMPANY_INFO.bank}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Tier: Copyright & Back to Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 pt-4">
-          <div>
-            © 2026 {COMPANY_INFO.name}. All Rights Reserved.
-          </div>
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-5 pt-8">
+          <p className="text-xs text-gray-500 text-center sm:text-left">
+            © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
+          </p>
 
           <button
+            type="button"
             onClick={scrollToTop}
-            className="flex items-center space-x-2 text-white/70 hover:text-white transition-colors group cursor-pointer"
+            className="group flex items-center gap-3 text-gray-600 hover:text-black transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
-            <span className="text-[10px] uppercase font-bold tracking-widest">
-              Back To Top
+            <span className="text-[10px] uppercase font-bold tracking-[0.22em]">
+              Back to top
             </span>
-            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#A71728] group-hover:bg-[#A71728] transition-all">
+            <span className="w-9 h-9 rounded-full border border-black/12 bg-white flex items-center justify-center shadow-sm group-hover:border-[#A71728] group-hover:bg-[#A71728] group-hover:text-white transition-all">
               <ArrowUp className="w-3.5 h-3.5" />
-            </div>
+            </span>
           </button>
         </div>
+      </div>
+
+      {/* Soft watermark */}
+      <div
+        className="absolute right-0 bottom-0 text-[120px] md:text-[180px] font-extrabold text-black/[0.03] leading-none pointer-events-none select-none tracking-tighter"
+        aria-hidden="true"
+      >
+        KAWAII
       </div>
     </footer>
   );

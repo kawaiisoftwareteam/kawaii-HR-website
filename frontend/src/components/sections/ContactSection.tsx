@@ -27,16 +27,16 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
   };
 
   return (
-    <section id="contact" className="relative py-28 md:py-40 bg-[#FFFFFF] text-[#111111] overflow-hidden border-b border-gray-200">
+    <section id="contact" className="relative py-28 md:py-40 bg-premium-white text-[#111111] overflow-hidden border-b border-black/5">
       {/* Background Japanese Grid */}
-      <div className="absolute inset-0 japanese-grid-pattern opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 japanese-grid-pattern opacity-45 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         {/* Section Header */}
         <div className="max-w-3xl space-y-4 mb-20">
           <div className="inline-flex items-center space-x-2 text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
             <span className="w-2 h-2 rounded-full bg-[#A71728]" />
-            <span>16 — GET IN TOUCH</span>
+            <span>17 — GET IN TOUCH</span>
           </div>
 
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight uppercase leading-[0.92] text-black">
