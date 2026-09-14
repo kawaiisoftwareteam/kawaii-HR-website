@@ -14,9 +14,11 @@ interface NavbarProps {
 const primaryLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/#about" },
+  { label: "Platform", href: "/#platform" },
   { label: "Services", href: "/services" },
-  { label: "News & Articles", href: "/news" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Workforce", href: "/#skilled-workforce" },
+  { label: "News", href: "/news" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 function isLinkActive(href: string, pathname: string): boolean {
@@ -51,8 +53,8 @@ export function Navbar({ onOpenModal }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
           isGlassSolid
-            ? "bg-white/75 backdrop-blur-2xl border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-            : "bg-white/30 backdrop-blur-xl border-white/35"
+            ? "bg-white/50 backdrop-blur-2xl border-black/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.06)]"
+            : "bg-white/60 backdrop-blur-2xl border-white/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
         }`}
       >
         <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8">
@@ -85,7 +87,7 @@ export function Navbar({ onOpenModal }: NavbarProps) {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`px-3 xl:px-3.5 py-2 text-[13px] xl:text-[15px] font-semibold uppercase tracking-[0.06em] transition-colors duration-200 whitespace-nowrap relative group ${
+                    className={`px-2.5 xl:px-3 py-2 text-[12px] xl:text-[14px] font-semibold uppercase tracking-[0.05em] transition-colors duration-200 whitespace-nowrap relative group ${
                       active
                         ? "text-[#A71728]"
                         : "text-[#1a1a1a]/80 hover:text-[#A71728]"
@@ -94,7 +96,7 @@ export function Navbar({ onOpenModal }: NavbarProps) {
                   >
                     {link.label}
                     <span
-                      className={`absolute left-3 right-3 -bottom-0.5 h-[2px] bg-[#A71728] transition-transform duration-300 origin-center ${
+                      className={`absolute left-2.5 right-2.5 -bottom-0.5 h-[2px] bg-[#A71728] transition-transform duration-300 origin-center ${
                         active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />

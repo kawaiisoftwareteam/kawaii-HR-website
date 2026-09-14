@@ -9,12 +9,25 @@ import {
   ArrowUpRight,
   ChevronDown,
   ShieldCheck,
+  Check,
+  Building2,
+  UserRound,
+  Workflow,
+  Wrench,
 } from "lucide-react";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
-import { INDUSTRIES_LIST } from "@/data/companyData";
+import {
+  INDUSTRIES_LIST,
+  PRODUCT_MODULES,
+  PRODUCT_VISION,
+  EMPLOYER_PROCESS,
+  JOB_SEEKER_PROCESS,
+} from "@/data/companyData";
+
+const MODULE_ICONS = [Building2, UserRound, Workflow, Wrench];
 
 const primaryServices = [
   {
@@ -23,7 +36,7 @@ const primaryServices = [
     subtitle: "Permanent Staff",
     image: "/images/japanese_office_team.jpg",
     description:
-      "Our professional HR consultants input the right man on the right job. No matter how specific your job requirements are, we can find suitable staff for you.",
+      "Our professional HR consultants place the right person in the right role — even for highly specific requirements.",
   },
   {
     id: "contract-staff",
@@ -31,7 +44,7 @@ const primaryServices = [
     subtitle: "Contract Staff",
     image: "/images/executive_interview.jpg",
     description:
-      "Employing contract workers can help reduce costs for short-term projects. Additionally, contract workers who have demonstrated high performance during the contract period, can be considered for renewing the contract or hiring them as full-time employees.",
+      "Flexible contract talent for short-term projects, with a clear path to renew or convert high performers to full-time.",
   },
   {
     id: "outsourcing",
@@ -39,7 +52,7 @@ const primaryServices = [
     subtitle: "Temporary Staff",
     image: "/images/bpo_industry.jpg",
     description:
-      "At Kawaii Japan HR, we provide temporary staffing services that allow you to utilize 'human resources with the necessary skills and experience who can work immediately' for 'the required period of time'. We will introduce you to the reliable staff.",
+      "Deploy skilled people for the exact period you need — ready to contribute from day one.",
   },
   {
     id: "executive-search",
@@ -47,7 +60,7 @@ const primaryServices = [
     subtitle: "Executive Search",
     image: "/images/gallery_corporate_consultant.jpg",
     description:
-      "Discreet, high-touch executive recruitment connecting top-tier corporate visionaries, managing directors, and engineering heads with pioneering international enterprises.",
+      "Discreet leadership recruitment for C-suite, directors, and engineering heads across international enterprises.",
   },
   {
     id: "japan-career",
@@ -55,7 +68,7 @@ const primaryServices = [
     subtitle: "Japan Global Corridor",
     image: "/images/tokyo_skyline.jpg",
     description:
-      "Direct career pathway for qualified Bangladeshi software engineers, technical professionals, and graduates to secure legitimate positions with leading Japanese corporations in Tokyo and Osaka.",
+      "Direct pathways for qualified Bangladeshi professionals into legitimate roles with Japanese corporations.",
   },
   {
     id: "hr-consulting",
@@ -63,73 +76,7 @@ const primaryServices = [
     subtitle: "Org Development & Kaizen",
     image: "/images/japan_bangladesh_partnership.jpg",
     description:
-      "Architecting performance evaluation frameworks, compensation benchmarks, and organizational hierarchies based on Japanese precision, discipline, and efficiency.",
-  },
-];
-
-const jobSeekerFlow = [
-  {
-    step: "01",
-    title: "Register",
-    desc: "Please register from this website",
-  },
-  {
-    step: "02",
-    title: "Consultation about changing jobs",
-    desc: "A dedicated career advisor will be in charge of your career change consultations.",
-  },
-  {
-    step: "03",
-    title: "Providing job change information",
-    desc: "We will introduce you to projects that match your background and wishes",
-  },
-  {
-    step: "04",
-    title: "Recommending to companies",
-    desc: "We will recommend your desired company",
-  },
-  {
-    step: "05",
-    title: "Interviewing · Offering · Joining",
-    desc: "We will support you from interview until joining the company",
-  },
-  {
-    step: "06",
-    title: "Support after joining",
-    desc: "We provide support even after joining the company",
-  },
-];
-
-const employerFlow = [
-  {
-    step: "01",
-    title: "Requirement Briefing",
-    desc: "We conduct an in-depth briefing to understand your technical requirements, team culture, and hiring timeline.",
-  },
-  {
-    step: "02",
-    title: "Talent Mapping & Sourcing",
-    desc: "Using Japanese precision talent mapping, we source active candidates and discreetly engage passive top performers.",
-  },
-  {
-    step: "03",
-    title: "3-Tier Screening",
-    desc: "Every candidate undergoes hands-on technical testing, linguistic proficiency checks, and behavioral evaluations.",
-  },
-  {
-    step: "04",
-    title: "Shortlist Presentation",
-    desc: "We present a curated shortlist of top 3–5 candidates with structured evaluation scores within 48 to 72 hours.",
-  },
-  {
-    step: "05",
-    title: "Interview & Offer Management",
-    desc: "We manage interview schedules, candidate briefings, compensation alignment, and smooth contract signing.",
-  },
-  {
-    step: "06",
-    title: "Onboarding & 90-Day Guarantee",
-    desc: "We ensure smooth Day 1 integration with proactive follow-up and our 90-day free replacement guarantee.",
+      "Performance frameworks, compensation design, and org structure grounded in Japanese precision and discipline.",
   },
 ];
 
@@ -139,6 +86,7 @@ export default function ServicesPage() {
   const [activeWorkflow, setActiveWorkflow] = useState<"jobseeker" | "employer">(
     "jobseeker"
   );
+  const [activeModule, setActiveModule] = useState(PRODUCT_MODULES[0].id);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleOpenModal = (tab: "employer" | "jobseeker") => {
@@ -147,7 +95,9 @@ export default function ServicesPage() {
   };
 
   const currentFlow =
-    activeWorkflow === "jobseeker" ? jobSeekerFlow : employerFlow;
+    activeWorkflow === "jobseeker" ? JOB_SEEKER_PROCESS : EMPLOYER_PROCESS;
+  const selectedModule =
+    PRODUCT_MODULES.find((m) => m.id === activeModule) ?? PRODUCT_MODULES[0];
 
   return (
     <main className="relative min-h-screen bg-white text-[#111111] font-sans selection:bg-[#A71728] selection:text-white overflow-x-hidden">
@@ -161,7 +111,7 @@ export default function ServicesPage() {
 
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* ─── VIDEO HERO (soft, not heavy black) ─── */}
+      {/* Hero */}
       <section className="relative w-full h-[92vh] min-h-[640px] max-h-[1100px] flex items-end overflow-hidden">
         <motion.div
           initial={{ scale: 1.06, opacity: 0 }}
@@ -182,7 +132,6 @@ export default function ServicesPage() {
               type="video/mp4"
             />
           </video>
-          {/* Soft readability wash — no white bottom fade */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-black/15" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         </motion.div>
@@ -196,14 +145,15 @@ export default function ServicesPage() {
           >
             <p className="inline-flex items-center gap-3 text-sm sm:text-base md:text-lg font-semibold tracking-[0.2em] uppercase text-white/95 mb-5 drop-shadow-sm">
               <span className="w-10 h-0.5 bg-[#A71728]" />
-              Human Resources
+              {PRODUCT_VISION.name}
             </p>
             <h1 className="text-[clamp(2.75rem,6.5vw,5.75rem)] font-bold tracking-tight text-white drop-shadow-md leading-[1.02]">
-              Career &amp; HR Solutions
+              Career &amp; HR Platform
             </h1>
             <p className="mt-5 sm:mt-6 text-base sm:text-xl md:text-2xl text-white/95 max-w-3xl font-light leading-relaxed drop-shadow-sm">
-              Enlighten your job opportunities in leading Japanese &amp; global
-              companies in Bangladesh &amp; worldwide.
+              Domestic talent acquisition for Bangladesh — employers, professionals,
+              and skilled workers connected through Japanese-standard recruitment
+              discipline.
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-10">
               <button
@@ -227,22 +177,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── INTRO (white) ─── */}
+      {/* Intro — product vision */}
       <section className="bg-gradient-to-b from-white via-[#FAFAFA] to-white py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center space-y-5">
           <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-4xl font-black text-[#A71728] tracking-widest uppercase">
             <span className="font-light">/</span>
-            <span>Human Resources</span>
+            <span>Platform Overview</span>
             <span className="font-light">/</span>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed">
-            <strong className="font-bold text-gray-950">KAWAII JAPAN HR</strong>
-            , we are professional human resource consultants and recruitment
-            services for Japanese organizations around the world.
+            <strong className="font-bold text-gray-950">{PRODUCT_VISION.name}</strong>
+            {" "}connects companies with verified professionals and skilled workers
+            through structured evaluation and transparent hiring processes.
           </p>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-            We encourage and support every job seeker to find their dream career
-            — from newly graduated talent to top-level management.
+            Hire efficiently. Find verified careers. Run professional recruitment
+            workflows. Deploy skilled workforce with clear skill matching.
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 pt-2 text-[11px] tracking-[0.14em] uppercase text-gray-500">
             <span className="inline-flex items-center gap-1.5">
@@ -254,8 +204,103 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── SERVICE CARDS (reference style — white, red border) ─── */}
-      <section className="bg-white py-8 md:py-16 pb-20 md:pb-28">
+      {/* Four product modules */}
+      <section className="bg-white py-12 md:py-20 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 space-y-10">
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-4xl md:text-5xl font-black text-[#A71728] tracking-widest uppercase">
+              <span className="font-light">/</span>
+              <span>Product Modules</span>
+              <span className="font-light">/</span>
+            </div>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+              Four connected modules that form the full recruitment ecosystem.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {PRODUCT_MODULES.map((mod, idx) => {
+              const Icon = MODULE_ICONS[idx];
+              const isActive = mod.id === activeModule;
+              return (
+                <button
+                  key={mod.id}
+                  type="button"
+                  onClick={() => setActiveModule(mod.id)}
+                  className={`text-left p-4 sm:p-5 border-2 transition-all duration-300 ${
+                    isActive
+                      ? "border-[#A71728] bg-[#FFF5F5]"
+                      : "border-[#F0A8AE] bg-white hover:border-[#A71728]/50"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-[#A71728]">
+                      {mod.number}
+                    </span>
+                    <Icon className="w-4 h-4 text-[#A71728]" />
+                  </div>
+                  <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight leading-snug text-gray-950">
+                    {mod.title}
+                  </h3>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="border-2 border-[#F0A8AE] bg-white p-6 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-5 space-y-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#A71728]">
+                {selectedModule.tagline}
+              </p>
+              <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-gray-950">
+                {selectedModule.title}
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {selectedModule.description}
+              </p>
+              <button
+                type="button"
+                onClick={() =>
+                  handleOpenModal(
+                    selectedModule.id === "candidate-portal" ||
+                      selectedModule.id === "skilled-workforce"
+                      ? "jobseeker"
+                      : "employer"
+                  )
+                }
+                className="inline-flex items-center gap-2 pt-2 text-sm font-bold uppercase tracking-wider text-[#A71728] hover:text-black transition-colors"
+              >
+                Get Started
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+            <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 content-start">
+              {selectedModule.features.map((feature) => (
+                <li
+                  key={feature}
+                  className="flex items-start gap-2.5 text-sm text-gray-800 border-b border-gray-100 pb-2.5"
+                >
+                  <Check className="w-4 h-4 text-[#A71728] shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/#platform"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#A71728] hover:text-black transition-colors"
+            >
+              Explore Platform on Homepage
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Service packages */}
+      <section className="bg-white py-8 md:py-16 pb-20 md:pb-28 border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 space-y-12">
           <div className="text-center space-y-3">
             <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-4xl md:text-5xl font-black text-[#A71728] tracking-widest uppercase">
@@ -264,12 +309,11 @@ export default function ServicesPage() {
               <span className="font-light">/</span>
             </div>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-              Professional workforce staffing and recruitment services designed
-              for rapid enterprise scaling.
+              Staffing and advisory services that sit on top of the platform —
+              permanent, contract, outsourcing, executive search, and more.
             </p>
           </div>
 
-          {/* Row 1 — 3 cards matching reference */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {primaryServices.slice(0, 3).map((service) => (
               <article
@@ -308,7 +352,6 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          {/* Row 2 — remaining 3 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {primaryServices.slice(3, 6).map((service) => (
               <article
@@ -349,18 +392,66 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── FLOW ─── */}
-      <section className="bg-gradient-to-b from-[#FAFAFA] to-white py-16 md:py-24 border-t border-gray-100">
+      {/* Skilled workforce callout */}
+      <section className="bg-[#FAFAFA] py-14 md:py-20 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-2 border-[#F0A8AE] bg-white p-6 sm:p-10">
+            <div className="lg:col-span-7 space-y-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#A71728]">
+                Module 04 — Skilled Workforce
+              </p>
+              <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-gray-950">
+                Technicians. Operators.{" "}
+                <span className="text-[#A71728]">Trade Talent.</span>
+              </h2>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl">
+                Skill profiles, certification records, trade assessments, and
+                workforce deployment — structured employment for factory,
+                construction, and maintenance roles.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => handleOpenModal("jobseeker")}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white bg-[#A71728] hover:bg-[#8e1321] transition-all"
+                >
+                  Register Skills
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  href="/#skilled-workforce"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-[#111] border border-gray-300 hover:border-[#A71728] transition-all"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+            <div className="lg:col-span-5 relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/images/manufacturing_industry.jpg"
+                alt="Skilled industrial workforce"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recruitment workflow — PRD aligned */}
+      <section className="bg-gradient-to-b from-white to-[#FAFAFA] py-16 md:py-24 border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 space-y-10">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-4xl md:text-5xl font-black text-[#A71728] tracking-widest uppercase">
               <span className="font-light">/</span>
-              <span>Flow of Service Usage</span>
+              <span>Recruitment Workflow</span>
               <span className="font-light">/</span>
             </div>
             <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
-              A structured 6-step roadmap for transparent matching and long-term
-              success.
+              {activeWorkflow === "employer"
+                ? "Eight-stage employer pipeline from requirement to placement follow-up."
+                : "Six-stage candidate journey from registration to placement."}
             </p>
             <div className="flex justify-center gap-2 pt-2">
               <button
@@ -372,7 +463,7 @@ export default function ServicesPage() {
                     : "bg-white text-gray-700 border-gray-300 hover:border-gray-500"
                 }`}
               >
-                For Job Seekers
+                For Candidates
               </button>
               <button
                 type="button"
@@ -401,7 +492,7 @@ export default function ServicesPage() {
                     </h4>
                   </div>
                   <div className="px-5 py-4 sm:py-5 flex items-center text-gray-700 text-sm sm:text-base flex-1 leading-relaxed">
-                    {step.desc}
+                    {step.description}
                   </div>
                 </div>
                 {idx < currentFlow.length - 1 && (
@@ -424,13 +515,13 @@ export default function ServicesPage() {
               </p>
               <h3 className="text-xl sm:text-2xl font-extrabold text-gray-950">
                 {activeWorkflow === "jobseeker"
-                  ? "Submit Your Profile — Free Consultation"
-                  : "Request a Tailored Sourcing Proposal"}
+                  ? "Register Your Profile — Free Consultation"
+                  : "Submit a Hiring Requirement"}
               </h3>
               <p className="text-sm text-gray-600">
                 {activeWorkflow === "jobseeker"
-                  ? "100% free career matching and interview coaching."
-                  : "Pre-screened shortlist within 48–72 hours."}
+                  ? "Verified matching, skill evaluation, and interview support."
+                  : "Structured screening through to placement follow-up."}
               </p>
             </div>
             <button
@@ -442,16 +533,14 @@ export default function ServicesPage() {
               }
               className="px-7 py-4 text-sm font-bold uppercase tracking-wider text-white bg-[#A71728] hover:bg-[#8e1321] transition-all whitespace-nowrap shrink-0 flex items-center gap-2"
             >
-              {activeWorkflow === "jobseeker"
-                ? "Register CV"
-                : "Request Proposal"}
+              {activeWorkflow === "jobseeker" ? "Register CV" : "Request Proposal"}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* ─── INDUSTRIES ─── */}
+      {/* Industries */}
       <section className="bg-[#F9FAFB] py-16 md:py-20 border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-gray-200">

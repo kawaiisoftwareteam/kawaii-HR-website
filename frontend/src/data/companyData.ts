@@ -128,6 +128,249 @@ export const KEY_METRICS = [
   },
 ];
 
+/** PRD — Product vision & core objectives */
+export const PRODUCT_VISION = {
+  name: "Kawaii Japan Career & HR",
+  vision:
+    "A professional domestic HR and talent acquisition platform for Bangladesh that connects employers with qualified professionals and skilled workers through Japanese-standard recruitment discipline, structured evaluation, and transparent processes.",
+  objectives: [
+    {
+      id: "obj-1",
+      title: "Efficient Hiring",
+      description: "Companies discover and hire suitable talent with less friction and clearer pipelines.",
+    },
+    {
+      id: "obj-2",
+      title: "Verified Careers",
+      description: "Professionals find verified opportunities with employers they can trust.",
+    },
+    {
+      id: "obj-3",
+      title: "Professional HR Ops",
+      description: "HR teams manage end-to-end recruitment workflows with structure and visibility.",
+    },
+    {
+      id: "obj-4",
+      title: "Skilled Employment",
+      description: "Skilled workers access structured, transparent employment pathways.",
+    },
+  ],
+};
+
+/** PRD — Three target audiences */
+export const TARGET_AUDIENCES = [
+  {
+    id: "employers",
+    number: "01",
+    title: "Employers",
+    subtitle: "Organizations hiring at scale",
+    targets: [
+      "MNCs",
+      "Local corporations",
+      "Manufacturing",
+      "Technology",
+      "Engineering",
+      "Construction",
+      "Financial institutions",
+      "Growing enterprises",
+    ],
+    needs: [
+      "Find qualified candidates",
+      "Reduce hiring time",
+      "Improve candidate quality",
+      "Manage recruitment efficiently",
+    ],
+  },
+  {
+    id: "professionals",
+    number: "02",
+    title: "Professional Candidates",
+    subtitle: "Corporate & technical talent",
+    targets: [
+      "Engineers",
+      "IT professionals",
+      "Executives",
+      "Managers",
+      "Corporate specialists",
+    ],
+    needs: [
+      "Find relevant jobs",
+      "Submit professional profiles",
+      "Receive career support",
+      "Access verified employers",
+    ],
+  },
+  {
+    id: "skilled-workforce",
+    number: "03",
+    title: "Skilled Workforce",
+    subtitle: "Trade & operational talent",
+    targets: [
+      "Technicians",
+      "Factory workers",
+      "Construction workers",
+      "Maintenance professionals",
+      "Operators",
+    ],
+    needs: [
+      "Skill-based opportunities",
+      "Transparent recruitment",
+      "Career growth",
+    ],
+  },
+];
+
+/** PRD — Four product modules */
+export const PRODUCT_MODULES = [
+  {
+    id: "employer-portal",
+    number: "01",
+    title: "Employer Recruitment Portal",
+    tagline: "Corporate hiring command center",
+    description:
+      "Register your company, publish roles, search candidates, and manage interviews from one structured employer workspace.",
+    features: [
+      "Company registration",
+      "Corporate profile management",
+      "Job posting",
+      "Candidate search",
+      "Recruitment request submission",
+      "Interview management",
+      "Candidate tracking",
+    ],
+  },
+  {
+    id: "candidate-portal",
+    number: "02",
+    title: "Candidate Career Portal",
+    tagline: "Professional career workspace",
+    description:
+      "Build a verified profile, browse opportunities, track applications, and prepare for interviews with guided career support.",
+    features: [
+      "Candidate registration",
+      "CV upload",
+      "Profile creation",
+      "Job browsing",
+      "Application tracking",
+      "Interview scheduling",
+      "Career guidance",
+    ],
+  },
+  {
+    id: "recruitment-system",
+    number: "03",
+    title: "Recruitment Management System",
+    tagline: "End-to-end hiring operations",
+    description:
+      "Centralize screening, evaluation, and hiring status so HR teams run predictable pipelines with full visibility.",
+    features: [
+      "Candidate database",
+      "Resume management",
+      "Screening workflow",
+      "Interview pipeline",
+      "Candidate evaluation",
+      "Hiring status tracking",
+    ],
+  },
+  {
+    id: "skilled-workforce",
+    number: "04",
+    title: "Skilled Workforce Management",
+    tagline: "Trade talent deployment",
+    description:
+      "Register skilled workers, capture certifications and trade assessments, and deploy workforce with clear skill matching.",
+    features: [
+      "Worker registration",
+      "Skill profile",
+      "Certification records",
+      "Trade assessment records",
+      "Workforce deployment management",
+    ],
+  },
+];
+
+/** PRD — Core business requirements */
+export const BUSINESS_REQUIREMENTS = [
+  {
+    id: "req-1",
+    title: "Professional Recruitment Workflow",
+    description: "Structured hiring stages from requirement intake through placement follow-up.",
+  },
+  {
+    id: "req-2",
+    title: "Candidate Verification",
+    description: "Profile, skill, and credential checks before shortlist and interview.",
+  },
+  {
+    id: "req-3",
+    title: "Employer Verification",
+    description: "Validated organizations so candidates engage only with trusted employers.",
+  },
+  {
+    id: "req-4",
+    title: "Search & Filtering",
+    description: "Precise discovery of roles and talent by skill, industry, and seniority.",
+  },
+  {
+    id: "req-5",
+    title: "Secure Data Management",
+    description: "Protected handling of CVs, company data, and hiring communications.",
+  },
+  {
+    id: "req-6",
+    title: "Recruitment Analytics",
+    description: "Visibility into pipeline health, time-to-hire, and placement outcomes.",
+  },
+  {
+    id: "req-7",
+    title: "Communication Management",
+    description: "Coordinated updates across employers, candidates, and HR teams.",
+  },
+];
+
+/** PRD — Quality standards */
+export const QUALITY_STANDARDS = [
+  { id: "qs-1", title: "Japanese Precision", description: "Discipline in evaluation, documentation, and delivery." },
+  { id: "qs-2", title: "Structured Processes", description: "Repeatable workflows that reduce hiring noise." },
+  { id: "qs-3", title: "Reliability", description: "Consistent outcomes employers and candidates can count on." },
+  { id: "qs-4", title: "Transparency", description: "Clear status, expectations, and communication at every stage." },
+  { id: "qs-5", title: "Continuous Improvement", description: "Kaizen-driven refinement of matching and operations." },
+];
+
+/** PRD — Success metrics / KPIs */
+export const PLATFORM_KPIS = [
+  {
+    id: "kpi-1",
+    label: "Registered Companies",
+    description: "Verified employers actively hiring through the platform.",
+  },
+  {
+    id: "kpi-2",
+    label: "Registered Candidates",
+    description: "Professionals and skilled workers with complete profiles.",
+  },
+  {
+    id: "kpi-3",
+    label: "Successful Placements",
+    description: "Completed hires from matching through onboarding.",
+  },
+  {
+    id: "kpi-4",
+    label: "Average Hiring Time",
+    description: "Speed from requirement submission to accepted offer.",
+  },
+  {
+    id: "kpi-5",
+    label: "Candidate Satisfaction",
+    description: "Feedback on matching quality, support, and transparency.",
+  },
+  {
+    id: "kpi-6",
+    label: "Employer Satisfaction",
+    description: "Feedback on shortlist quality, process, and outcomes.",
+  },
+];
+
 export const SERVICES_LIST: ServiceItem[] = [
   {
     id: "recruitment",
@@ -272,78 +515,90 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
 export const EMPLOYER_PROCESS: ProcessStep[] = [
   {
     step: "01",
-    title: "Understand",
-    description: "Deep dive into your organization's culture, technical requirements, and strategic growth trajectory.",
-    details: "We conduct structured stakeholder sessions to formulate precise competency matrices beyond standard job specs.",
+    title: "Submit Hiring Requirement",
+    description: "Share role needs, headcount, timelines, and success criteria through the employer portal.",
+    details: "Structured intake captures skills, seniority, culture fit, and commercial constraints in one brief.",
   },
   {
     step: "02",
-    title: "Source",
-    description: "Targeted outreach across verified bilateral databases and proprietary talent networks.",
-    details: "Utilizing Japanese precision talent mapping to identify both active candidates and passive top-tier industry performers.",
+    title: "Role Analysis",
+    description: "Translate the brief into a competency matrix and screening scorecard.",
+    details: "We define must-have vs nice-to-have criteria before any candidate outreach begins.",
   },
   {
     step: "03",
-    title: "Select",
-    description: "Rigorous technical evaluations, linguistic proficiency checks, and behavioral assessments.",
-    details: "Every shortlisted candidate undergoes 3-stage pre-screening to ensure minimum 95% placement compatibility.",
+    title: "Candidate Sourcing",
+    description: "Search verified talent pools across professionals and skilled workforce profiles.",
+    details: "Targeted matching from our database plus curated outreach to passive high-fit candidates.",
   },
   {
     step: "04",
-    title: "Coordinate",
-    description: "Seamless interview scheduling, briefing sessions, and feedback synthesis.",
-    details: "We manage time zones, cross-cultural interview briefings, and salary expectation alignments in advance.",
+    title: "Candidate Screening",
+    description: "Filter for experience, credentials, and role compatibility before shortlist.",
+    details: "Only candidates who clear profile verification and baseline fit move forward.",
   },
   {
     step: "05",
-    title: "Onboard",
-    description: "Contract finalization, compliance verification, and pre-departure / day-one readiness.",
-    details: "Comprehensive support covering statutory documentation, cultural orientation, and workplace readiness.",
+    title: "Technical Evaluation",
+    description: "Assess skills through structured tests, trade assessments, or technical reviews.",
+    details: "Evaluation depth matches the role — from corporate specialists to shop-floor operators.",
   },
   {
     step: "06",
-    title: "Follow Up",
-    description: "Continuous 30-60-90 day performance and satisfaction monitoring.",
-    details: "Proactive check-ins with both employer and candidate to ensure long-term retention and organizational harmony.",
+    title: "Interview Coordination",
+    description: "Schedule interviews, brief both sides, and consolidate feedback in the pipeline.",
+    details: "Interview status and notes stay visible to your hiring team throughout the process.",
+  },
+  {
+    step: "07",
+    title: "Offer Support",
+    description: "Align compensation, terms, and start dates with clear documentation.",
+    details: "Transparent offer packaging reduces drop-offs and accelerates acceptance.",
+  },
+  {
+    step: "08",
+    title: "Placement Follow-Up",
+    description: "Monitor onboarding outcomes and retention after the hire is complete.",
+    details: "Post-placement check-ins protect both employer satisfaction and candidate stability.",
   },
 ];
 
 export const JOB_SEEKER_PROCESS: ProcessStep[] = [
   {
     step: "01",
-    title: "Understand Your Goals",
-    description: "In-depth career consultation to understand your aspirations, technical strengths, and preferred work culture.",
-    details: "We map your personal ambitions against current market opportunities in Japan and Bangladesh.",
+    title: "Registration",
+    description: "Create your candidate account and begin your professional profile.",
+    details: "Fast onboarding so you can start browsing verified opportunities immediately.",
   },
   {
     step: "02",
-    title: "Improve Your CV",
-    description: "Transform your resume into an executive, Japanese-standard professional profile.",
-    details: "We optimize formatting, highlight key quantifiable accomplishments, and align your CV with international ATS standards.",
+    title: "Profile Verification",
+    description: "Upload your CV and complete identity and experience checks.",
+    details: "Verified profiles receive priority matching with employers on the platform.",
   },
   {
     step: "03",
-    title: "Match Opportunities",
-    description: "Direct introduction to verified employers with verified roles matching your skill caliber.",
-    details: "Access exclusive, unadvertised enterprise openings across our network of 60+ partner companies.",
+    title: "Skill Evaluation",
+    description: "Complete role-relevant assessments to surface your true capability.",
+    details: "Technical, trade, or behavioral evaluation depending on your career track.",
   },
   {
     step: "04",
-    title: "Prepare For Interviews",
-    description: "Mock interviews, Japanese corporate etiquette training, and technical coaching.",
-    details: "Learn how to effectively communicate your value proposition, manage behavioral questions, and showcase cultural agility.",
+    title: "Opportunity Matching",
+    description: "Get matched to openings that fit your skills, goals, and availability.",
+    details: "Browse jobs and receive curated introductions to verified employers.",
   },
   {
     step: "05",
-    title: "Get Hired",
-    description: "Fair compensation negotiation, offer review, and smooth contract transition.",
-    details: "We advocate for your professional worth and ensure transparent contract terms with zero hidden surprises.",
+    title: "Interview",
+    description: "Attend coordinated interviews with preparation and scheduling support.",
+    details: "Track interview status and next steps from your candidate portal.",
   },
   {
     step: "06",
-    title: "Continuous Support",
-    description: "Ongoing career mentorship and alumni network access throughout your tenure.",
-    details: "We remain your dedicated career partner as you advance toward senior and executive leadership roles.",
+    title: "Placement",
+    description: "Accept the offer and transition into your new role with follow-up support.",
+    details: "We stay engaged through onboarding so your placement sticks.",
   },
 ];
 

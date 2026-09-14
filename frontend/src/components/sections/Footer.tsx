@@ -9,16 +9,18 @@ import { COMPANY_INFO } from "@/data/companyData";
 
 const exploreLinks = [
   { label: "About Us", href: "/#about" },
+  { label: "Platform Modules", href: "/#platform" },
   { label: "Services", href: "/services" },
+  { label: "Recruitment Workflow", href: "/#process" },
+  { label: "Success Metrics", href: "/#success-metrics" },
   { label: "News & Articles", href: "/news" },
-  { label: "Working Process", href: "/#process" },
-  { label: "Why Choose Us", href: "/#why-us" },
   { label: "FAQ", href: "/#faq" },
 ];
 
 const audienceLinks = [
   { label: "For Employers", href: "/#employers" },
-  { label: "For Job Seekers", href: "/#job-seekers" },
+  { label: "For Professionals", href: "/#job-seekers" },
+  { label: "Skilled Workforce", href: "/#skilled-workforce" },
   { label: "Global Careers", href: "/#japan-bangladesh" },
   { label: "Industries", href: "/#industries" },
   { label: "Contact", href: "/#contact" },

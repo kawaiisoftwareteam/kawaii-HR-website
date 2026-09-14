@@ -8,13 +8,17 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { JapanBridge } from "@/components/sections/JapanBridge";
+import { ProductModules } from "@/components/sections/ProductModules";
 import { EmployerFocus } from "@/components/sections/EmployerFocus";
 import { JobSeekerFocus } from "@/components/sections/JobSeekerFocus";
+import { SkilledWorkforce } from "@/components/sections/SkilledWorkforce";
 import { ExpertiseSection } from "@/components/sections/ExpertiseSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { PlatformCapabilities } from "@/components/sections/PlatformCapabilities";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { JapaneseSystem } from "@/components/sections/JapaneseSystem";
+import { SuccessMetrics } from "@/components/sections/SuccessMetrics";
 import { PhilosophySection } from "@/components/sections/PhilosophySection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -37,68 +41,76 @@ export default function HomePage() {
 
   return (
     <main className="relative min-h-screen bg-premium-white text-black selection:bg-[#A71728] selection:text-white font-sans overflow-x-hidden">
-      {/* Desktop Custom Interactive Magnetic Cursor */}
       <CustomCursor />
 
-      {/* Interactive Application Modal for Employers & Job Seekers */}
       <ApplicationModal
         isOpen={modalOpen}
         onClose={handleCloseModal}
         initialTab={modalTab}
       />
 
-      {/* Sticky Navigation Bar */}
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* 01: Hero Section (100vh Full Viewport with Video Background) */}
+      {/* 01: Hero */}
       <HeroSection onOpenModal={handleOpenModal} />
 
-      {/* 02: Introduction & Key Company Metrics */}
+      {/* 02: Product Overview + Core Objectives + Metrics */}
       <StatsSection />
 
       {/* 03: About & Company Profile */}
       <AboutSection onOpenModal={handleOpenModal} />
 
-      {/* 04: Bangladesh to global job placement */}
+      {/* 04: Bangladesh to global placement */}
       <JapanBridge />
 
-      {/* 05: Dedicated Enterprise Employer Capabilities */}
+      {/* 05: Four Product Modules */}
+      <ProductModules onOpenModal={handleOpenModal} />
+
+      {/* 06: Employers */}
       <EmployerFocus onOpenModal={handleOpenModal} />
 
-      {/* 08: Dedicated Candidate Career Guidance */}
+      {/* 07: Professional Candidates */}
       <JobSeekerFocus onOpenModal={handleOpenModal} />
 
-      {/* 09: Domain Expertise Comparison */}
+      {/* 08: Skilled Workforce (third audience) */}
+      <SkilledWorkforce onOpenModal={handleOpenModal} />
+
+      {/* 09: Domain Expertise */}
       <ExpertiseSection onOpenModal={handleOpenModal} />
 
-      {/* 10: Horizontal Industry Showcase */}
+      {/* 10: Industries */}
       <IndustriesSection onOpenModal={handleOpenModal} />
 
-      {/* 11: 6-Stage Working Process Timelines */}
+      {/* 11: Recruitment Workflow */}
       <ProcessSection onOpenModal={handleOpenModal} />
 
-      {/* 12: Why Choose Us (Quality Over Quantity) */}
+      {/* 12: Core Business Requirements + Quality Standards */}
+      <PlatformCapabilities />
+
+      {/* 13: Why Choose Us */}
       <WhyChooseUs onOpenModal={handleOpenModal} />
 
-      {/* 13: Japanese Technology-Driven System & Principles */}
+      {/* 14: Japanese Principles */}
       <JapaneseSystem />
 
-      {/* 14: Cinematic Philosophy Quote Banner */}
+      {/* 15: Success Metrics / KPIs */}
+      <SuccessMetrics onOpenModal={handleOpenModal} />
+
+      {/* 16: Philosophy */}
       <PhilosophySection onOpenModal={handleOpenModal} />
 
-      {/* 15: Asymmetric Photo Gallery */}
+      {/* 17: Gallery */}
       <GallerySection />
 
-      {/* 16: Testimonials & Trust */}
+      {/* 18: Testimonials */}
       <TestimonialsSection />
 
-      {/* 17: FAQ chat accordion */}
+      {/* 19: FAQ */}
       <FaqSection />
 
-      {/* 18: Contact & Corporate Registry Info */}
+      {/* 20: Contact */}
       <ContactSection onOpenModal={handleOpenModal} />
 
-      {/* 19: Luxury Black Footer */}
       <Footer />
     </main>
   );

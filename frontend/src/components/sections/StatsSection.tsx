@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { KEY_METRICS, COMPANY_INFO } from "@/data/companyData";
+import { KEY_METRICS, PRODUCT_VISION } from "@/data/companyData";
 import { JapaneseSeal } from "../ui/JapanesePattern";
 
 export function StatsSection() {
@@ -12,30 +12,56 @@ export function StatsSection() {
       <div className="absolute inset-0 japanese-grid-pattern opacity-50 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-        {/* Editorial Statement */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start pb-16 md:pb-24 border-b border-gray-200">
+        {/* Editorial Statement — Product Overview */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start pb-16 md:pb-20 border-b border-gray-200">
           <div className="lg:col-span-7 space-y-4">
             <div className="flex items-center space-x-3">
-              <JapaneseSeal text="01 — INTRODUCTION" />
+              <JapaneseSeal text="01 — PRODUCT OVERVIEW" />
               <span className="text-xs uppercase tracking-widest text-[#A71728] font-semibold">
-                Strategic Bilateral Bridge
+                Domestic HR Platform
               </span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight uppercase leading-[1.02]">
-              A BRIDGE BETWEEN <br />
-              <span className="text-[#A71728]">TALENT & ORGANIZATIONS.</span>
+              BANGLADESH TALENT. <br />
+              <span className="text-[#A71728]">JAPANESE DISCIPLINE.</span>
             </h2>
           </div>
 
           <div className="lg:col-span-5 space-y-4 pt-2 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
             <p>
-              <strong className="text-black font-semibold">Kawaii Japan Career & HR Solutions BD</strong> is a Japan-Bangladesh joint venture and a proud sister concern of <strong className="text-black font-semibold">Kawaii Group</strong>, providing premier career matching and bespoke HR solutions for employers and job seekers.
+              <strong className="text-black font-semibold">{PRODUCT_VISION.name}</strong>{" "}
+              is a professional domestic HR and talent acquisition platform connecting
+              employers with qualified professionals and skilled workers.
             </p>
             <p className="text-gray-600 text-xs sm:text-sm">
-              We bridge the technological and industrial rigor of Tokyo with Bangladesh's dynamic, ambitious talent pool, fostering sustainable cross-border workforce partnerships.
+              {PRODUCT_VISION.vision}
             </p>
           </div>
+        </div>
+
+        {/* Core Objectives */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 py-14 md:py-16 border-b border-gray-200">
+          {PRODUCT_VISION.objectives.map((obj, index) => (
+            <motion.div
+              key={obj.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className="space-y-2"
+            >
+              <span className="text-[10px] font-bold tracking-widest text-[#A71728] uppercase">
+                Objective 0{index + 1}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-black">
+                {obj.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                {obj.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
         {/* Animated Key Metrics Grid */}

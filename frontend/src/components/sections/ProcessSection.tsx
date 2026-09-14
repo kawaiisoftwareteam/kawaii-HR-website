@@ -22,10 +22,11 @@ export function ProcessSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
               <span>10 — METHODOLOGY</span>
             </div>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight uppercase leading-[0.95] text-black">
-              HOW WE WORK
+              RECRUITMENT <br />
+              <span className="text-[#A71728]">WORKFLOW</span>
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light tracking-wide">
-              Structured 6-stage workflows engineered for predictability, transparency, and speed.
+              Structured recruitment workflows engineered for predictability, transparency, and speed.
             </p>
           </div>
 
@@ -77,7 +78,7 @@ export function ProcessSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
                       {step.step}
                     </span>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400">
-                      STAGE {idx + 1} OF 6
+                      STAGE {idx + 1} OF {currentProcess.length}
                     </span>
                   </div>
 
