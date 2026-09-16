@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -40,8 +39,6 @@ export default function HomePage() {
 
   return (
     <main className="relative min-h-screen bg-premium-white text-black selection:bg-[#A71728] selection:text-white font-sans overflow-x-hidden">
-      <CustomCursor />
-
       <ApplicationModal
         isOpen={modalOpen}
         onClose={handleCloseModal}

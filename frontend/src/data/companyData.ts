@@ -437,6 +437,231 @@ export const SERVICES_LIST: ServiceItem[] = [
   },
 ];
 
+export interface JapanJobCircular {
+  id: string;
+  circularNo: string;
+  title: string;
+  company: string;
+  location: string;
+  vacancies: number;
+  education: string;
+  experience: string;
+  type: string;
+  salary: string;
+  publishedAt: string;
+  deadline: string;
+  description: string;
+  requirements: string[];
+}
+
+/** Japan job circulars — notice-board style listings */
+export const JAPAN_JOB_CIRCULARS: JapanJobCircular[] = [
+  {
+    id: "circ-2026-001",
+    circularNo: "KJ/JP/2026/001",
+    title: "Full Stack Engineer",
+    company: "Tokyo Tech Partners",
+    location: "Tokyo, Japan",
+    vacancies: 8,
+    education: "BSc in CSE / ICT or equivalent",
+    experience: "2–5 years software development",
+    type: "Full-time · Visa Support",
+    salary: "¥4.5M – ¥7.2M / year",
+    publishedAt: "2026-03-01",
+    deadline: "2026-04-15",
+    description:
+      "Develop and maintain cloud-native applications for Japanese enterprise clients. React, Node.js, and AWS experience preferred.",
+    requirements: ["React / Node.js", "Japanese N3+ preferred", "Passport valid 2+ years"],
+  },
+  {
+    id: "circ-2026-002",
+    circularNo: "KJ/JP/2026/002",
+    title: "Caregiving Professional (SSW)",
+    company: "Osaka Care Network",
+    location: "Osaka, Japan",
+    vacancies: 25,
+    education: "HSC / Diploma + caregiving training",
+    experience: "Freshers & experienced welcome",
+    type: "Full-time · Specified Skilled Worker",
+    salary: "¥2.8M – ¥3.6M / year",
+    publishedAt: "2026-03-02",
+    deadline: "2026-04-20",
+    description:
+      "Provide elderly care in licensed Osaka facilities under Japanese caregiving standards. Housing and training support included.",
+    requirements: ["SSW / caregiving cert", "Basic Japanese", "Medical fitness"],
+  },
+  {
+    id: "circ-2026-003",
+    circularNo: "KJ/JP/2026/003",
+    title: "Production Technician",
+    company: "Nagoya Precision Works",
+    location: "Aichi, Japan",
+    vacancies: 40,
+    education: "SSC / HSC / Technical Diploma",
+    experience: "1+ year factory / technical work",
+    type: "Full-time · SSW",
+    salary: "¥3.0M – ¥4.2M / year",
+    publishedAt: "2026-03-03",
+    deadline: "2026-04-10",
+    description:
+      "Operate precision manufacturing lines with Kaizen safety and quality discipline in Aichi industrial plants.",
+    requirements: ["Factory experience", "Safety awareness", "SSW eligible"],
+  },
+  {
+    id: "circ-2026-004",
+    circularNo: "KJ/JP/2026/004",
+    title: "Bilingual Customer Support",
+    company: "Yokohama Shared Services",
+    location: "Kanagawa, Japan",
+    vacancies: 12,
+    education: "Bachelor’s degree any discipline",
+    experience: "1–3 years BPO / customer service",
+    type: "Full-time · Hybrid",
+    salary: "¥3.5M – ¥5.0M / year",
+    publishedAt: "2026-03-04",
+    deadline: "2026-04-25",
+    description:
+      "Handle Japanese and English customer operations for multinational clients with high service standards.",
+    requirements: ["Japanese N3 / N2", "English communication", "Shift flexibility"],
+  },
+  {
+    id: "circ-2026-005",
+    circularNo: "KJ/JP/2026/005",
+    title: "Quality Assurance Engineer",
+    company: "Kobe Industrial Systems",
+    location: "Hyogo, Japan",
+    vacancies: 6,
+    education: "BSc Engineering / Industrial Eng.",
+    experience: "3+ years QA / QC",
+    type: "Full-time · Visa Support",
+    salary: "¥4.0M – ¥6.0M / year",
+    publishedAt: "2026-03-05",
+    deadline: "2026-04-18",
+    description:
+      "Lead QA processes for automotive and electronics suppliers aligned with Japanese quality frameworks.",
+    requirements: ["ISO / QA tools", "Automotive preferred", "Japanese N3+"],
+  },
+  {
+    id: "circ-2026-006",
+    circularNo: "KJ/JP/2026/006",
+    title: "Hotel Operations Staff",
+    company: "Kyoto Hospitality Group",
+    location: "Kyoto, Japan",
+    vacancies: 15,
+    education: "HSC / Diploma in Hospitality",
+    experience: "Hotel / guest service experience preferred",
+    type: "Full-time · Training Provided",
+    salary: "¥2.6M – ¥3.4M / year",
+    publishedAt: "2026-03-06",
+    deadline: "2026-04-22",
+    description:
+      "Deliver guest experience excellence in premium Kyoto hospitality properties with cultural onboarding.",
+    requirements: ["Service mindset", "Basic Japanese", "Flexible roster"],
+  },
+  {
+    id: "circ-2026-007",
+    circularNo: "KJ/JP/2026/007",
+    title: "CNC Machine Operator",
+    company: "Saitama Auto Components",
+    location: "Saitama, Japan",
+    vacancies: 18,
+    education: "Technical Diploma / Trade certificate",
+    experience: "2+ years CNC / machining",
+    type: "Full-time · SSW",
+    salary: "¥3.2M – ¥4.5M / year",
+    publishedAt: "2026-03-07",
+    deadline: "2026-04-12",
+    description:
+      "Operate CNC machines for automotive component production under strict Japanese quality control.",
+    requirements: ["CNC experience", "Blueprint reading", "SSW eligible"],
+  },
+  {
+    id: "circ-2026-008",
+    circularNo: "KJ/JP/2026/008",
+    title: "Food Processing Worker",
+    company: "Hokkaido Fresh Foods",
+    location: "Hokkaido, Japan",
+    vacancies: 30,
+    education: "SSC / HSC",
+    experience: "Freshers acceptable",
+    type: "Full-time · SSW",
+    salary: "¥2.7M – ¥3.5M / year",
+    publishedAt: "2026-03-08",
+    deadline: "2026-04-28",
+    description:
+      "Food packaging and processing roles in Hokkaido facilities with accommodation support.",
+    requirements: ["Physical fitness", "Shift work", "Basic hygiene training"],
+  },
+  {
+    id: "circ-2026-009",
+    circularNo: "KJ/JP/2026/009",
+    title: "Construction Site Worker",
+    company: "Fukuoka Build Corp",
+    location: "Fukuoka, Japan",
+    vacancies: 22,
+    education: "SSC / Technical trade",
+    experience: "1+ year construction preferred",
+    type: "Full-time · SSW",
+    salary: "¥3.1M – ¥4.0M / year",
+    publishedAt: "2026-03-09",
+    deadline: "2026-04-16",
+    description:
+      "Support civil and building construction sites across Fukuoka with Japanese safety protocols.",
+    requirements: ["Site experience", "Safety discipline", "SSW eligible"],
+  },
+  {
+    id: "circ-2026-010",
+    circularNo: "KJ/JP/2026/010",
+    title: "IT Support Engineer",
+    company: "Nagoya Digital Hub",
+    location: "Nagoya, Japan",
+    vacancies: 10,
+    education: "Diploma / BSc in IT",
+    experience: "1–4 years IT support",
+    type: "Full-time · Visa Support",
+    salary: "¥3.8M – ¥5.5M / year",
+    publishedAt: "2026-03-10",
+    deadline: "2026-04-30",
+    description:
+      "Provide desktop, network, and user support for Japanese corporate clients in Nagoya.",
+    requirements: ["Windows / networking", "Japanese N3+", "Customer service"],
+  },
+  {
+    id: "circ-2026-011",
+    circularNo: "KJ/JP/2026/011",
+    title: "Nursing Care Assistant",
+    company: "Chiba Senior Care",
+    location: "Chiba, Japan",
+    vacancies: 20,
+    education: "Nursing / caregiving certificate",
+    experience: "Hospital or care-home experience preferred",
+    type: "Full-time · SSW",
+    salary: "¥2.9M – ¥3.8M / year",
+    publishedAt: "2026-03-11",
+    deadline: "2026-05-05",
+    description:
+      "Assist nurses and caregivers in Chiba senior-care facilities with daily resident support.",
+    requirements: ["Care certificate", "Compassion", "Basic Japanese"],
+  },
+  {
+    id: "circ-2026-012",
+    circularNo: "KJ/JP/2026/012",
+    title: "Warehouse & Logistics Staff",
+    company: "Osaka Logistics Link",
+    location: "Osaka, Japan",
+    vacancies: 16,
+    education: "SSC / HSC",
+    experience: "Warehouse experience preferred",
+    type: "Full-time · SSW",
+    salary: "¥2.8M – ¥3.7M / year",
+    publishedAt: "2026-03-12",
+    deadline: "2026-04-27",
+    description:
+      "Pick, pack, and dispatch goods in Osaka distribution centers with Japanese inventory systems.",
+    requirements: ["Physical fitness", "Shift readiness", "Basic Japanese preferred"],
+  },
+];
+
 export const INDUSTRIES_LIST: IndustryItem[] = [
   {
     id: "it",

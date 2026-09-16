@@ -196,9 +196,3 @@
 .animate-float {
   animation: floatGentle 5s ease-in-out infinite;
 }
-
-/* Hide native cursor when custom cursor is active (desktop only) */
-html.custom-cursor-active,
-html.custom-cursor-active * {
-  cursor: none !important;
-}

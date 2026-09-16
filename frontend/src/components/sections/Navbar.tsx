@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { useAuth } from "@/components/auth/AuthProvider";
 
 interface NavbarProps {
   onOpenModal: (tab: "employer" | "jobseeker") => void;
@@ -15,8 +16,8 @@ const primaryLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/#about" },
   { label: "Platform", href: "/#platform" },
+  { label: "Japan Jobs", href: "/japan-jobs" },
   { label: "Services", href: "/services" },
-  { label: "Workforce", href: "/#skilled-workforce" },
   { label: "News", href: "/news" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -24,12 +25,14 @@ const primaryLinks = [
 function isLinkActive(href: string, pathname: string): boolean {
   if (href === "/") return pathname === "/";
   if (href === "/services") return pathname === "/services";
+  if (href === "/japan-jobs") return pathname === "/japan-jobs";
   if (href === "/news") return pathname === "/news" || pathname.startsWith("/news/");
   return false;
 }
 
 export function Navbar({ onOpenModal }: NavbarProps) {
   const pathname = usePathname();
+  const { employee } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -59,7 +62,6 @@ export function Navbar({ onOpenModal }: NavbarProps) {
       >
         <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 lg:gap-6 h-20 md:h-[88px]">
-            {/* Logo */}
             <Link
               href="/"
               className="justify-self-start flex items-center select-none shrink-0 group"
@@ -76,7 +78,6 @@ export function Navbar({ onOpenModal }: NavbarProps) {
               />
             </Link>
 
-            {/* Primary navigation */}
             <nav
               className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1"
               aria-label="Main navigation"
@@ -105,24 +106,36 @@ export function Navbar({ onOpenModal }: NavbarProps) {
               })}
             </nav>
 
-            {/* Register / Login */}
             <div className="justify-self-end flex items-center gap-2 sm:gap-3 shrink-0">
-              <Link
-                href="/register"
-                className="hidden sm:inline-flex items-center justify-center h-11 px-4 xl:px-5 text-[13px] xl:text-[14px] font-semibold uppercase tracking-[0.06em] text-[#0A0A0A] border border-black/25 hover:border-[#A71728] hover:bg-[#A71728] hover:text-white transition-all duration-300 whitespace-nowrap rounded-none"
-                data-cursor="action"
-              >
-                Register
-              </Link>
+              {employee ? (
+                <Link
+                  href="/dashboard"
+                  className="hidden sm:inline-flex items-center justify-center gap-2 h-11 px-4 xl:px-5 text-[13px] xl:text-[14px] font-semibold uppercase tracking-[0.06em] text-white bg-[#A71728] border border-[#A71728] hover:bg-[#0A0A0A] hover:border-[#0A0A0A] transition-all duration-300 whitespace-nowrap rounded-none"
+                  data-cursor="action"
+                >
+                  Dashboard
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    href="/register"
+                    className="hidden sm:inline-flex items-center justify-center h-11 px-4 xl:px-5 text-[13px] xl:text-[14px] font-semibold uppercase tracking-[0.06em] text-[#0A0A0A] border border-black/25 hover:border-[#A71728] hover:bg-[#A71728] hover:text-white transition-all duration-300 whitespace-nowrap rounded-none"
+                    data-cursor="action"
+                  >
+                    Register
+                  </Link>
 
-              <Link
-                href="/login"
-                className="hidden sm:inline-flex items-center justify-center gap-2 h-11 px-4 xl:px-5 text-[13px] xl:text-[14px] font-semibold uppercase tracking-[0.06em] text-white bg-[#A71728] border border-[#A71728] hover:bg-[#0A0A0A] hover:border-[#0A0A0A] transition-all duration-300 whitespace-nowrap rounded-none"
-                data-cursor="action"
-              >
-                Login
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                  <Link
+                    href="/login"
+                    className="hidden sm:inline-flex items-center justify-center gap-2 h-11 px-4 xl:px-5 text-[13px] xl:text-[14px] font-semibold uppercase tracking-[0.06em] text-white bg-[#A71728] border border-[#A71728] hover:bg-[#0A0A0A] hover:border-[#0A0A0A] transition-all duration-300 whitespace-nowrap rounded-none"
+                    data-cursor="action"
+                  >
+                    Login
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </>
+              )}
 
               <button
                 type="button"
@@ -142,7 +155,6 @@ export function Navbar({ onOpenModal }: NavbarProps) {
         </div>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -188,20 +200,32 @@ export function Navbar({ onOpenModal }: NavbarProps) {
               </nav>
 
               <div className="grid grid-cols-2 gap-3 mt-8">
-                <Link
-                  href="/register"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="h-14 text-sm uppercase tracking-[0.06em] font-semibold text-[#111] border border-black/25 rounded-none hover:border-[#A71728] transition-all inline-flex items-center justify-center"
-                >
-                  Register
-                </Link>
-                <Link
-                  href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="h-14 text-sm uppercase tracking-[0.06em] font-semibold text-white bg-[#A71728] rounded-none hover:bg-[#8e1321] transition-all inline-flex items-center justify-center"
-                >
-                  Login
-                </Link>
+                {employee ? (
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="col-span-2 h-14 text-sm uppercase tracking-[0.06em] font-semibold text-white bg-[#A71728] rounded-none hover:bg-[#8e1321] transition-all inline-flex items-center justify-center"
+                  >
+                    Dashboard
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      href="/register"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="h-14 text-sm uppercase tracking-[0.06em] font-semibold text-[#111] border border-black/25 rounded-none hover:border-[#A71728] transition-all inline-flex items-center justify-center"
+                    >
+                      Register
+                    </Link>
+                    <Link
+                      href="/login"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="h-14 text-sm uppercase tracking-[0.06em] font-semibold text-white bg-[#A71728] rounded-none hover:bg-[#8e1321] transition-all inline-flex items-center justify-center"
+                    >
+                      Login
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>

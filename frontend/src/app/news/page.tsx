@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { ArrowRight, Newspaper } from "lucide-react";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -39,9 +38,7 @@ export default function NewsPage() {
   const [modalTab, setModalTab] = useState<"employer" | "jobseeker">("jobseeker");
 
   return (
-    <main className="relative min-h-screen bg-white text-[#111] font-sans selection:bg-[#A71728] selection:text-white">
-      <CustomCursor />
-      <ApplicationModal
+    <main className="relative min-h-screen bg-white text-[#111] font-sans selection:bg-[#A71728] selection:text-white">      <ApplicationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         initialTab={modalTab}

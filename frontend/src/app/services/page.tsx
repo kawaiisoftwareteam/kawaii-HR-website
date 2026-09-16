@@ -15,7 +15,6 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -101,8 +100,6 @@ export default function ServicesPage() {
 
   return (
     <main className="relative min-h-screen bg-white text-[#111111] font-sans selection:bg-[#A71728] selection:text-white overflow-x-hidden">
-      <CustomCursor />
-
       <ApplicationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
