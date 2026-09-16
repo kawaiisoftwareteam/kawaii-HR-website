@@ -1,25 +1,22 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
-  const [cursorText, setCursorText] = useState("");
-  const [cursorVariant, setCursorVariant] = useState<"default" | "hover" | "action" | "employer" | "jobseeker">("default");
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  const [label, setLabel] = useState("");
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
-
-  const springConfig = { damping: 28, stiffness: 350, mass: 0.5 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+  const x = useSpring(mouseX, { damping: 32, stiffness: 450, mass: 0.35 });
+  const y = useSpring(mouseY, { damping: 32, stiffness: 450, mass: 0.35 });
 
   useEffect(() => {
-    // Disable on mobile/touch screens
     const checkMobile = () => {
-      const isTouch = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 1024;
+      const isTouch =
+        window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 1024;
       setIsMobile(isTouch);
     };
     checkMobile();
@@ -28,37 +25,26 @@ export function CustomCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
 
       const target = e.target as HTMLElement | null;
-      if (!target) return;
+      if (!target) {
+        setLabel("");
+        return;
+      }
 
-      const employerEl = target.closest("[data-cursor='employer']");
-      const jobseekerEl = target.closest("[data-cursor='jobseeker']");
-      const actionEl = target.closest("[data-cursor='action']") || target.closest("button") || target.closest("a");
-      const imageEl = target.closest("[data-cursor='image']");
-
-      if (employerEl) {
-        setCursorVariant("employer");
-        setCursorText("EMPLOYERS");
-      } else if (jobseekerEl) {
-        setCursorVariant("jobseeker");
-        setCursorText("JOB SEEKERS");
-      } else if (imageEl) {
-        setCursorVariant("hover");
-        setCursorText("VIEW");
-      } else if (actionEl) {
-        setCursorVariant("action");
-        setCursorText("");
+      if (target.closest("[data-cursor='employer']")) {
+        setLabel("EMPLOYERS");
+      } else if (target.closest("[data-cursor='jobseeker']")) {
+        setLabel("JOB SEEKERS");
+      } else if (target.closest("[data-cursor='image']")) {
+        setLabel("VIEW");
       } else {
-        setCursorVariant("default");
-        setCursorText("");
+        setLabel("");
       }
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const handleMouseLeave = () => setIsVisible(false);
 
     window.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
@@ -68,66 +54,37 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, [mouseX, mouseY]);
+
+  useEffect(() => {
+    if (isMobile) return;
+    document.documentElement.classList.add("custom-cursor-active");
+    return () => document.documentElement.classList.remove("custom-cursor-active");
+  }, [isMobile]);
 
   if (isMobile || !isVisible) return null;
 
-  const variants = {
-    default: {
-      width: 12,
-      height: 12,
-      backgroundColor: "#A71728",
-      border: "1px solid rgba(255, 255, 255, 0.8)",
-      opacity: 0.9,
-    },
-    action: {
-      width: 44,
-      height: 44,
-      backgroundColor: "rgba(167, 23, 40, 0.25)",
-      border: "1.5px solid #A71728",
-      opacity: 1,
-    },
-    hover: {
-      width: 64,
-      height: 64,
-      backgroundColor: "rgba(0, 0, 0, 0.85)",
-      border: "1px solid #A71728",
-      opacity: 1,
-    },
-    employer: {
-      width: 110,
-      height: 110,
-      backgroundColor: "#A71728",
-      border: "2px solid #FFFFFF",
-      opacity: 1,
-    },
-    jobseeker: {
-      width: 110,
-      height: 110,
-      backgroundColor: "#000000",
-      border: "2px solid #A71728",
-      opacity: 1,
-    },
-  };
-
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full text-center select-none shadow-xl mix-blend-difference"
-      style={{
-        x: cursorX,
-        y: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
-      }}
-      variants={variants}
-      animate={cursorVariant}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className="fixed top-0 left-0 z-[9999] pointer-events-none select-none"
+      style={{ x, y }}
     >
-      {cursorText && (
-        <span className="text-[10px] tracking-widest font-bold text-white px-2 uppercase leading-tight font-sans">
-          {cursorText}
-        </span>
-      )}
+      {/* Fixed-size dot — no scale / width animation on click or hover */}
+      <div className="relative -translate-x-1/2 -translate-y-1/2">
+        <div
+          className="rounded-full bg-[#A71728]"
+          style={{
+            width: 12,
+            height: 12,
+            border: "1px solid rgba(255,255,255,0.85)",
+          }}
+        />
+        {label ? (
+          <div className="absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap bg-[#A71728] text-white text-[10px] font-bold tracking-widest uppercase px-2.5 py-1">
+            {label}
+          </div>
+        ) : null}
+      </div>
     </motion.div>
   );
 }

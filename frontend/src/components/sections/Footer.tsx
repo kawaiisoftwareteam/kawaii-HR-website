@@ -21,7 +21,6 @@ const audienceLinks = [
   { label: "For Employers", href: "/#employers" },
   { label: "For Professionals", href: "/#job-seekers" },
   { label: "Skilled Workforce", href: "/#skilled-workforce" },
-  { label: "Global Careers", href: "/#japan-bangladesh" },
   { label: "Industries", href: "/#industries" },
   { label: "Contact", href: "/#contact" },
 ];

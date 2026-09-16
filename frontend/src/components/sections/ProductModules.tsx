@@ -51,25 +51,25 @@ export function ProductModules({
                 key={mod.id}
                 type="button"
                 onClick={() => setActiveId(mod.id)}
-                className={`text-left p-5 border transition-all duration-300 ${
+                className={`text-left p-5 border transition-all duration-300 bg-[#A81A2A] text-white ${
                   isActive
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-black border-gray-200 hover:border-black"
+                    ? "border-white/40"
+                    : "border-transparent hover:border-white/25"
                 }`}
               >
                 <div className="flex items-center justify-between mb-4">
                   <span
                     className={`text-[10px] font-bold tracking-widest uppercase ${
-                      isActive ? "text-[#A71728]" : "text-gray-400"
+                      isActive ? "text-white" : "text-white/70"
                     }`}
                   >
                     Module {mod.number}
                   </span>
                   <Icon
-                    className={`w-4 h-4 ${isActive ? "text-[#A71728]" : "text-gray-400"}`}
+                    className={`w-4 h-4 ${isActive ? "text-white" : "text-white/70"}`}
                   />
                 </div>
-                <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight leading-snug">
+                <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight leading-snug text-white">
                   {mod.title}
                 </h3>
               </button>

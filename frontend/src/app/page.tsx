@@ -7,7 +7,6 @@ import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { JapanBridge } from "@/components/sections/JapanBridge";
 import { ProductModules } from "@/components/sections/ProductModules";
 import { EmployerFocus } from "@/components/sections/EmployerFocus";
 import { JobSeekerFocus } from "@/components/sections/JobSeekerFocus";
@@ -60,10 +59,7 @@ export default function HomePage() {
       {/* 03: About & Company Profile */}
       <AboutSection onOpenModal={handleOpenModal} />
 
-      {/* 04: Bangladesh to global placement */}
-      <JapanBridge />
-
-      {/* 05: Four Product Modules */}
+      {/* 04: Four Product Modules */}
       <ProductModules onOpenModal={handleOpenModal} />
 
       {/* 06: Employers */}
