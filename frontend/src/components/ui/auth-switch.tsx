@@ -78,25 +78,25 @@ export default function AuthSwitch({
       )}
       style={{
         background:
-          "linear-gradient(165deg, #7B6EF2 0%, #6C5CE7 42%, #5B4ED8 100%)",
+          "linear-gradient(165deg, #2A3548 0%, #1A2332 48%, #101820 100%)",
       }}
     >
       <Link
         href="/"
-        className="absolute left-5 top-5 z-20 sm:left-8 sm:top-7"
+        className="absolute left-5 top-5 z-20 rounded-xl bg-white/95 px-3 py-2 shadow-sm sm:left-8 sm:top-7"
         aria-label="Back to home"
       >
         <Image
-          src="/kawaiihrlogo-white.webp"
+          src="/kawaiihrlogo.webp"
           alt={brandName}
           width={220}
           height={66}
-          className="h-9 w-auto object-contain sm:h-10"
+          className="h-8 w-auto object-contain sm:h-9"
           priority
         />
       </Link>
 
-      <div className="relative w-full max-w-[440px] overflow-hidden rounded-[28px] bg-white shadow-[0_40px_80px_rgba(50,30,140,0.35)] lg:h-[560px] lg:max-w-[960px]">
+      <div className="relative w-full max-w-[440px] overflow-hidden rounded-[28px] bg-white shadow-[0_40px_80px_rgba(8,12,20,0.45)] lg:h-[560px] lg:max-w-[960px]">
         {/* Forms — sit on the white half, then swap sides with the overlay */}
         <div
           className={cn(
@@ -159,33 +159,33 @@ export default function AuthSwitch({
         </div>
 
         {/* Mobile overlay CTA (stacked; circle overlay is desktop-only) */}
-        <div className="relative z-[2] border-t border-[#EDEDF5] bg-[#F7F6FF] px-6 py-5 text-center lg:hidden">
+        <div className="relative z-[2] border-t border-[#E5E7EB] bg-[#F5F6F8] px-6 py-5 text-center lg:hidden">
           {isSignUp ? (
             <>
-              <h3 className="text-lg font-semibold text-[#2F2A5A]">
+              <h3 className="text-lg font-semibold text-[#111]">
                 Welcome back?
               </h3>
-              <p className="mx-auto mt-1 max-w-[260px] text-sm leading-relaxed text-[#6B668C]">
+              <p className="mx-auto mt-1 max-w-[260px] text-sm leading-relaxed text-[#6B7280]">
                 Already have an account? Sign in to your dashboard.
               </p>
               <button
                 type="button"
                 onClick={() => setMode("login")}
-                className="mt-4 inline-flex h-10 min-w-[132px] items-center justify-center rounded-full border border-[#6C5CE7] px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-[#6C5CE7] transition-colors hover:bg-[#6C5CE7] hover:text-white"
+                className="mt-4 inline-flex h-10 min-w-[132px] items-center justify-center rounded-full border border-[#1A2332] px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-[#1A2332] transition-colors hover:bg-[#1A2332] hover:text-white"
               >
                 Sign in
               </button>
             </>
           ) : (
             <>
-              <h3 className="text-lg font-semibold text-[#2F2A5A]">New here?</h3>
-              <p className="mx-auto mt-1 max-w-[260px] text-sm leading-relaxed text-[#6B668C]">
+              <h3 className="text-lg font-semibold text-[#111]">New here?</h3>
+              <p className="mx-auto mt-1 max-w-[260px] text-sm leading-relaxed text-[#6B7280]">
                 Join us today and create your account in seconds.
               </p>
               <button
                 type="button"
                 onClick={() => setMode("register")}
-                className="mt-4 inline-flex h-10 min-w-[132px] items-center justify-center rounded-full border border-[#6C5CE7] px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-[#6C5CE7] transition-colors hover:bg-[#6C5CE7] hover:text-white"
+                className="mt-4 inline-flex h-10 min-w-[132px] items-center justify-center rounded-full border border-[#1A2332] px-6 text-[11px] font-bold uppercase tracking-[0.16em] text-[#1A2332] transition-colors hover:bg-[#1A2332] hover:text-white"
               >
                 Sign up
               </button>
@@ -202,7 +202,7 @@ export default function AuthSwitch({
             )}
             style={{
               background:
-                "linear-gradient(165deg, #9B94F7 0%, #7E76EE 48%, #6E66E8 100%)",
+                "linear-gradient(165deg, #7A8BA3 0%, #5B6F88 48%, #3D5168 100%)",
             }}
           />
         </div>
@@ -224,7 +224,7 @@ export default function AuthSwitch({
           <button
             type="button"
             onClick={() => setMode("register")}
-            className="mt-7 inline-flex h-11 min-w-[148px] items-center justify-center rounded-full border-[1.5px] border-white px-8 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-[#6C5CE7]"
+            className="mt-7 inline-flex h-11 min-w-[148px] items-center justify-center rounded-full border-[1.5px] border-white px-8 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-[#1A2332]"
           >
             Sign up
           </button>
@@ -248,7 +248,7 @@ export default function AuthSwitch({
           <button
             type="button"
             onClick={() => setMode("login")}
-            className="mt-7 inline-flex h-11 min-w-[148px] items-center justify-center rounded-full border-[1.5px] border-white px-8 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-[#6C5CE7]"
+            className="mt-7 inline-flex h-11 min-w-[148px] items-center justify-center rounded-full border-[1.5px] border-white px-8 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-[#1A2332]"
           >
             Sign in
           </button>
@@ -333,7 +333,7 @@ function SignInForm({
       <button
         type="submit"
         disabled={submitting}
-        className="mt-2 inline-flex h-11 min-w-[168px] items-center justify-center rounded-full bg-[#6C7CFF] px-10 text-[12px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(108,124,255,0.35)] transition-transform hover:scale-[1.03] hover:bg-[#5B6CF5] disabled:opacity-60"
+        className="mt-2 inline-flex h-11 min-w-[168px] items-center justify-center rounded-full bg-[#A71728] px-10 text-[12px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(167,23,40,0.35)] transition-transform hover:scale-[1.03] hover:bg-[#8e1321] disabled:opacity-60"
       >
         {submitting ? "Signing in…" : "Login"}
       </button>
@@ -355,7 +355,7 @@ function SignInForm({
                 key={emp.id}
                 type="button"
                 onClick={() => onFillDemo?.(emp.email)}
-                className="rounded-full bg-[#F3F4F8] px-3 py-1.5 text-[11px] font-medium text-[#4B5563] transition-colors hover:bg-[#E8E9FF] hover:text-[#6C5CE7]"
+                className="rounded-full bg-[#F7F7F8] px-3 py-1.5 text-[11px] font-medium text-[#4B5563] transition-colors hover:bg-[#EEF1F5] hover:text-[#1A2332]"
               >
                 {emp.name.split(" ").slice(-2).join(" ")}
               </button>
@@ -412,7 +412,7 @@ function SignUpForm({
             className={cn(
               "h-8 rounded-full text-[11px] font-semibold transition-colors",
               registerRole === role.id
-                ? "bg-white text-[#6C5CE7] shadow-sm"
+                ? "bg-white text-[#A71728] shadow-sm"
                 : "text-gray-500 hover:text-gray-800"
             )}
           >
@@ -465,7 +465,7 @@ function SignUpForm({
 
       <button
         type="submit"
-        className="mt-1 inline-flex h-11 min-w-[168px] items-center justify-center rounded-full bg-[#6C7CFF] px-10 text-[12px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(108,124,255,0.35)] transition-transform hover:scale-[1.03] hover:bg-[#5B6CF5]"
+        className="mt-1 inline-flex h-11 min-w-[168px] items-center justify-center rounded-full bg-[#A71728] px-10 text-[12px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(167,23,40,0.35)] transition-transform hover:scale-[1.03] hover:bg-[#8e1321]"
       >
         Sign up
       </button>
@@ -500,7 +500,7 @@ function Field({
   return (
     <label
       htmlFor={id}
-      className="mb-2.5 flex h-12 w-full items-center gap-3 rounded-full bg-[#F1F2F8] px-4 text-[#9AA0B4] focus-within:bg-[#ECEEFB] focus-within:ring-2 focus-within:ring-[#6C7CFF]/25"
+      className="mb-2.5 flex h-12 w-full items-center gap-3 rounded-full bg-[#F7F7F8] px-4 text-[#9AA0B4] focus-within:bg-[#F4F6F8] focus-within:ring-2 focus-within:ring-[#3D5168]/20"
     >
       <span className="shrink-0">{icon}</span>
       <input
@@ -572,7 +572,7 @@ function SocialButton({
       type="button"
       title={`${label} login coming soon`}
       aria-label={`Sign in with ${label} (coming soon)`}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E2E4EE] bg-white transition-colors hover:border-[#6C7CFF]/50 hover:bg-[#F7F8FF]"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] bg-white transition-colors hover:border-[#3D5168]/40 hover:bg-[#F5F6F8]"
     >
       {children}
     </button>

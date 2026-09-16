@@ -50,7 +50,7 @@ export function AuthScreen({ defaultMode = "login" }: { defaultMode?: AuthMode }
   };
 
   return (
-    <main className="relative min-h-svh font-sans selection:bg-[#6C7CFF] selection:text-white">
+    <main className="relative min-h-svh font-sans selection:bg-[#A71728] selection:text-white">
       <ApplicationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
