@@ -43,12 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
     },
-    {
-      url: `${baseUrl}/japan-jobs`,
-      lastModified: currentDate,
-      changeFrequency: "daily",
-      priority: 0.95,
-    },
+    // Local BD HR company — Japan Jobs hidden for now
+    // {
+    //   url: `${baseUrl}/japan-jobs`,
+    //   lastModified: currentDate,
+    //   changeFrequency: "daily",
+    //   priority: 0.95,
+    // },
     {
       url: `${baseUrl}/#services`,
       lastModified: currentDate,

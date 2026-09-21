@@ -16,7 +16,8 @@ const primaryLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/#about" },
   { label: "Platform", href: "/#platform" },
-  { label: "Japan Jobs", href: "/japan-jobs" },
+  // Local BD HR company — Japan Jobs hidden for now
+  // { label: "Japan Jobs", href: "/japan-jobs" },
   { label: "Services", href: "/services" },
   { label: "News", href: "/news" },
   { label: "Contact", href: "/#contact" },
@@ -25,7 +26,7 @@ const primaryLinks = [
 function isLinkActive(href: string, pathname: string): boolean {
   if (href === "/") return pathname === "/";
   if (href === "/services") return pathname === "/services";
-  if (href === "/japan-jobs") return pathname === "/japan-jobs";
+  // if (href === "/japan-jobs") return pathname === "/japan-jobs";
   if (href === "/news") return pathname === "/news" || pathname.startsWith("/news/");
   return false;
 }

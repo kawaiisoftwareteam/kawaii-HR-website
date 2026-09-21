@@ -20,7 +20,8 @@ const exploreLinks = [
 const audienceLinks = [
   { label: "For Employers", href: "/#employers" },
   { label: "For Professionals", href: "/#job-seekers" },
-  { label: "Japan Jobs", href: "/japan-jobs" },
+  // Local BD HR company — Japan Jobs hidden for now
+  // { label: "Japan Jobs", href: "/japan-jobs" },
   { label: "Skilled Workforce", href: "/#skilled-workforce" },
   { label: "Industries", href: "/#industries" },
   { label: "Contact", href: "/#contact" },
