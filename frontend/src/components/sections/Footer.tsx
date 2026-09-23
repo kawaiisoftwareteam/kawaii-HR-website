@@ -8,23 +8,22 @@ import { ArrowUp, MapPin, Mail, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyData";
 
 const exploreLinks = [
-  { label: "About Us", href: "/#about" },
-  { label: "Platform Modules", href: "/#platform" },
-  { label: "Services", href: "/services" },
+  { label: "About Us", href: "/about" },
+  { label: "Domestic HR Services", href: "/services" },
   { label: "Recruitment Workflow", href: "/#process" },
-  { label: "Success Metrics", href: "/#success-metrics" },
+  { label: "Why Partner With Us", href: "/#why-us" },
   { label: "News & Articles", href: "/news" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Frequently Asked Questions", href: "/contact#faq" },
+  { label: "Contact & Desks", href: "/contact" },
 ];
 
 const audienceLinks = [
-  { label: "For Employers", href: "/#employers" },
-  { label: "For Professionals", href: "/#job-seekers" },
-  // Local BD HR company — Japan Jobs hidden for now
-  // { label: "Japan Jobs", href: "/japan-jobs" },
-  { label: "Skilled Workforce", href: "/#skilled-workforce" },
-  { label: "Industries", href: "/#industries" },
-  { label: "Contact", href: "/#contact" },
+  { label: "For Businesses", href: "/for-businesses" },
+  { label: "For Job Seekers", href: "/for-job-seekers" },
+  { label: "White Collar Recruitment", href: "/white-collar" },
+  { label: "Blue Collar Workforce", href: "/blue-collar" },
+  { label: "Enterprise Consultation", href: "/for-businesses#inquiry-form" },
+  { label: "Candidate Registration", href: "/for-job-seekers#register-form" },
 ];
 
 export function Footer() {
@@ -60,21 +59,19 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-14 border-b border-black/8"
         >
-          <div className="space-y-5 max-w-xl">
+          <div className="space-y-4 max-w-xl">
             <Image
               src="/kawaiihrlogo.webp"
-              alt="Kawaii Japan Career & HR Solutions BD"
+              alt="Kawaii Japan Career & HR"
               width={280}
               height={84}
               className="h-11 sm:h-12 w-auto object-contain"
             />
-            <p className="text-sm text-gray-600 font-light leading-relaxed">
-              Connecting organizations with the right people through Japanese-inspired
-              ethics, discipline, efficiency, and trust.
+            <p className="text-sm text-gray-700 font-light leading-relaxed">
+              The Right Talent. The Right Role. The Right Fit. Japanese-standard HR precision, built for Bangladesh.
             </p>
-            <p className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-black">
-              People. Opportunity.{" "}
-              <span className="text-[#A71728]">Future.</span>
+            <p className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-black">
+              People. Precision. <span className="text-[#A71728]">Partnership.</span>
             </p>
           </div>
 
@@ -82,6 +79,9 @@ export function Footer() {
             <div>Sister Concern of {COMPANY_INFO.group}</div>
             <div className="mt-1 text-[#A71728] font-bold tracking-[0.25em]">
               Est. {COMPANY_INFO.establishedYear}
+            </div>
+            <div className="mt-1 text-[11px] text-gray-400">
+              Response SLA: Within 24 Business Hours
             </div>
           </div>
         </motion.div>
@@ -94,7 +94,7 @@ export function Footer() {
             </div>
             <ul className="space-y-2.5">
               {exploreLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
@@ -112,7 +112,7 @@ export function Footer() {
             </div>
             <ul className="space-y-2.5">
               {audienceLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"

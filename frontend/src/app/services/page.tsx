@@ -30,52 +30,49 @@ const MODULE_ICONS = [Building2, UserRound, Workflow, Wrench];
 
 const primaryServices = [
   {
-    id: "permanent-staff",
-    title: "PERMANENT STAFF",
-    subtitle: "Permanent Staff",
-    image: "/images/japanese_office_team.jpg",
-    description:
-      "Our professional HR consultants place the right person in the right role — even for highly specific requirements.",
-  },
-  {
-    id: "contract-staff",
-    title: "CONTRACT STAFF",
-    subtitle: "Contract Staff",
-    image: "/images/executive_interview.jpg",
-    description:
-      "Flexible contract talent for short-term projects, with a clear path to renew or convert high performers to full-time.",
-  },
-  {
-    id: "outsourcing",
-    title: "OUTSOURCING",
-    subtitle: "Temporary Staff",
-    image: "/images/bpo_industry.jpg",
-    description:
-      "Deploy skilled people for the exact period you need — ready to contribute from day one.",
-  },
-  {
     id: "executive-search",
-    title: "EXECUTIVE SEARCH",
-    subtitle: "Executive Search",
+    title: "EXECUTIVE SEARCH & C-SUITE",
+    subtitle: "Leadership Talent for High-Impact Roles",
     image: "/images/gallery_corporate_consultant.jpg",
     description:
-      "Discreet leadership recruitment for C-suite, directors, and engineering heads across international enterprises.",
+      "We identify and approach experienced professionals for critical leadership, department heads, and confidential senior management positions.",
+    href: "/white-collar",
   },
   {
-    id: "japan-career",
-    title: "JAPAN CAREER PLACEMENT",
-    subtitle: "Japan Global Corridor",
-    image: "/images/tokyo_skyline.jpg",
+    id: "it-software",
+    title: "IT & SOFTWARE ENGINEERING",
+    subtitle: "Technology Teams Behind Your Growth",
+    image: "/images/japanese_office_team.jpg",
     description:
-      "Direct pathways for qualified Bangladeshi professionals into legitimate roles with Japanese corporations.",
+      "Access qualified software engineers, developers, DevOps, QA, and engineering management across Bangladesh's competitive tech ecosystem.",
+    href: "/for-businesses",
   },
   {
-    id: "hr-consulting",
-    title: "HR CONSULTING",
-    subtitle: "Org Development & Kaizen",
+    id: "engineering",
+    title: "CIVIL, MECHANICAL & STRUCTURAL",
+    subtitle: "Infrastructure & Industrial Expertise",
+    image: "/images/executive_interview.jpg",
+    description:
+      "Recruitment for civil, structural, mechanical, MEP, site engineers, and project directors for construction and plant developments.",
+    href: "/for-businesses",
+  },
+  {
+    id: "contract-staffing",
+    title: "TEMPORARY STAFFING & PAYROLL",
+    subtitle: "Flexible Workforce Solutions",
+    image: "/images/bpo_industry.jpg",
+    description:
+      "Workforce flexibility for project spikes, factory expansion, and seasonal demands with managed payroll and compliance administration.",
+    href: "/blue-collar",
+  },
+  {
+    id: "corporate-training",
+    title: "CORPORATE TRAINING & DEVELOPMENT",
+    subtitle: "Turn Talent into Organizational Capability",
     image: "/images/japan_bangladesh_partnership.jpg",
     description:
-      "Performance frameworks, compensation design, and org structure grounded in Japanese precision and discipline.",
+      "Leadership upskilling, technical training, workplace communication, and Kaizen organizational development initiatives.",
+    href: "/about",
   },
 ];
 

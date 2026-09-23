@@ -97,7 +97,7 @@ export function ApplicationModal({
                     Inquiry Received
                   </h3>
                   <p className="text-white/70 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you for connecting with Kawaii Japan Career & HR Solutions BD. Our bilingual recruitment directors will contact you within 24 hours.
+                    Thank you for connecting with Kawaii Japan Career & HR. Our recruitment specialists will contact you within 24 business hours.
                   </p>
                 </div>
                 <div className="pt-4">
@@ -111,17 +111,17 @@ export function ApplicationModal({
                 {/* Header info */}
                 <div className="mb-6 space-y-2">
                   <div className="flex items-center space-x-2 text-xs font-semibold tracking-widest text-[#A71728] uppercase">
-                    <span>Japan × Bangladesh</span>
+                    <span>Japanese Standard HR</span>
                     <span>•</span>
-                    <span>Bilingual Recruitment</span>
+                    <span>Domestic Solutions</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase">
-                    {activeTab === "employer" ? "Hire Exceptional Talent" : "Discover Global Careers"}
+                    {activeTab === "employer" ? "Hire Exceptional Talent" : "Explore Career Opportunities"}
                   </h2>
                   <p className="text-xs md:text-sm text-white/60">
                     {activeTab === "employer"
                       ? "Submit your organizational hiring requirements to access verified technical and executive talent."
-                      : "Submit your profile to be matched with premier enterprises in Japan and Bangladesh."}
+                      : "Submit your profile to be matched with premier enterprises across Bangladesh."}
                   </p>
                 </div>
 

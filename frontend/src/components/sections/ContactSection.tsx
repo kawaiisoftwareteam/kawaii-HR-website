@@ -40,12 +40,12 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
           </div>
 
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight uppercase leading-[0.92] text-black">
-            LET&apos;S BUILD <br />
-            <span className="text-[#A71728]">THE RIGHT CONNECTION.</span>
+            CONNECT WITH <br />
+            <span className="text-[#A71728]">PREMIER HR PARTNERS.</span>
           </h2>
 
           <p className="text-sm sm:text-base text-gray-700 font-light leading-relaxed">
-            Whether you are expanding your corporate engineering footprint or seeking your next executive career milestone, our bilingual team is at your disposal.
+            Japanese-standard HR operations. Local market expertise. Dedicated support for enterprise hiring and ambitious career milestones.
           </p>
         </div>
 

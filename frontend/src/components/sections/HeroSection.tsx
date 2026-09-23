@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ShieldCheck } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
 import type { Variants } from "framer-motion";
 
@@ -53,106 +53,81 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
           <source src="/Create_a_premium_cinematic_bac.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/85 via-black/20 to-black/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
-        <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml,%3Csvg_viewBox=%270_0_256_256%27_xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter_id=%27n%27%3E%3CfeTurbulence_type=%27fractalNoise%27_baseFrequency=%270.85%27_numOctaves=%274%27_stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect_width=%27100%25%27_height=%27100%25%27_filter=%27url(%23n)%27/%3E%3C/svg%3E')] bg-[length:180px_180px]" />
+        {/* Light left + bottom wash only — keep video readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
       </motion.div>
 
-      {/* Content — vertically centered, tighter spacing */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 flex flex-col justify-center pt-20 md:pt-24 pb-8">
+      <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 flex flex-col justify-center pt-20 md:pt-24 pb-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-6xl"
+          className="max-w-4xl"
         >
           <motion.p
             variants={itemVariants}
-            className="inline-flex items-center gap-3 text-sm sm:text-base md:text-lg font-semibold tracking-[0.18em] uppercase text-white/85 mb-4 sm:mb-5"
+            className="inline-flex items-center gap-3 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-white/85 mb-3 sm:mb-4"
           >
-            <span className="w-10 h-0.5 bg-[#A71728]" />
-            Japan × Bangladesh HR Bridge
+            <span className="w-8 sm:w-10 h-0.5 bg-[#A71728]" />
+            Kawaii Japan Career &amp; HR
           </motion.p>
 
-          <div className="space-y-1 sm:space-y-2">
-            <motion.h1
-              variants={itemVariants}
-              className="text-[clamp(2.75rem,8vw,7.5rem)] font-extrabold tracking-[-0.035em] uppercase leading-[0.98] text-white whitespace-nowrap"
-            >
-              Connecting People.
-            </motion.h1>
-            <motion.h1
-              variants={itemVariants}
-              className="text-[clamp(2.75rem,8vw,7.5rem)] font-extrabold tracking-[-0.035em] uppercase leading-[0.98] text-white whitespace-nowrap"
-            >
-              Building <span className="text-[#A71728]">Futures.</span>
-            </motion.h1>
-          </div>
+          <motion.h1
+            variants={itemVariants}
+            className="text-[clamp(2.2rem,5.5vw,5.2rem)] font-black tracking-[-0.03em] uppercase leading-[1.02] text-white"
+          >
+            The Right Talent. <br className="hidden sm:inline" />
+            The Right <span className="text-[#A71728]">Fit.</span>
+          </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-white/85 max-w-2xl font-light leading-relaxed"
+            className="mt-3 sm:mt-4 text-base sm:text-xl text-white/85 max-w-xl font-light leading-relaxed"
           >
-            Connecting organizations with the right people through
-            Japanese-inspired ethics, discipline, efficiency and trust.
+            Japanese-standard HR precision, built for Bangladesh.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center gap-3 sm:gap-4 mt-5 sm:mt-6"
+            className="flex flex-wrap items-center gap-3 sm:gap-4 mt-6 sm:mt-8"
           >
             <RedButton
               variant="primary"
               size="lg"
               onClick={() => onOpenModal("employer")}
+              className="!py-4 !px-6 text-xs sm:text-sm font-bold tracking-wider"
             >
-              For Employers
+              Hire Top Talent
             </RedButton>
             <RedButton
               variant="outline"
               size="lg"
               onClick={() => onOpenModal("jobseeker")}
-              className="!border-white/40 backdrop-blur-sm bg-white/5 hover:!bg-white/10"
+              className="!border-white/50 backdrop-blur-md bg-white/10 hover:!bg-white/20 !py-4 !px-6 text-xs sm:text-sm font-bold tracking-wider text-white"
             >
-              For Job Seekers
+              Explore Careers
             </RedButton>
           </motion.div>
         </motion.div>
 
-        {/* Bottom meta row */}
-        <motion.div
+        <motion.a
+          href="#stats"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.8 }}
-          className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-white/15 pt-4"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-medium text-white/55 hover:text-white transition-colors"
+          data-cursor="action"
         >
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] sm:text-[11px] tracking-[0.16em] uppercase text-white/55">
-            <span className="inline-flex items-center gap-1.5 text-white/70">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#A71728] shrink-0" />
-              Japanese Corporate Standards
-            </span>
-            <span className="hidden sm:inline text-white/25">·</span>
-            <span className="hidden sm:inline">
-              Sister Concern of Kawaii Group
-            </span>
-          </div>
-
-          <a
-            href="#stats"
-            className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-medium text-white/60 hover:text-white transition-colors self-start sm:self-auto group"
-            data-cursor="action"
+          Scroll
+          <motion.span
+            animate={{ y: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className="inline-flex"
           >
-            Scroll to explore
-            <motion.span
-              animate={{ y: [0, 4, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              className="inline-flex"
-            >
-              <ChevronDown className="w-4 h-4 text-[#A71728]" />
-            </motion.span>
-          </a>
-        </motion.div>
+            <ChevronDown className="w-4 h-4 text-[#A71728]" />
+          </motion.span>
+        </motion.a>
       </div>
     </section>
   );

@@ -14,21 +14,17 @@ interface NavbarProps {
 
 const primaryLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/#about" },
-  { label: "Platform", href: "/#platform" },
-  // Local BD HR company — Japan Jobs hidden for now
-  // { label: "Japan Jobs", href: "/japan-jobs" },
-  { label: "Services", href: "/services" },
-  { label: "News", href: "/news" },
-  { label: "Contact", href: "/#contact" },
+  { label: "For Businesses", href: "/for-businesses" },
+  { label: "For Job Seekers", href: "/for-job-seekers" },
+  { label: "White Collar", href: "/white-collar" },
+  { label: "Blue Collar", href: "/blue-collar" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function isLinkActive(href: string, pathname: string): boolean {
   if (href === "/") return pathname === "/";
-  if (href === "/services") return pathname === "/services";
-  // if (href === "/japan-jobs") return pathname === "/japan-jobs";
-  if (href === "/news") return pathname === "/news" || pathname.startsWith("/news/");
-  return false;
+  return pathname === href || pathname.startsWith(href + "/");
 }
 
 export function Navbar({ onOpenModal }: NavbarProps) {

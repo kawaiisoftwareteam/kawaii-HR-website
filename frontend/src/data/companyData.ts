@@ -91,18 +91,25 @@ export interface GalleryPhoto {
 }
 
 export const COMPANY_INFO = {
-  name: "Kawaii Japan Career & HR Solutions BD",
+  name: "Kawaii Japan Career & HR",
+  fullName: "Kawaii Japan Career & HR — Domestic HR Solutions",
   shortName: "Kawaii Japan HR",
   group: "Kawaii Group",
-  tagline: "Bridging cultures. Connecting talent. Building organizations.",
+  tagline: "The Right Talent. The Right Role. The Right Fit.",
+  subTagline: "Japanese-standard HR precision, built for Bangladesh.",
   establishedYear: "2025",
   address: "House: 11 (2nd Floor), Block: B, Main Road, Banasree, Rampura, Dhaka, Bangladesh",
   chairman: "MD. Dewan Samir",
   managingDirector: "[To be provided]",
   bank: "Southeast Bank PLC",
-  email: "[To be provided]",
-  phone: "[To be provided]",
-  website: "[To be provided]",
+  email: "corporate@kawaiihr.com",
+  candidateEmail: "careers@kawaiihr.com",
+  phone: "+880 1711-000000",
+  whatsapp: "+880 1711-000000",
+  website: "www.kawaiihr.com",
+  businessHours: "Sunday – Thursday | 9:00 AM – 6:00 PM BST",
+  weekendHours: "Friday & Saturday: Closed",
+  sla: "Within 24 business hours",
 };
 
 export const KEY_METRICS = [
@@ -1566,59 +1573,484 @@ export const SERVICES_COMPARISON_TABLE: ServiceComparisonItem[] = [
 export const SERVICES_FAQS: ServiceFaqItem[] = [
   {
     id: "faq-1",
-    category: "general",
-    question: "How does Kawaii Japan Career & HR Solutions BD differ from other agencies?",
+    category: "employer",
+    question: "How quickly can Kawaii Japan Career & HR source candidates?",
     answer:
-      "As a proud sister concern of Kawaii Group operating across Dhaka and Tokyo, we combine Japanese precision, discipline (Kiritsu), and Kaizen workflows with deep understanding of Bangladesh's premier talent market. We do not flood clients with unqualified resumes; instead, we deliver 3-5 meticulously pre-screened, culturally aligned, and technically verified candidates backed by a 90-day replacement warranty.",
+      "Our sourcing timeline depends on the position, required qualifications, talent availability, workforce volume, and urgency of the assignment. For clearly defined requirements, we can begin targeted sourcing promptly after completing the initial role assessment and recruitment briefing.",
   },
   {
     id: "faq-2",
-    category: "candidate",
-    question: "Do job seekers need to pay any fees for job placement or consultations?",
+    category: "employer",
+    question: "Can you recruit multiple employees for a large project or facility?",
     answer:
-      "No! Our recruitment, career consultation, CV improvement, and job placement services are 100% FREE for all job seekers and candidates. We strictly adhere to ethical, fair recruitment standards and never charge job seekers any registration or placement fees.",
+      "Yes. Our workforce solutions can support bulk and project-based recruitment for suitable engineering, technical, skilled, manufacturing, construction, logistics, and operational requirements. We begin by assessing the required headcount, skill profile, deployment timeline, work location, and employment model.",
   },
   {
     id: "faq-3",
-    category: "candidate",
-    question: "Can fresh graduates or candidates with no prior experience apply?",
+    category: "employer",
+    question: "Do you provide executive search services?",
     answer:
-      "Absolutely! We gather all types of job positions from leading Japanese, international, and Bangladeshi companies—ranging from newly graduated and entry-level positions to mid-level specialists and top-level executive management. Our career advisors provide specialized coaching to help fresh graduates launch their dream careers.",
+      "Yes. Our Executive Search service is designed for organizations seeking senior managers, business leaders, technical heads, functional specialists, and other high-impact professionals. Our approach emphasizes targeted sourcing, professional assessment, confidentiality, and organizational fit.",
   },
   {
     id: "faq-4",
-    category: "candidate",
-    question: "What opportunities exist for working directly in Japan?",
+    category: "general",
+    question: "Can you recruit engineers and IT professionals?",
     answer:
-      "We facilitate direct placements for qualified Bangladeshi software developers, engineers, and specialists into Japanese companies in Tokyo, Osaka, and other major hubs. We guide eligible candidates through Japanese language preparation (JLPT), technical interviews, and Certificate of Eligibility (COE) work visa sponsorship (Engineer/Specialist in Humanities).",
+      "Yes. We support recruitment across fields including: IT & Technology, Mechanical Engineering, Electrical Engineering, Technical Management, and other specialist engineering disciplines.",
   },
   {
     id: "faq-5",
-    category: "employer",
-    question: "How fast can we receive candidate shortlists for urgent hiring?",
+    category: "candidate",
+    question: "Do job seekers pay any fees for placement in Bangladesh?",
     answer:
-      "For standard technical and corporate roles, we deliver our first curated shortlist of pre-screened candidates within 48 to 72 hours. For emergency contract staffing or staff augmentation, deployment can be achieved in 3 to 7 business days.",
+      "Candidates should always review the specific terms associated with a recruitment opportunity before proceeding. Kawaii Japan Career & HR is committed to transparent recruitment communication. Any applicable fee, charge, or candidate-related cost must be clearly communicated in advance rather than presented unexpectedly. For a specific opportunity, please contact our Candidate Support team for clarification.",
   },
   {
     id: "faq-6",
-    category: "employer",
-    question: "What guarantee do you provide for permanent staffing placements?",
+    category: "candidate",
+    question: "Can I submit my CV even if there is no suitable vacancy?",
     answer:
-      "We provide a comprehensive 90-Day Free Replacement Guarantee for all permanent placements. If a placed candidate leaves or does not meet expectations during the initial 90-day warranty window, we will source, vet, and place a suitable replacement at zero additional charge.",
+      "Yes. If you are interested in being considered for future opportunities, you may submit your professional profile through the appropriate Candidate Portal or contact our Candidate Support team. Keeping your professional information current can help our recruitment specialists identify relevant opportunities as they arise.",
   },
   {
     id: "faq-7",
-    category: "employer",
-    question: "Can we convert a contract worker into a permanent employee?",
+    category: "candidate",
+    question: "How do I check the status of my application?",
     answer:
-      "Yes! Our Contract-to-Hire (C2H) model allows you to evaluate contract personnel on active projects and seamlessly transition high-performing talent into full-time permanent employees whenever you are ready.",
+      "For an application already submitted to Kawaii Japan Career & HR, contact our Candidate Support & Placement Helpdesk with the relevant application information.",
   },
   {
     id: "faq-8",
     category: "employer",
-    question: "How do you handle confidentiality during executive search assignments?",
+    question: "Can companies contact Kawaii HR for urgent hiring requirements?",
     answer:
-      "Our Executive Search team works under strict non-disclosure protocols (NDAs). Sensitive leadership searches are conducted through discreet market mapping and private candidate briefings, protecting your organization's strategic maneuvers and market reputation.",
+      "Yes. If you have an urgent recruitment requirement, clearly indicate your required hiring date, number of vacancies, position titles, and critical qualifications in the employer inquiry form. This allows our corporate team to understand the urgency and determine an appropriate sourcing approach.",
   },
 ];
+
+/** Master Document: Why Partner With Kawaii HR (3 Pillars) */
+export const WHY_PARTNER_PILLARS = [
+  {
+    number: "01",
+    title: "Rigorous Talent Vetting",
+    subtitle: "Quality before quantity.",
+    description:
+      "We go beyond CV screening to evaluate candidates against the capabilities, experience, technical requirements, and organizational expectations of each position.",
+    points: [
+      "Structured candidate screening",
+      "Experience and qualification verification",
+      "Technical and functional assessment",
+      "Communication and professional capability evaluation",
+      "Role-specific candidate profiling",
+      "Shortlisting based on employer-defined requirements",
+    ],
+    result: "A stronger, more relevant talent pipeline with less recruitment risk.",
+  },
+  {
+    number: "02",
+    title: "Rapid Time-to-Hire",
+    subtitle: "Reduce recruitment delays without compromising quality.",
+    description:
+      "An unfilled position can slow projects, increase workload, and affect business performance. Our structured sourcing methodology helps employers reach qualified candidates efficiently.",
+    points: [
+      "Clearly defined role profiling",
+      "Targeted candidate sourcing",
+      "Active professional talent networks",
+      "Multi-level screening",
+      "Coordinated interview scheduling",
+      "Streamlined candidate communication",
+    ],
+    result: "Faster access to qualified professionals and a more efficient recruitment funnel.",
+  },
+  {
+    number: "03",
+    title: "Long-Term Employee Retention",
+    subtitle: "Recruit for the future—not just for today.",
+    description:
+      "A successful placement depends on more than technical qualifications. We consider career aspirations, organizational culture, responsibilities, growth opportunities, and long-term compatibility.",
+    points: [
+      "Better candidate-role alignment",
+      "Stronger employer-employee fit",
+      "Improved onboarding",
+      "Post-placement follow-up",
+      "Employee engagement and development",
+      "Sustainable talent relationships",
+    ],
+    result: "Hiring decisions designed to support lasting organizational performance.",
+  },
+];
+
+/** Master Document: Our Domestic HR Services (5 Services) */
+export const DOMESTIC_HR_SERVICES = [
+  {
+    id: "executive-search",
+    number: "01",
+    title: "Executive Search & C-Suite Headhunting",
+    tagline: "Leadership talent for organizations that demand more.",
+    description:
+      "We identify and approach experienced professionals for critical leadership and senior management positions. We focus on identifying leaders who contribute not only through experience, but through strategic thinking, organizational leadership, and measurable business impact.",
+    roles: [
+      "C-Suite recruitment",
+      "Directors and General Managers",
+      "Department Heads",
+      "Senior Managers",
+      "Functional leadership",
+      "Confidential executive appointments",
+      "Specialized headhunting mandates",
+    ],
+    href: "/white-collar",
+  },
+  {
+    id: "it-software",
+    number: "02",
+    title: "IT & Software Engineering Recruitment",
+    tagline: "Build the technology teams behind your growth.",
+    description:
+      "Access qualified IT and software professionals across Bangladesh's competitive technology ecosystem. Whether scaling a technology team or hiring for a mission-critical position, we help you reach relevant technical talent efficiently.",
+    roles: [
+      "Software Engineers",
+      "Full-Stack Developers",
+      "Backend & Frontend Developers",
+      "DevOps & Cloud Engineers",
+      "QA & Automation Engineers",
+      "Data & AI Professionals",
+      "IT Infrastructure Specialists",
+      "Technical Leads & Engineering Managers",
+    ],
+    href: "/for-businesses",
+  },
+  {
+    id: "engineering",
+    number: "03",
+    title: "Civil, Mechanical & Structural Engineering Placement",
+    tagline: "Technical expertise for Bangladesh's infrastructure and industrial growth.",
+    description:
+      "Our engineering recruitment services connect organizations with skilled professionals across construction, infrastructure, manufacturing, and industrial sectors. Candidates are assessed against technical and practical requirements to support safer, more effective hiring.",
+    roles: [
+      "Civil Engineers",
+      "Structural Engineers",
+      "Mechanical Engineers",
+      "Project Engineers",
+      "Site Engineers",
+      "Design Engineers",
+      "MEP Professionals",
+      "Project Managers & Technical Supervisors",
+    ],
+    href: "/for-businesses",
+  },
+  {
+    id: "contract-staffing",
+    number: "04",
+    title: "Temporary / Contract Staffing & Payroll Management",
+    tagline: "Flexible workforce solutions for changing business demands.",
+    description:
+      "When workforce requirements fluctuate, organizations need flexibility without sacrificing operational control. We help maintain workforce flexibility while keeping recruitment and employment processes structured and compliant.",
+    roles: [
+      "Temporary staffing",
+      "Contract-based professionals",
+      "Project-based recruitment",
+      "Seasonal workforce requirements",
+      "Workforce expansion",
+      "Payroll administration",
+      "Employee documentation and coordination",
+    ],
+    href: "/blue-collar",
+  },
+  {
+    id: "corporate-training",
+    number: "05",
+    title: "Corporate Training & Organizational Development",
+    tagline: "Turn talent into organizational capability.",
+    description:
+      "Recruiting great people is only part of the equation. Organizations also need to continuously develop their workforce. We help organizations build cultures where employees continuously learn, contribute, and grow.",
+    roles: [
+      "Leadership development",
+      "Professional skills development",
+      "Technical upskilling",
+      "Communication and workplace effectiveness",
+      "Team development",
+      "Management capability building",
+      "Employee development programs",
+    ],
+    href: "/about",
+  },
+];
+
+/** Master Document: 4-Step Quality Assurance Pipeline */
+export const QA_RECRUITMENT_PIPELINE = [
+  {
+    step: "01",
+    title: "Corporate Needs Assessment & Role Profiling",
+    subtitle: "Understand the business before searching for the person.",
+    description:
+      "We begin by understanding your organization, hiring objective, team structure, role responsibilities, technical requirements, seniority level, and desired candidate profile.",
+    deliverable: "A clearly defined recruitment brief and role profile.",
+  },
+  {
+    step: "02",
+    title: "Targeted Sourcing & Multi-Level Technical Screening",
+    subtitle: "Find the right people, not simply available people.",
+    description:
+      "Our recruitment team uses targeted sourcing methodologies to identify relevant professionals and applies structured screening based on the requirements of each position. Evaluation includes experience screening, technical assessment, functional competency, communication, career motivation, and qualification verification.",
+    deliverable: "A qualified and relevant shortlist.",
+  },
+  {
+    step: "03",
+    title: "Candidate-Client Matching & Interview Facilitation",
+    subtitle: "Create meaningful connections between employers and professionals.",
+    description:
+      "We assess candidate suitability against the role and facilitate the interview process between both parties. Our team supports candidate presentation, interview coordination, employer feedback collection, candidate communication, and offer-stage coordination.",
+    deliverable: "An informed hiring decision with greater confidence.",
+  },
+  {
+    step: "04",
+    title: "Onboarding Support & Post-Placement Evaluation",
+    subtitle: "Our relationship does not end when the offer is signed.",
+    description:
+      "We support the transition from recruitment to employment and maintain communication during the early stages of placement, including joining coordination, onboarding support, employer-candidate communication, early-stage follow-up, and post-placement evaluation.",
+    deliverable: "A smoother transition and stronger foundation for long-term employment.",
+  },
+];
+
+/** Master Document: Business Solutions Page Data */
+export const BUSINESS_SOLUTIONS = {
+  header: {
+    title: "Precision HR Solutions for Businesses Building Bangladesh's Future",
+    subtitle: "Transforming Bangladeshi Workforce Capabilities with Precision HR Solutions.",
+    description:
+      "The right workforce is not simply a recruitment outcome—it is a business advantage. Kawaii Japan Career & HR helps organizations across Bangladesh build stronger, more capable, and more productive teams through structured recruitment, specialized talent sourcing, and workforce solutions.",
+  },
+  strategicApproach: {
+    title: "Why Leading Businesses Need a More Strategic Approach to Hiring",
+    description:
+      "In a competitive talent market, receiving a high volume of CVs does not guarantee a successful hire. The challenge for today's organizations is to identify professionals who possess the right combination of technical capability, relevant industry experience, leadership competence, role-specific qualifications, organizational compatibility, and long-term potential.",
+    focusPillars: [
+      "Reduce time spent reviewing unsuitable applications",
+      "Access targeted professional and technical talent",
+      "Improve candidate-role alignment",
+      "Streamline recruitment coordination",
+      "Support workforce expansion and project staffing",
+      "Maintain structured hiring and employment processes",
+      "Build teams with long-term organizational potential",
+    ],
+  },
+  industrySpecializations: [
+    {
+      id: "it-software",
+      title: "Information Technology & Software Engineering",
+      desc: "Bangladesh's technology sector demands professionals with specialized technical capabilities. We support recruitment across software engineering, DevOps/cloud, QA, data/AI, infrastructure, cybersecurity, and engineering leadership.",
+      roles: ["Software Engineering", "Full-Stack Development", "QA & Automation", "DevOps & Cloud", "Data & AI", "Cybersecurity", "Technical Leadership"],
+    },
+    {
+      id: "civil-infra",
+      title: "Civil Engineering, Construction & Infrastructure",
+      desc: "Infrastructure, construction, and engineering organizations require professionals who can perform effectively in demanding technical and operational environments.",
+      roles: ["Civil & Structural Engineers", "Mechanical and MEP Engineers", "Planning and Estimation", "Site Engineers", "Project Directors"],
+    },
+    {
+      id: "garments-manufacturing",
+      title: "Garments, Textiles & Industrial Manufacturing",
+      desc: "Bangladesh's industrial economy depends on capable professionals who manage production, quality, operations, compliance, engineering, and workforce performance.",
+      roles: ["Production & Operations", "Industrial Engineering", "QA/QC", "Merchandising", "Supply Chain", "Factory Management", "Compliance"],
+    },
+    {
+      id: "corporate-finance",
+      title: "Corporate Operations, Finance & Administration",
+      desc: "Strong organizations depend on the professionals behind their financial discipline, operational efficiency, governance, and day-to-day execution.",
+      roles: ["Finance & Accounting", "Corporate Operations", "Administration", "Procurement", "Sales & BD", "Legal & Compliance", "Executive Leadership"],
+    },
+  ],
+  specializedSolutions: [
+    {
+      title: "Permanent Direct-Hire Recruitment",
+      subtitle: "Hire professionals who can create lasting business value.",
+      desc: "Our direct-hire recruitment process identifies professionals whose experience, skills, career objectives, and professional capabilities align with the specific requirements of your organization.",
+    },
+    {
+      title: "Bulk Technical & Engineering Staffing",
+      subtitle: "Scale your workforce without sacrificing structure or quality.",
+      desc: "Business expansion, new projects, and industrial development create urgent demand for multiple qualified professionals. We support multi-position campaigns with structured coordination.",
+    },
+    {
+      title: "Customized Employee Skill Assessments",
+      subtitle: "Make hiring decisions based on relevant capability—not assumptions.",
+      desc: "We support customized assessment frameworks including technical competency, functional skill evaluation, workplace capability, and recruitment scorecards.",
+    },
+  ],
+  partnerStandards: [
+    { title: "Rapid Account Manager Assignment", desc: "Dedicated point of contact to coordinate your recruitment process." },
+    { title: "Confidential Talent Sourcing", desc: "Appropriate professional discretion for sensitive leadership or strategic roles." },
+    { title: "Requirement-Based Strategy", desc: "Sourcing and screening tailored to your specific workforce timeline." },
+    { title: "Clear Communication", desc: "Transparent coordination between stakeholders throughout the hiring journey." },
+    { title: "Quality-Focused Matching", desc: "Candidates presented based on capability and alignment, not just availability." },
+  ],
+};
+
+/** Master Document: Job Seekers Page Data */
+export const JOB_SEEKER_DATA = {
+  header: {
+    title: "Empowering Your Career Journey Across Bangladeshi Leading Enterprises and MNC's",
+    subtitle: "Your next career opportunity should match your skills, ambitions, and potential.",
+    description:
+      "Kawaii Japan Career & HR connects talented Bangladeshi professionals with career opportunities at reputable companies across Bangladesh. Whether you are an experienced engineer, technology professional, project specialist, executive, or emerging professional, we help you navigate the local job market with greater clarity and confidence. No guesswork. No misleading opportunities.",
+  },
+  domains: [
+    {
+      title: "Software Development & IT",
+      desc: "Build your career with technology-driven organizations seeking professionals in Software Development, Full-Stack, QA, DevOps, Data & AI, and Engineering Management.",
+    },
+    {
+      title: "Structural & Civil Engineering",
+      desc: "Contribute to Bangladesh's infrastructure and construction growth through Structural Design, Civil, Site, MEP, Planning, Estimation, and Technical Supervision.",
+    },
+    {
+      title: "Project Management",
+      desc: "Lead projects from planning to execution: Construction Project Management, Operations Management, Program Coordination, and Project Controls.",
+    },
+    {
+      title: "Corporate Operations",
+      desc: "Build your career across Finance & Accounting, Sales & Business Development, Compliance, Management, and Executive leadership roles.",
+    },
+  ],
+  advantages: [
+    {
+      number: "01",
+      title: "Verified Employer Network",
+      subtitle: "Apply with greater confidence.",
+      desc: "We focus on opportunities from reputable organizations and established employers, reducing exposure to misleading vacancies. We want you to find opportunities worth pursuing.",
+    },
+    {
+      number: "02",
+      title: "Career Mentorship & CV Enhancement Guidance",
+      subtitle: "Present your experience with confidence.",
+      desc: "Support includes CV structure guidance, experience positioning, skills presentation, career direction discussions, interview preparation, and professional profile improvement.",
+    },
+    {
+      number: "03",
+      title: "Transparent Interview & Salary Negotiation Process",
+      subtitle: "Know what to expect as you move forward.",
+      desc: "Clear communication regarding job responsibilities, employer expectations, interview stages, employment conditions, and structured salary discussion support.",
+    },
+  ],
+  journey: [
+    { step: "01", title: "Registration", desc: "Create your candidate profile with experience, qualifications, skills, and career preferences." },
+    { step: "02", title: "Screening", desc: "Our recruitment team reviews your profile and connects to understand your objectives and preferred roles." },
+    { step: "03", title: "Interview", desc: "Meet the employer through coordinated initial, functional, and management interview stages with pre-briefings." },
+    { step: "04", title: "Placement", desc: "Support the transition toward joining, contract finalization, and long-term onboarding success." },
+  ],
+};
+
+/** Master Document: White-Collar Page Data */
+export const WHITE_COLLAR_DATA = {
+  header: {
+    title: "White-Collar & Professional Recruitment",
+    subtitle: "Connecting Exceptional Professionals with High-Impact Career Opportunities",
+    description:
+      "Executive search, specialist recruitment, and rigorous professional vetting for Bangladesh's most ambitious organizations. Kawaii Japan Career & HR helps MNCs, local conglomerates, technology companies, engineering consultancies, and financial institutions identify and secure high-caliber professionals across Bangladesh.",
+  },
+  practiceAreas: [
+    {
+      title: "IT, Software Engineering & Technology Leadership",
+      desc: "From DevOps & cloud engineering and technical architecture to VP Engineering and CTO appointments, we identify talent capable of supporting digital transformation.",
+    },
+    {
+      title: "Civil, Structural & Mechanical Engineering",
+      desc: "Engineering-intensive organizations require professionals whose qualifications translate into real project capability: MEP Engineers, Planning Specialists, and Project Directors.",
+    },
+    {
+      title: "Corporate Finance, Accounting & Legal",
+      desc: "Financial control, governance, compliance, and commercial decision-making: Finance Managers, Controllers, Internal Audit, Legal Counsel, and CFO appointments.",
+    },
+    {
+      title: "Operations, Supply Chain & Project Management",
+      desc: "Turning strategy into efficient execution: Operations Managers, Supply Chain & Procurement Specialists, Program Managers, and Operations Directors.",
+    },
+  ],
+  searchProcess: [
+    { step: "01", title: "Strategic Role Profiling & Cultural Fit Mapping", desc: "We define success before we begin the search, creating a precise search mandate rather than a generic job description." },
+    { step: "02", title: "Confidential Headhunting & Multi-Tier Screening", desc: "Targeted, discreet sourcing methodologies to identify professionals who may not be actively visible through public ads." },
+    { step: "03", title: "Technical Competency & Behavioral Evaluation", desc: "Evaluating problem-solving, leadership behavior, communication, stakeholder management, and role-specific competencies." },
+    { step: "04", title: "Placement, Offer Negotiation & Senior Onboarding", desc: "Facilitating compensation discussions, offer formalization, and senior-level onboarding support for lasting retention." },
+  ],
+  valueProps: [
+    { title: "Precision Matching for Critical Roles", desc: "Structured search reducing recruitment friction and accelerating time-to-fill." },
+    { title: "Strict Confidentiality for Executive Transitions", desc: "Professional discretion for sensitive replacements, new business entries, and strategic leadership changes." },
+    { title: "Replacement Guarantee & Long-Term Retention Tracking", desc: "Contractually backed replacement warranty and post-placement engagement to ensure cultural and functional alignment." },
+  ],
+};
+
+/** Master Document: Blue-Collar Page Data */
+export const BLUE_COLLAR_DATA = {
+  header: {
+    title: "Blue-Collar, Technical & Skilled Workforce Solutions",
+    subtitle: "Verified Skilled Talent. Disciplined Workforce. Rapid Deployment.",
+    description:
+      "Build your workforce with skilled professionals who are practically assessed, safety-oriented, and ready for the demands of real-world operations. We provide workforce solutions for construction, manufacturing plants, industrial facilities, logistics hubs, and facility management across Bangladesh.",
+  },
+  disciplines: [
+    {
+      title: "Construction & Structural Site Mechanics",
+      desc: "Skilled hands for demanding construction environments.",
+      roles: ["Welders", "Fabricators", "Fitters", "Electricians", "Masons", "Masonry Leads", "Steel Structure Workers", "Site Technicians", "Mechanical Technicians", "Skilled Site Supervisors"],
+    },
+    {
+      title: "Industrial Manufacturing & Assembly Line Technicians",
+      desc: "Reliable technical workers for production environments.",
+      roles: ["Assembly Technicians", "Production Technicians", "Machine Operators", "Line Operators", "QC Workers", "Industrial Technicians", "Fabrication Workers", "Production Supervisors"],
+    },
+    {
+      title: "Plant Maintenance & Heavy Machinery Operators",
+      desc: "Keep critical equipment operating with capable technical talent.",
+      roles: ["Maintenance Technicians", "Mechanical Maintenance", "Electrical Technicians", "Heavy Equipment Operators", "Plant Technicians", "Utility Technicians", "Maintenance Supervisors"],
+    },
+    {
+      title: "Logistics, Warehousing & Fleet Operations",
+      desc: "People who keep goods and operations moving.",
+      roles: ["Warehouse Workers", "Warehouse Supervisors", "Loading & Unloading Teams", "Inventory Support", "Material Handling", "Fleet Operations", "Drivers and Operators", "Logistics Coordinators"],
+    },
+  ],
+  qaPillars: [
+    { title: "Practical Trade Testing", desc: "Hands-on assessment examining tool familiarity, work-method knowledge, execution accuracy, and safety compliance before placement." },
+    { title: "Safety & 5S Discipline", desc: "Orientation incorporating Japanese 5S (Sort, Set in Order, Shine, Standardize, Sustain), PPE usage, and site discipline." },
+    { title: "Certification & Background Verification", desc: "Verification of trade certificates, work history, identity, and documented credentials." },
+  ],
+  models: [
+    { title: "Mass Permanent Placement", desc: "Coordinated recruitment for factories, new facilities, construction projects, and large-scale industrial expansions." },
+    { title: "Contractual & Project-Based Staffing", desc: "Flexible staffing for shutdowns, short-term assignments, seasonal production peaks, and specialized projects." },
+    { title: "Managed Payroll & Site Compliance", desc: "Full attendance tracking, documentation, payroll administration, and site workforce coordination." },
+  ],
+};
+
+/** Master Document: About Page Data */
+export const ABOUT_PAGE_DATA = {
+  header: {
+    title: "Redefining Talent Acquisition with Japanese Standard",
+    subtitle: "Connecting Bangladesh's leading organizations with high-caliber talent through precision, integrity, and a commitment to long-term success.",
+    description:
+      "Kawaii Japan Career & HR is a domestic HR and Talent Acquisition division of Kawaii Group, dedicated to helping organizations across Bangladesh build stronger teams and helping professionals discover meaningful career opportunities. We combine deep local talent-market reach with Japanese principles of precision, reliability, structural discipline, continuous improvement, and quality control.",
+  },
+  story: {
+    title: "Born From a Need for Greater Precision in Domestic Recruitment",
+    desc: "While Bangladesh has a growing pool of talented engineers, IT professionals, executives, and skilled specialists, organizations often face challenges in identifying candidates who truly match technical requirements and organizational culture. Our response combines Bangladesh's talent market understanding with Japanese operational precision.",
+  },
+  japaneseStandards: [
+    { title: "Methodical Screening", desc: "We look beyond a candidate's CV to understand relevant experience, technical capabilities, professional competencies, and role suitability." },
+    { title: "Structured Operations", desc: "Clearly defined recruitment stages create consistency, accountability, and efficiency throughout the hiring process." },
+    { title: "Integrity & Professionalism", desc: "Honest communication, responsible candidate representation, and strict confidentiality of recruitment data." },
+    { title: "Quality Control (Kaizen)", desc: "Continuous review and refinement of recruitment processes reflecting the Japanese philosophy of Kaizen." },
+    { title: "Long-Term Thinking", desc: "Placements designed to create lasting organizational stability and sustained professional career growth." },
+  ],
+  visionMission: {
+    vision: "To be Bangladesh's most trusted partner for corporate staffing, executive search, and career growth.",
+    mission: "Empowering local enterprises with top-tier talent while guiding professionals toward fulfilling, high-impact careers in Bangladesh.",
+  },
+  kawaiiAdvantages: [
+    { number: "01", title: "Methodical Talent Vetting", desc: "Multi-stage evaluation considering technical knowledge, functional competencies, behavioral suitability, and motivation." },
+    { number: "02", title: "Industry-Specific Expertise", desc: "Recruitment informed by the distinct technical demands of IT, Engineering, Manufacturing, and Corporate sectors." },
+    { number: "03", title: "Ethical & Transparent Practices", desc: "Strict adherence to Bangladesh labor standards, transparent communication, and zero hidden candidate fees." },
+    { number: "04", title: "Continuous Partnership", desc: "Post-placement onboarding coordination, retention tracking, and ongoing talent alignment." },
+  ],
+};
+
 
