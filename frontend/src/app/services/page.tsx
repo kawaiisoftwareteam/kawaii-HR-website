@@ -36,7 +36,7 @@ const primaryServices = [
     image: "/images/gallery_corporate_consultant.jpg",
     description:
       "We identify and approach experienced professionals for critical leadership, department heads, and confidential senior management positions.",
-    href: "/white-collar",
+    href: "/for-businesses#white-collar",
   },
   {
     id: "it-software",
@@ -63,7 +63,7 @@ const primaryServices = [
     image: "/images/bpo_industry.jpg",
     description:
       "Workforce flexibility for project spikes, factory expansion, and seasonal demands with managed payroll and compliance administration.",
-    href: "/blue-collar",
+    href: "/for-businesses#blue-collar",
   },
   {
     id: "corporate-training",

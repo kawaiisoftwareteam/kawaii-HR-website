@@ -68,12 +68,26 @@ export default function ForJobSeekersPage() {
       />
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0B0D12] text-white overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 japanese-grid-pattern opacity-25 pointer-events-none" />
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#A71728]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Hero — video background */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 text-white overflow-hidden border-b border-white/10 min-h-[70vh] flex items-center">
+        <div className="absolute inset-0 pointer-events-none">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover object-center"
+          >
+            <source
+              src="/for%20job%20seker/jobseeker.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full">
           <div className="max-w-4xl space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -99,7 +113,7 @@ export default function ForJobSeekersPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-3xl"
+              className="text-base sm:text-lg md:text-xl text-white/85 font-light leading-relaxed max-w-3xl"
             >
               {JOB_SEEKER_DATA.header.description}
             </motion.p>

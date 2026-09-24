@@ -16,8 +16,7 @@ const primaryLinks = [
   { label: "Home", href: "/" },
   { label: "For Businesses", href: "/for-businesses" },
   { label: "For Job Seekers", href: "/for-job-seekers" },
-  { label: "White Collar", href: "/white-collar" },
-  { label: "Blue Collar", href: "/blue-collar" },
+  { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

@@ -1699,7 +1699,7 @@ export const DOMESTIC_HR_SERVICES = [
       "Confidential executive appointments",
       "Specialized headhunting mandates",
     ],
-    href: "/white-collar",
+    href: "/for-businesses#white-collar",
   },
   {
     id: "it-software",
@@ -1755,7 +1755,7 @@ export const DOMESTIC_HR_SERVICES = [
       "Payroll administration",
       "Employee documentation and coordination",
     ],
-    href: "/blue-collar",
+    href: "/for-businesses#blue-collar",
   },
   {
     id: "corporate-training",

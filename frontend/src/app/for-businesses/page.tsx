@@ -19,7 +19,11 @@ import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { RedButton } from "@/components/ui/RedButton";
-import { BUSINESS_SOLUTIONS, DOMESTIC_HR_SERVICES } from "@/data/companyData";
+import {
+  BUSINESS_SOLUTIONS,
+  WHITE_COLLAR_DATA,
+  BLUE_COLLAR_DATA,
+} from "@/data/companyData";
 
 export default function ForBusinessesPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -247,6 +251,105 @@ export default function ForBusinessesPage() {
                     {sol.desc}
                   </p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* White Collar */}
+      <section id="white-collar" className="py-24 md:py-32 bg-white border-b border-black/5 scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="max-w-3xl mb-14 space-y-3">
+            <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
+              White Collar
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-black">
+              {WHITE_COLLAR_DATA.header.title}
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+              {WHITE_COLLAR_DATA.header.description}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {WHITE_COLLAR_DATA.practiceAreas.map((area) => (
+              <div
+                key={area.title}
+                className="p-6 bg-[#F9FAFB] border border-gray-200 space-y-2"
+              >
+                <h3 className="text-base font-bold uppercase tracking-tight text-black">
+                  {area.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                  {area.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {WHITE_COLLAR_DATA.valueProps.map((vp) => (
+              <div key={vp.title} className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#A71728] shrink-0" />
+                  <h4 className="text-sm font-bold uppercase text-black">{vp.title}</h4>
+                </div>
+                <p className="text-xs text-gray-600 font-light leading-relaxed pl-6">
+                  {vp.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blue Collar */}
+      <section id="blue-collar" className="py-24 md:py-32 bg-[#0E1015] text-white border-b border-white/10 scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="max-w-3xl mb-14 space-y-3">
+            <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
+              Blue Collar
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white">
+              {BLUE_COLLAR_DATA.header.title}
+            </h2>
+            <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+              {BLUE_COLLAR_DATA.header.description}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {BLUE_COLLAR_DATA.disciplines.map((d) => (
+              <div
+                key={d.title}
+                className="p-6 bg-white/[0.03] border border-white/10 space-y-3"
+              >
+                <h3 className="text-base font-bold uppercase tracking-tight text-white">
+                  {d.title}
+                </h3>
+                <p className="text-xs text-white/60 font-light">{d.desc}</p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {d.roles.slice(0, 6).map((r) => (
+                    <span
+                      key={r}
+                      className="px-2 py-1 border border-white/15 text-[10px] uppercase tracking-wide text-white/70"
+                    >
+                      {r}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {BLUE_COLLAR_DATA.models.map((m) => (
+              <div key={m.title} className="space-y-2 border-t border-white/10 pt-4">
+                <h4 className="text-sm font-bold uppercase text-white">{m.title}</h4>
+                <p className="text-xs text-white/60 font-light leading-relaxed">
+                  {m.desc}
+                </p>
               </div>
             ))}
           </div>

@@ -19,9 +19,9 @@ const exploreLinks = [
 
 const audienceLinks = [
   { label: "For Businesses", href: "/for-businesses" },
+  { label: "White Collar Recruitment", href: "/for-businesses#white-collar" },
+  { label: "Blue Collar Workforce", href: "/for-businesses#blue-collar" },
   { label: "For Job Seekers", href: "/for-job-seekers" },
-  { label: "White Collar Recruitment", href: "/white-collar" },
-  { label: "Blue Collar Workforce", href: "/blue-collar" },
   { label: "Enterprise Consultation", href: "/for-businesses#inquiry-form" },
   { label: "Candidate Registration", href: "/for-job-seekers#register-form" },
 ];
