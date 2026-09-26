@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import { Chatbot } from "@/components/ui/Chatbot";
 import "./globals.css";
 
 const jost = Jost({
@@ -114,7 +115,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#FFFFFF] text-[#111111] font-sans selection:bg-[#A71728] selection:text-white flex flex-col overflow-x-hidden">
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <Chatbot />
+        </AuthProvider>
       </body>
     </html>
   );
