@@ -43,6 +43,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
     },
+    ...[
+      "recruitment",
+      "payroll",
+      "managed-service",
+      "peo-eor",
+      "hr-outsourcing",
+      "bpo-rpo",
+      "immigration",
+      "remote-staffing",
+    ].map((slug) => ({
+      url: `${baseUrl}/services/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
     // Local BD HR company — Japan Jobs hidden for now
     // {
     //   url: `${baseUrl}/japan-jobs`,

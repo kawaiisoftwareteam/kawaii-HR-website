@@ -25,56 +25,10 @@ import {
   EMPLOYER_PROCESS,
   JOB_SEEKER_PROCESS,
 } from "@/data/companyData";
+import { SERVICE_CATEGORIES } from "@/data/serviceCategories";
 
 const MODULE_ICONS = [Building2, UserRound, Workflow, Wrench];
 
-const primaryServices = [
-  {
-    id: "executive-search",
-    title: "EXECUTIVE SEARCH & C-SUITE",
-    subtitle: "Leadership Talent for High-Impact Roles",
-    image: "/images/gallery_corporate_consultant.jpg",
-    description:
-      "We identify and approach experienced professionals for critical leadership, department heads, and confidential senior management positions.",
-    href: "/for-businesses#white-collar",
-  },
-  {
-    id: "it-software",
-    title: "IT & SOFTWARE ENGINEERING",
-    subtitle: "Technology Teams Behind Your Growth",
-    image: "/images/japanese_office_team.jpg",
-    description:
-      "Access qualified software engineers, developers, DevOps, QA, and engineering management across Bangladesh's competitive tech ecosystem.",
-    href: "/for-businesses",
-  },
-  {
-    id: "engineering",
-    title: "CIVIL, MECHANICAL & STRUCTURAL",
-    subtitle: "Infrastructure & Industrial Expertise",
-    image: "/images/executive_interview.jpg",
-    description:
-      "Recruitment for civil, structural, mechanical, MEP, site engineers, and project directors for construction and plant developments.",
-    href: "/for-businesses",
-  },
-  {
-    id: "contract-staffing",
-    title: "TEMPORARY STAFFING & PAYROLL",
-    subtitle: "Flexible Workforce Solutions",
-    image: "/images/bpo_industry.jpg",
-    description:
-      "Workforce flexibility for project spikes, factory expansion, and seasonal demands with managed payroll and compliance administration.",
-    href: "/for-businesses#blue-collar",
-  },
-  {
-    id: "corporate-training",
-    title: "CORPORATE TRAINING & DEVELOPMENT",
-    subtitle: "Turn Talent into Organizational Capability",
-    image: "/images/japan_bangladesh_partnership.jpg",
-    description:
-      "Leadership upskilling, technical training, workplace communication, and Kaizen organizational development initiatives.",
-    href: "/about",
-  },
-];
 
 export default function ServicesPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -146,7 +100,7 @@ export default function ServicesPage() {
             </h1>
             <p className="mt-5 sm:mt-6 text-base sm:text-xl md:text-2xl text-white/95 max-w-3xl font-light leading-relaxed drop-shadow-sm">
               Domestic talent acquisition for Bangladesh — employers, professionals,
-              and skilled workers connected through Japanese-standard recruitment
+              and skilled workers connected through structured recruitment
               discipline.
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-10">
@@ -191,7 +145,7 @@ export default function ServicesPage() {
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 pt-2 text-[11px] tracking-[0.14em] uppercase text-gray-500">
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-[#A71728]" />
-              Japanese Corporate Standards
+              Bangladesh HR, built for local employers
             </span>
             <span>Sister Concern of Kawaii Group</span>
           </div>
@@ -303,84 +257,46 @@ export default function ServicesPage() {
               <span className="font-light">/</span>
             </div>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-              Staffing and advisory services that sit on top of the platform —
-              permanent, contract, outsourcing, executive search, and more.
+              Eight practice areas — recruitment through remote staffing — each
+              with its own page, process, and inquiry path.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {primaryServices.slice(0, 3).map((service) => (
-              <article
-                key={service.id}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {SERVICE_CATEGORIES.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
                 className="group flex flex-col bg-white rounded-2xl border-2 border-[#F0A8AE] overflow-hidden shadow-sm hover:shadow-xl hover:border-[#A71728]/50 transition-all duration-300"
               >
-                <div className="relative aspect-[16/11] w-full overflow-hidden bg-gray-100">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
                   <Image
-                    src={service.image}
+                    src={service.heroImage}
                     alt={service.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <span className="absolute top-3 left-3 text-[11px] font-black tracking-widest text-white bg-[#A71728] px-2.5 py-1">
+                    {service.number}
+                  </span>
                 </div>
-                <div className="p-6 sm:p-7 flex flex-col flex-1 space-y-3">
-                  <h3 className="text-lg sm:text-xl font-black text-[#A71728] uppercase tracking-wide">
-                    {service.title}
+                <div className="p-6 sm:p-8 flex flex-col flex-1 space-y-3">
+                  <h3 className="text-xl sm:text-2xl font-black text-[#A71728] uppercase tracking-wide">
+                    {service.navLabel}
                   </h3>
-                  <p className="text-base sm:text-lg font-bold text-gray-950">
-                    {service.subtitle}
+                  <p className="text-lg font-bold text-gray-950">
+                    {service.tagline}
                   </p>
-                  <p className="text-sm sm:text-[15px] text-gray-700 leading-relaxed flex-1">
-                    {service.description}
+                  <p className="text-base text-gray-700 leading-relaxed flex-1">
+                    {service.summary}
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => handleOpenModal("employer")}
-                    className="pt-3 mt-auto border-t border-gray-100 text-sm font-bold uppercase tracking-wider text-[#A71728] hover:text-black transition-colors inline-flex items-center gap-1.5 self-start"
-                  >
-                    Inquire Now
+                  <span className="pt-3 mt-auto border-t border-gray-100 text-sm font-bold uppercase tracking-wider text-[#A71728] group-hover:text-black transition-colors inline-flex items-center gap-1.5">
+                    Open {service.navLabel}
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </span>
                 </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {primaryServices.slice(3, 6).map((service) => (
-              <article
-                key={service.id}
-                className="group flex flex-col bg-white rounded-2xl border-2 border-[#F0A8AE] overflow-hidden shadow-sm hover:shadow-xl hover:border-[#A71728]/50 transition-all duration-300"
-              >
-                <div className="relative aspect-[16/11] w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6 sm:p-7 flex flex-col flex-1 space-y-3">
-                  <h3 className="text-lg sm:text-xl font-black text-[#A71728] uppercase tracking-wide">
-                    {service.title}
-                  </h3>
-                  <p className="text-base sm:text-lg font-bold text-gray-950">
-                    {service.subtitle}
-                  </p>
-                  <p className="text-sm sm:text-[15px] text-gray-700 leading-relaxed flex-1">
-                    {service.description}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => handleOpenModal("employer")}
-                    className="pt-3 mt-auto border-t border-gray-100 text-sm font-bold uppercase tracking-wider text-[#A71728] hover:text-black transition-colors inline-flex items-center gap-1.5 self-start"
-                  >
-                    Inquire Now
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -434,7 +350,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Recruitment workflow — PRD aligned */}
-      <section className="bg-gradient-to-b from-white to-[#FAFAFA] py-16 md:py-24 border-t border-gray-100">
+      <section id="workflow" className="bg-gradient-to-b from-white to-[#FAFAFA] py-16 md:py-24 border-t border-gray-100 scroll-mt-24">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 space-y-10">
           <div className="text-center space-y-4">
             <div className="inline-flex items-center justify-center gap-3 text-2xl sm:text-4xl md:text-5xl font-black text-[#A71728] tracking-widest uppercase">

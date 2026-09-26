@@ -10,11 +10,22 @@ import { COMPANY_INFO } from "@/data/companyData";
 const exploreLinks = [
   { label: "About Us", href: "/about" },
   { label: "Domestic HR Services", href: "/services" },
-  { label: "Recruitment Workflow", href: "/#process" },
+  { label: "Recruitment Workflow", href: "/services#workflow" },
   { label: "Why Partner With Us", href: "/#why-us" },
   { label: "News & Articles", href: "/news" },
   { label: "Frequently Asked Questions", href: "/contact#faq" },
   { label: "Contact & Desks", href: "/contact" },
+];
+
+const serviceLinks = [
+  { label: "Recruitment & Talent", href: "/services/recruitment" },
+  { label: "Payroll & Workforce", href: "/services/payroll" },
+  { label: "Managed Service", href: "/services/managed-service" },
+  { label: "PEO & EOR", href: "/services/peo-eor" },
+  { label: "HR Outsourcing", href: "/services/hr-outsourcing" },
+  { label: "BPO & RPO", href: "/services/bpo-rpo" },
+  { label: "Immigration & Visa", href: "/services/immigration" },
+  { label: "Remote Staffing", href: "/services/remote-staffing" },
 ];
 
 const audienceLinks = [
@@ -108,6 +119,24 @@ export function Footer() {
 
           <div className="lg:col-span-3 space-y-4">
             <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
+              Services
+            </div>
+            <ul className="space-y-2.5">
+              {serviceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2 space-y-4">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
               Audiences
             </div>
             <ul className="space-y-2.5">
@@ -124,7 +153,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
               Head Office
             </div>

@@ -742,6 +742,15 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     image: "/images/bpo_industry.jpg",
     roles: ["Bilingual Support Leads", "Operations Managers", "Data Analysts", "Client Success Heads"],
   },
+  {
+    id: "energy",
+    number: "09",
+    title: "Oil, Gas, Power & Energy",
+    subtitle: "Plant, Project & HSE Talent",
+    description: "Recruiting operations, project controls, HSE, and technical specialists for energy operators, EPCs, and utilities in Bangladesh.",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+    roles: ["Plant Managers", "HSE Specialists", "Project Controls", "Electrical / Mechanical Engineers"],
+  },
 ];
 
 export const EMPLOYER_PROCESS: ProcessStep[] = [
@@ -1859,6 +1868,12 @@ export const BUSINESS_SOLUTIONS = {
       title: "Corporate Operations, Finance & Administration",
       desc: "Strong organizations depend on the professionals behind their financial discipline, operational efficiency, governance, and day-to-day execution.",
       roles: ["Finance & Accounting", "Corporate Operations", "Administration", "Procurement", "Sales & BD", "Legal & Compliance", "Executive Leadership"],
+    },
+    {
+      id: "energy",
+      title: "Oil, Gas, Power & Energy",
+      desc: "Energy operators, EPCs, and utilities need plant, project, HSE, and technical specialists who can work to site discipline — not just a CV match.",
+      roles: ["Plant Operations", "HSE", "Project Controls", "Electrical / Mechanical", "Commissioning"],
     },
   ],
   specializedSolutions: [
