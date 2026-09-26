@@ -5,20 +5,11 @@ import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
-import { AboutSection } from "@/components/sections/AboutSection";
+import { DualAudience } from "@/components/sections/DualAudience";
 import { ProductModules } from "@/components/sections/ProductModules";
-import { EmployerFocus } from "@/components/sections/EmployerFocus";
-import { JobSeekerFocus } from "@/components/sections/JobSeekerFocus";
-import { SkilledWorkforce } from "@/components/sections/SkilledWorkforce";
-import { ExpertiseSection } from "@/components/sections/ExpertiseSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-import { PlatformCapabilities } from "@/components/sections/PlatformCapabilities";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { JapaneseSystem } from "@/components/sections/JapaneseSystem";
-import { SuccessMetrics } from "@/components/sections/SuccessMetrics";
-import { PhilosophySection } from "@/components/sections/PhilosophySection";
-import { GallerySection } from "@/components/sections/GallerySection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -33,75 +24,44 @@ export default function HomePage() {
     setModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
-
   return (
     <main className="relative min-h-screen bg-premium-white text-black selection:bg-[#A71728] selection:text-white font-sans overflow-x-hidden">
       <ApplicationModal
         isOpen={modalOpen}
-        onClose={handleCloseModal}
+        onClose={() => setModalOpen(false)}
         initialTab={modalTab}
       />
 
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* 01: Hero */}
+      {/* 1. Hook */}
       <HeroSection onOpenModal={handleOpenModal} />
 
-      {/* 02: Product Overview + Core Objectives + Metrics */}
+      {/* 2. Proof */}
       <StatsSection />
 
-      {/* 03: About & Company Profile */}
-      <AboutSection onOpenModal={handleOpenModal} />
+      {/* 3. Pick a path → /for-businesses | /for-job-seekers */}
+      <DualAudience />
 
-      {/* 04: Four Product Modules */}
+      {/* 4. What we offer → /services */}
       <ProductModules onOpenModal={handleOpenModal} />
 
-      {/* 06: Employers */}
-      <EmployerFocus onOpenModal={handleOpenModal} />
-
-      {/* 07: Professional Candidates */}
-      <JobSeekerFocus onOpenModal={handleOpenModal} />
-
-      {/* 08: Skilled Workforce (third audience) */}
-      <SkilledWorkforce onOpenModal={handleOpenModal} />
-
-      {/* 09: Domain Expertise */}
-      <ExpertiseSection onOpenModal={handleOpenModal} />
-
-      {/* 10: Industries */}
+      {/* 5. Where we hire */}
       <IndustriesSection onOpenModal={handleOpenModal} />
 
-      {/* 11: Recruitment Workflow */}
+      {/* 6. How it works */}
       <ProcessSection onOpenModal={handleOpenModal} />
 
-      {/* 12: Core Business Requirements + Quality Standards */}
-      <PlatformCapabilities />
-
-      {/* 13: Why Choose Us */}
+      {/* 7. Why us */}
       <WhyChooseUs onOpenModal={handleOpenModal} />
 
-      {/* 14: Japanese Principles */}
-      <JapaneseSystem />
-
-      {/* 15: Success Metrics / KPIs */}
-      <SuccessMetrics onOpenModal={handleOpenModal} />
-
-      {/* 16: Philosophy */}
-      <PhilosophySection onOpenModal={handleOpenModal} />
-
-      {/* 17: Gallery */}
-      <GallerySection />
-
-      {/* 18: Testimonials */}
+      {/* 8. Social proof */}
       <TestimonialsSection />
 
-      {/* 19: FAQ */}
+      {/* 9. Questions */}
       <FaqSection />
 
-      {/* 20: Contact */}
+      {/* 10. Act */}
       <ContactSection onOpenModal={handleOpenModal} />
 
       <Footer />

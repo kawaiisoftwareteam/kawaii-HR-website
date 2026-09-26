@@ -254,11 +254,11 @@ export function ServiceCategoryView({ category }: { category: ServiceCategory })
         </section>
       )}
 
-      <section className="py-16 bg-[#0B0D12] text-white">
+      <section className="py-16 bg-premium-light text-[#111] border-t border-black/8">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <h2 className="text-2xl sm:text-3xl font-extrabold uppercase">{category.cta.title}</h2>
-            <p className="text-base text-white/75 leading-relaxed">{category.cta.desc}</p>
+            <p className="text-base text-gray-600 leading-relaxed">{category.cta.desc}</p>
           </div>
           <button
             type="button"

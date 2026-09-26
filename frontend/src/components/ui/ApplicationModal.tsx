@@ -64,7 +64,7 @@ export function ApplicationModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/85 backdrop-blur-md"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm"
           />
 
           {/* Modal Card */}
@@ -73,7 +73,7 @@ export function ApplicationModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-2xl bg-[#0F0F0F] border border-white/15 text-white p-6 md:p-10 shadow-2xl z-10 my-auto"
+            className="relative w-full max-w-2xl bg-white border border-black/10 text-[#111] p-6 md:p-10 shadow-2xl z-10 my-auto"
           >
             {/* Red Accent Header Line */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-[#A71728]" />
@@ -81,7 +81,7 @@ export function ApplicationModal({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 p-2 text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+              className="absolute top-5 right-5 p-2 text-gray-400 hover:text-black hover:bg-black/5 transition-colors"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -96,7 +96,7 @@ export function ApplicationModal({
                   <h3 className="text-2xl md:text-3xl font-bold tracking-tight uppercase">
                     Inquiry Received
                   </h3>
-                  <p className="text-white/70 text-sm max-w-md mx-auto leading-relaxed">
+                  <p className="text-gray-600 text-sm max-w-md mx-auto leading-relaxed">
                     Thank you for connecting with Kawaii Japan Career & HR. Our recruitment specialists will contact you within 24 business hours.
                   </p>
                 </div>
@@ -118,7 +118,7 @@ export function ApplicationModal({
                   <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase">
                     {activeTab === "employer" ? "Hire Exceptional Talent" : "Explore Career Opportunities"}
                   </h2>
-                  <p className="text-xs md:text-sm text-white/60">
+                  <p className="text-xs md:text-sm text-gray-500">
                     {activeTab === "employer"
                       ? "Submit your organizational hiring requirements to access verified technical and executive talent."
                       : "Submit your profile to be matched with premier enterprises across Bangladesh."}
@@ -126,14 +126,14 @@ export function ApplicationModal({
                 </div>
 
                 {/* Tabs */}
-                <div className="flex border-b border-white/10 mb-6">
+                <div className="flex border-b border-black/10 mb-6">
                   <button
                     type="button"
                     onClick={() => setActiveTab("employer")}
                     className={`flex items-center space-x-2 pb-3 px-4 text-xs md:text-sm font-semibold tracking-wider uppercase border-b-2 transition-all ${
                       activeTab === "employer"
-                        ? "border-[#A71728] text-white"
-                        : "border-transparent text-white/40 hover:text-white/80"
+                        ? "border-[#A71728] text-[#111]"
+                        : "border-transparent text-gray-400 hover:text-[#111]"
                     }`}
                   >
                     <Building2 className="w-4 h-4" />
@@ -144,8 +144,8 @@ export function ApplicationModal({
                     onClick={() => setActiveTab("jobseeker")}
                     className={`flex items-center space-x-2 pb-3 px-4 text-xs md:text-sm font-semibold tracking-wider uppercase border-b-2 transition-all ${
                       activeTab === "jobseeker"
-                        ? "border-[#A71728] text-white"
-                        : "border-transparent text-white/40 hover:text-white/80"
+                        ? "border-[#A71728] text-[#111]"
+                        : "border-transparent text-gray-400 hover:text-[#111]"
                     }`}
                   >
                     <User className="w-4 h-4" />
@@ -159,48 +159,48 @@ export function ApplicationModal({
                     <>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Organization Name *
                           </label>
                           <input
                             required
                             type="text"
                             placeholder="e.g., Tokyo Precision Systems"
-                            className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Contact Person & Title *
                           </label>
                           <input
                             required
                             type="text"
                             placeholder="e.g., Takeshi Mori, HR Director"
-                            className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Corporate Email *
                           </label>
                           <input
                             required
                             type="email"
                             placeholder="name@company.com"
-                            className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Industry Sector *
                           </label>
                           <select
                             required
-                            className="w-full bg-[#1A1A1A] border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           >
                             <option value="">Select Industry</option>
                             <option value="it">Information Technology</option>
@@ -216,13 +216,13 @@ export function ApplicationModal({
                       </div>
 
                       <div>
-                        <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                        <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                           Key Roles Needed & Specifications
                         </label>
                         <textarea
                           rows={3}
                           placeholder="Specify job titles, required technical skills, Japanese proficiency, or number of candidates..."
-                          className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors resize-none"
+                          className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors resize-none"
                         />
                       </div>
                     </>
@@ -230,47 +230,47 @@ export function ApplicationModal({
                     <>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Full Name *
                           </label>
                           <input
                             required
                             type="text"
                             placeholder="e.g., Tariqul Islam"
-                            className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Email Address *
                           </label>
                           <input
                             required
                             type="email"
                             placeholder="name@email.com"
-                            className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Primary Discipline / Role *
                           </label>
                           <input
                             required
                             type="text"
                             placeholder="e.g., Senior Full Stack Engineer"
-                            className="w-full bg-white/5 border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                          <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                             Years of Experience
                           </label>
                           <select
-                            className="w-full bg-[#1A1A1A] border border-white/15 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#A71728] transition-colors"
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
                           >
                             <option value="entry">Fresh Graduate / 0-1 Year</option>
                             <option value="mid">1 - 3 Years</option>
@@ -281,12 +281,12 @@ export function ApplicationModal({
                       </div>
 
                       <div>
-                        <label className="block text-[11px] uppercase tracking-wider font-semibold text-white/60 mb-1">
+                        <label className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mb-1">
                           Attach CV / Portfolio Link
                         </label>
-                        <div className="border border-dashed border-white/20 p-4 text-center hover:border-[#A71728] transition-colors cursor-pointer bg-white/[0.02]">
-                          <Upload className="w-5 h-5 mx-auto text-white/50 mb-1" />
-                          <span className="text-xs text-white/70">
+                        <div className="border border-dashed border-black/15 p-4 text-center hover:border-[#A71728] transition-colors cursor-pointer bg-[#F7F7F8]">
+                          <Upload className="w-5 h-5 mx-auto text-gray-400 mb-1" />
+                          <span className="text-xs text-gray-600">
                             Click to upload PDF or paste Google Drive / LinkedIn link
                           </span>
                         </div>
@@ -295,7 +295,7 @@ export function ApplicationModal({
                   )}
 
                   <div className="pt-3 flex items-center justify-between">
-                    <span className="text-[11px] text-white/40">
+                    <span className="text-[11px] text-gray-400">
                       * Required fields. Strict confidentiality guaranteed.
                     </span>
                     <RedButton

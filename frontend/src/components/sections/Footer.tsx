@@ -8,13 +8,13 @@ import { ArrowUp, MapPin, Mail, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyData";
 
 const exploreLinks = [
+  { label: "Home", href: "/" },
+  { label: "For Businesses", href: "/for-businesses" },
+  { label: "For Job Seekers", href: "/for-job-seekers" },
+  { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
-  { label: "Domestic HR Services", href: "/services" },
-  { label: "Recruitment Workflow", href: "/services#workflow" },
-  { label: "Why Partner With Us", href: "/#why-us" },
-  { label: "News & Articles", href: "/news" },
-  { label: "Frequently Asked Questions", href: "/contact#faq" },
-  { label: "Contact & Desks", href: "/contact" },
+  { label: "News", href: "/news" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const serviceLinks = [
@@ -29,12 +29,12 @@ const serviceLinks = [
 ];
 
 const audienceLinks = [
-  { label: "For Businesses", href: "/for-businesses" },
-  { label: "White Collar Recruitment", href: "/for-businesses#white-collar" },
-  { label: "Blue Collar Workforce", href: "/for-businesses#blue-collar" },
-  { label: "For Job Seekers", href: "/for-job-seekers" },
-  { label: "Enterprise Consultation", href: "/for-businesses#inquiry-form" },
-  { label: "Candidate Registration", href: "/for-job-seekers#register-form" },
+  { label: "Hire Talent", href: "/for-businesses" },
+  { label: "White Collar", href: "/for-businesses#white-collar" },
+  { label: "Blue Collar", href: "/for-businesses#blue-collar" },
+  { label: "Find a Role", href: "/for-job-seekers" },
+  { label: "Employer Inquiry", href: "/for-businesses#inquiry-form" },
+  { label: "Candidate Register", href: "/for-job-seekers#register-form" },
 ];
 
 export function Footer() {

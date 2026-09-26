@@ -194,16 +194,16 @@ export default function ForJobSeekersPage() {
       </section>
 
       {/* The Kawaii Candidate Advantage */}
-      <section className="py-24 md:py-32 bg-[#0E1015] text-white border-b border-white/10">
+      <section className="py-24 md:py-32 bg-premium-light text-[#111] border-b border-black/8">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="max-w-3xl mb-16 space-y-3">
             <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
               Candidate Advocacy
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#111]">
               The Kawaii Candidate Advantage
             </h2>
-            <p className="text-sm sm:text-base text-white/70 font-light">
+            <p className="text-sm sm:text-base text-gray-600 font-light">
               A Career Partner That Puts You First. No guesswork, no misleading vacancies—just structured career support.
             </p>
           </div>
@@ -212,17 +212,17 @@ export default function ForJobSeekersPage() {
             {JOB_SEEKER_DATA.advantages.map((adv) => (
               <div
                 key={adv.number}
-                className="p-8 bg-white/[0.03] border border-white/10 hover:border-[#A71728]/70 transition-all flex flex-col justify-between"
+                className="p-8 bg-white border border-black/8 hover:border-[#A71728]/50 transition-all flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <span className="text-3xl font-black text-[#A71728]">{adv.number}</span>
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-white">
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-[#111]">
                     {adv.title}
                   </h3>
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#A71728]">
                     {adv.subtitle}
                   </p>
-                  <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                     {adv.desc}
                   </p>
                 </div>

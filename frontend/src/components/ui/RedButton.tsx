@@ -35,13 +35,13 @@ export function RedButton({
 
   const variantClasses = {
     primary:
-      "bg-[#A71728] text-white hover:bg-black border border-[#A71728] hover:border-black shadow-lg hover:shadow-red-950/20",
+      "bg-[#A71728] text-white hover:bg-[#8e1321] border border-[#A71728] hover:border-[#8e1321] shadow-sm",
     outline:
-      "bg-transparent text-white border border-white/30 hover:border-[#A71728] hover:text-white",
+      "bg-transparent text-[#111] border border-black/20 hover:border-[#A71728] hover:text-[#A71728]",
     white:
       "bg-white text-black hover:bg-[#A71728] hover:text-white border border-white hover:border-[#A71728]",
     dark:
-      "bg-[#0A0A0A] text-white hover:bg-[#A71728] border border-white/10 hover:border-[#A71728]",
+      "bg-[#A71728] text-white hover:bg-[#8e1321] border border-[#A71728]",
     ghost:
       "bg-transparent text-black hover:text-[#A71728] border-b border-black/20 hover:border-[#A71728] px-0 py-1",
   };

@@ -79,7 +79,7 @@ export function ProcessSection({
         </div>
 
         {/* Bottom CTA Bar */}
-        <div className="mt-16 p-8 bg-black text-white flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="mt-16 p-8 bg-[#FFF5F5] border border-[#A71728]/15 text-[#111] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-1">
             <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
               Ready to Hire Better Talent?
@@ -102,7 +102,7 @@ export function ProcessSection({
               variant="outline"
               size="md"
               onClick={() => onOpenModal("jobseeker")}
-              className="!border-white/40 text-white hover:!bg-white/10 text-xs sm:text-sm font-bold"
+              className="text-xs sm:text-sm font-bold"
             >
               Explore Local Careers
             </RedButton>

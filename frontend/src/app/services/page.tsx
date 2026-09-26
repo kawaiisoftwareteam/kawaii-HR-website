@@ -329,7 +329,7 @@ export default function ServicesPage() {
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <Link
-                  href="/#skilled-workforce"
+                  href="/for-businesses#blue-collar"
                   className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-[#111] border border-gray-300 hover:border-[#A71728] transition-all"
                 >
                   Learn More

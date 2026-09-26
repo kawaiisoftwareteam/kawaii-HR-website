@@ -319,21 +319,21 @@ export function Chatbot() {
                     ))}
                   </ul>
                   {(lastCta || role) && (
-                    <div className="flex items-center justify-between gap-3 border-t border-black/8 bg-[#0A0A0A] px-4 py-3">
+                    <div className="flex items-center justify-between gap-3 border-t border-black/8 bg-[#F7F5F3] px-4 py-3">
                       {lastCta ? (
                         <Link
                           href={lastCta.href}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-white transition hover:text-[#A71728]"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#A71728] transition hover:text-[#8e1321]"
                         >
                           {lastCta.label}
                           <ArrowUpRight className="h-3.5 w-3.5" />
                         </Link>
                       ) : (
-                        <span className="text-[11px] text-white/40">Need a human?</span>
+                        <span className="text-[11px] text-gray-400">Need a human?</span>
                       )}
                       <a
                         href={`mailto:${email}`}
-                        className="truncate text-[11px] text-white/45 hover:text-white"
+                        className="truncate text-[11px] text-gray-500 hover:text-[#111]"
                       >
                         {email}
                       </a>

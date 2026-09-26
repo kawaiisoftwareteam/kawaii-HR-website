@@ -34,7 +34,7 @@
 
   html {
     font-family: var(--font-jost), sans-serif;
-    color-scheme: light dark;
+    color-scheme: light;
   }
 
   body {
@@ -62,11 +62,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #F3F4F6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: #C4C4C8;
   border-radius: 3px;
 }
 

@@ -52,22 +52,22 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Official Corporate Registry & Headquarters Info */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="p-8 bg-black text-white space-y-6 shadow-2xl relative">
+            <div className="p-8 bg-white text-[#111] space-y-6 border border-black/8 relative">
               <div className="absolute top-0 left-0 right-0 h-1 bg-[#A71728]" />
 
               <div className="space-y-1">
                 <div className="text-[10px] uppercase font-bold tracking-widest text-[#A71728]">
                   CORPORATE HEADQUARTERS
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-white">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#111]">
                   {COMPANY_INFO.name}
                 </h3>
-                <div className="text-xs text-white/50 tracking-wider">
+                <div className="text-xs text-gray-500 tracking-wider">
                   Sister Concern of {COMPANY_INFO.group}
                 </div>
               </div>
 
-              <div className="space-y-4 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/80">
+              <div className="space-y-4 pt-4 border-t border-black/8 text-xs sm:text-sm text-gray-700">
                 {/* Address */}
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-4 h-4 text-[#A71728] shrink-0 mt-0.5" />
@@ -78,7 +78,7 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
                 <div className="flex items-center space-x-3">
                   <Calendar className="w-4 h-4 text-[#A71728] shrink-0" />
                   <span>
-                    Established: <strong className="text-white font-medium">{COMPANY_INFO.establishedYear}</strong>
+                    Established: <strong className="text-[#111] font-medium">{COMPANY_INFO.establishedYear}</strong>
                   </span>
                 </div>
 
@@ -86,7 +86,7 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
                 <div className="flex items-center space-x-3">
                   <User className="w-4 h-4 text-[#A71728] shrink-0" />
                   <span>
-                    Chairman: <strong className="text-white font-medium">{COMPANY_INFO.chairman}</strong>
+                    Chairman: <strong className="text-[#111] font-medium">{COMPANY_INFO.chairman}</strong>
                   </span>
                 </div>
 
@@ -94,7 +94,7 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
                 <div className="flex items-center space-x-3">
                   <User className="w-4 h-4 text-[#A71728] shrink-0" />
                   <span>
-                    Managing Director: <strong className="text-white/70 font-medium">{COMPANY_INFO.managingDirector}</strong>
+                    Managing Director: <strong className="text-gray-600 font-medium">{COMPANY_INFO.managingDirector}</strong>
                   </span>
                 </div>
 
@@ -102,13 +102,13 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
                 <div className="flex items-center space-x-3">
                   <Landmark className="w-4 h-4 text-[#A71728] shrink-0" />
                   <span>
-                    Institutional Bank: <strong className="text-white font-medium">{COMPANY_INFO.bank}</strong>
+                    Institutional Bank: <strong className="text-[#111] font-medium">{COMPANY_INFO.bank}</strong>
                   </span>
                 </div>
               </div>
 
               {/* Direct Communication Channels */}
-              <div className="pt-4 border-t border-white/10 space-y-2 text-xs text-white/70">
+              <div className="pt-4 border-t border-black/8 space-y-2 text-xs text-gray-600">
                 <div className="flex items-center space-x-2">
                   <Mail className="w-3.5 h-3.5 text-[#A71728]" />
                   <span>Email: {COMPANY_INFO.email}</span>

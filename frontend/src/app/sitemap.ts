@@ -2,98 +2,43 @@ import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
+const PAGES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+  { path: "/", priority: 1.0, changeFrequency: "weekly" },
+  { path: "/for-businesses", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/for-job-seekers", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/services", priority: 0.95, changeFrequency: "weekly" },
+  { path: "/about", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/news", priority: 0.6, changeFrequency: "weekly" },
+  { path: "/contact", priority: 0.85, changeFrequency: "monthly" },
+];
+
+const SERVICE_SLUGS = [
+  "recruitment",
+  "payroll",
+  "managed-service",
+  "peo-eor",
+  "hr-outsourcing",
+  "bpo-rpo",
+  "immigration",
+  "remote-staffing",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://kawaiijapan-hr.com";
-  const currentDate = new Date();
+  const lastModified = new Date();
 
   return [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/#about`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#japan-bangladesh`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#employers`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#job-seekers`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    ...[
-      "recruitment",
-      "payroll",
-      "managed-service",
-      "peo-eor",
-      "hr-outsourcing",
-      "bpo-rpo",
-      "immigration",
-      "remote-staffing",
-    ].map((slug) => ({
+    ...PAGES.map(({ path, priority, changeFrequency }) => ({
+      url: path === "/" ? baseUrl : `${baseUrl}${path}`,
+      lastModified,
+      changeFrequency,
+      priority,
+    })),
+    ...SERVICE_SLUGS.map((slug) => ({
       url: `${baseUrl}/services/${slug}`,
-      lastModified: currentDate,
+      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
-    // Local BD HR company — Japan Jobs hidden for now
-    // {
-    //   url: `${baseUrl}/japan-jobs`,
-    //   lastModified: currentDate,
-    //   changeFrequency: "daily",
-    //   priority: 0.95,
-    // },
-    {
-      url: `${baseUrl}/#services`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#industries`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#process`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#why-us`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
   ];
 }

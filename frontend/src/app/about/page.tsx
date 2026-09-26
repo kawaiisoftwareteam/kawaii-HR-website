@@ -39,7 +39,7 @@ export default function AboutPage() {
       <Navbar onOpenModal={handleOpenModal} />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#090A0E] text-white overflow-hidden border-b border-white/10">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-premium-light text-[#111111] overflow-hidden border-b border-black/8">
         <div className="absolute inset-0 japanese-grid-pattern opacity-25 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#A71728]/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight uppercase leading-[1.02] text-white"
+              className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight uppercase leading-[1.02] text-[#111]"
             >
               Redefining Talent Acquisition <br />
               with <span className="text-[#A71728]">Japanese Standard.</span>
@@ -69,7 +69,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-3xl"
+              className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-3xl"
             >
               {ABOUT_PAGE_DATA.header.description}
             </motion.p>
@@ -92,7 +92,7 @@ export default function AboutPage() {
                 variant="outline"
                 size="lg"
                 onClick={() => handleOpenModal("jobseeker")}
-                className="!border-white/40 text-white hover:!bg-white/10 text-xs sm:text-sm font-bold"
+                className="text-xs sm:text-sm font-bold"
               >
                 Talk to Our HR Experts
               </RedButton>
@@ -127,14 +127,14 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6 bg-[#0E1015] text-white p-8 sm:p-10 border border-white/10 space-y-6">
+            <div className="lg:col-span-6 bg-white text-[#111] p-8 sm:p-10 border border-black/8 space-y-6">
               <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
                 Our Core Philosophy
               </div>
               <blockquote className="text-lg sm:text-xl font-medium leading-relaxed italic border-l-2 border-[#A71728] pl-4">
                 &ldquo;Japanese precision does not mean making recruitment complicated. It means making every important step intentional.&rdquo;
               </blockquote>
-              <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                 We view recruitment not merely as filling vacancies, but as the beginning of a lasting relationship between an organization and the person who shapes its future.
               </p>
             </div>
@@ -179,29 +179,29 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 md:py-28 bg-[#0B0D12] text-white border-b border-white/10">
+      <section className="py-20 md:py-28 bg-premium-light text-[#111] border-b border-black/8">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="p-8 bg-white/[0.03] border border-white/10 space-y-4">
+            <div className="p-8 bg-white border border-black/8 space-y-4">
               <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
                 Our Vision
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white">
+              <h3 className="text-2xl font-bold uppercase tracking-tight text-[#111]">
                 {ABOUT_PAGE_DATA.visionMission.vision}
               </h3>
-              <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                 Recognized as the benchmark for professional HR and talent acquisition in Bangladesh through reliability, talent quality, and long-term value creation.
               </p>
             </div>
 
-            <div className="p-8 bg-white/[0.03] border border-white/10 space-y-4">
+            <div className="p-8 bg-white border border-black/8 space-y-4">
               <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
                 Our Mission
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white">
+              <h3 className="text-2xl font-bold uppercase tracking-tight text-[#111]">
                 {ABOUT_PAGE_DATA.visionMission.mission}
               </h3>
-              <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                 Building an ecosystem where organizations gain capable talent, professionals access credible career paths, and recruitment decisions are backed by structured evaluation.
               </p>
             </div>

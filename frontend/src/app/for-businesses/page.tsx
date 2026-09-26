@@ -64,67 +64,137 @@ export default function ForBusinessesPage() {
       />
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0B0D12] text-white overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 japanese-grid-pattern opacity-25 pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#A71728]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Hero Section - Full Background Image with Light Seamless Corporate Aesthetics */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 text-[#111111] overflow-hidden border-b border-black/8 min-h-[78vh] flex items-center bg-[#FAFAFA]">
+        {/* Full Background Image Layer */}
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.img
+            initial={{ scale: 1.04 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
+            src="/images/japanese_office_team.jpg"
+            alt="Kawaii Japan HR Corporate Team"
+            className="w-full h-full object-cover object-[center_right] lg:object-right"
+          />
+          {/* Light/White Seamless Gradient Overlay - Keeps text perfectly readable on left & lets image shine vibrantly on right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/30 lg:from-white lg:via-white/90 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-white/40" />
+          <div className="absolute inset-0 japanese-grid-pattern opacity-15" />
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#A71728]/10 rounded-full blur-3xl" />
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <div className="max-w-4xl space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#A71728]/15 border border-[#A71728]/40 text-[#A71728] text-xs font-bold uppercase tracking-widest"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#A71728]" />
-              For Businesses & Corporate Clients
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight uppercase leading-[1.02] text-white"
-            >
-              Precision HR Solutions for Businesses <br />
-              <span className="text-[#A71728]">Building Bangladesh&apos;s Future.</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-3xl"
-            >
-              {BUSINESS_SOLUTIONS.header.description}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4 pt-4"
-            >
-              <RedButton
-                variant="primary"
-                size="lg"
-                onClick={() => {
-                  const formElement = document.getElementById("inquiry-form");
-                  formElement?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-xs sm:text-sm font-bold"
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/90 backdrop-blur-md border border-[#A71728]/30 text-[#A71728] text-xs font-bold uppercase tracking-widest shadow-sm"
               >
-                Discuss Your Hiring Requirements
-              </RedButton>
-              <RedButton
-                variant="outline"
-                size="lg"
-                onClick={() => handleOpenModal("employer")}
-                className="!border-white/40 text-white hover:!bg-white/10 text-xs sm:text-sm font-bold"
+                <span className="w-2 h-2 rounded-full bg-[#A71728] animate-pulse" />
+                For Businesses & Corporate Clients
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-[clamp(2.2rem,4.8vw,4.5rem)] font-extrabold tracking-tight uppercase leading-[1.04] text-[#111111]"
               >
-                Request Corporate Consultation
-              </RedButton>
+                Precision HR Solutions for Businesses <br />
+                <span className="text-[#A71728]">Building Bangladesh&apos;s Future.</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-base sm:text-lg md:text-xl text-gray-700 font-light leading-relaxed max-w-2xl"
+              >
+                {BUSINESS_SOLUTIONS.header.description}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-wrap items-center gap-4 pt-2"
+              >
+                <RedButton
+                  variant="primary"
+                  size="lg"
+                  onClick={() => {
+                    const formElement = document.getElementById("inquiry-form");
+                    formElement?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-xs sm:text-sm font-bold shadow-lg shadow-[#A71728]/25"
+                >
+                  Discuss Your Hiring Requirements
+                </RedButton>
+                <RedButton
+                  variant="outline"
+                  size="lg"
+                  onClick={() => handleOpenModal("employer")}
+                  className="text-xs sm:text-sm font-bold bg-white/80 backdrop-blur-sm border-gray-300 text-gray-900 hover:border-[#A71728] hover:text-[#A71728] shadow-sm"
+                >
+                  Request Corporate Consultation
+                </RedButton>
+              </motion.div>
+
+              {/* Quick Trust Pillars */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="pt-4 border-t border-black/10 grid grid-cols-1 sm:grid-cols-3 gap-3"
+              >
+                <div className="flex items-center gap-2 text-xs font-semibold text-gray-800">
+                  <CheckCircle2 className="w-4 h-4 text-[#A71728] shrink-0" />
+                  <span>Japanese Standard Vetting</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-gray-800">
+                  <CheckCircle2 className="w-4 h-4 text-[#A71728] shrink-0" />
+                  <span>Zero Placement Cost</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-gray-800">
+                  <CheckCircle2 className="w-4 h-4 text-[#A71728] shrink-0" />
+                  <span>Executive Talent Pool</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Floating Ambient Glass Stats Card over the Background Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="lg:col-span-5 flex justify-end"
+            >
+              <div className="w-full max-w-sm p-6 bg-white/90 backdrop-blur-md border border-white/80 rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+                  <span className="text-xs font-bold tracking-widest uppercase text-[#A71728]">
+                    Tokyo ⇄ Dhaka Hub
+                  </span>
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A71728] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A71728]" />
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-sm font-bold text-gray-900">
+                    Precision Workforce Sourcing
+                  </div>
+                  <p className="text-xs text-gray-600 font-light leading-relaxed">
+                    Connecting top Bangladeshi talent with leading multinational and Japanese enterprises.
+                  </p>
+                </div>
+                <div className="pt-2 flex items-center justify-between text-xs font-semibold text-gray-800 bg-gray-50/80 p-3 rounded-lg border border-gray-100">
+                  <span>Candidate Retention</span>
+                  <span className="text-[#A71728] font-bold text-sm">98% Avg</span>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -222,13 +292,13 @@ export default function ForBusinessesPage() {
       </section>
 
       {/* Specialized HR Solutions for Modern Enterprises */}
-      <section className="py-24 md:py-32 bg-[#0E1015] text-white border-b border-white/10">
+      <section className="py-24 md:py-32 bg-premium-light text-[#111] border-b border-black/8">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="max-w-3xl mb-16 space-y-3">
             <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
               Enterprise Offerings
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#111]">
               Specialized HR Solutions for <span className="text-[#A71728]">Modern Enterprises</span>
             </h2>
           </div>
@@ -237,17 +307,17 @@ export default function ForBusinessesPage() {
             {BUSINESS_SOLUTIONS.specializedSolutions.map((sol, idx) => (
               <div
                 key={idx}
-                className="p-8 bg-white/[0.03] border border-white/10 hover:border-[#A71728]/70 transition-all flex flex-col justify-between"
+                className="p-8 bg-white border border-black/8 hover:border-[#A71728]/50 transition-all flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <span className="text-2xl font-black text-[#A71728]">0{idx + 1}</span>
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-white">
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-[#111]">
                     {sol.title}
                   </h3>
                   <p className="text-xs font-semibold text-[#A71728] uppercase tracking-wide">
                     {sol.subtitle}
                   </p>
-                  <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                     {sol.desc}
                   </p>
                 </div>
@@ -305,16 +375,16 @@ export default function ForBusinessesPage() {
       </section>
 
       {/* Blue Collar */}
-      <section id="blue-collar" className="py-24 md:py-32 bg-[#0E1015] text-white border-b border-white/10 scroll-mt-24">
+      <section id="blue-collar" className="py-24 md:py-32 bg-premium-light text-[#111] border-b border-black/8 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="max-w-3xl mb-14 space-y-3">
             <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
               Blue Collar
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#111]">
               {BLUE_COLLAR_DATA.header.title}
             </h2>
-            <p className="text-sm sm:text-base text-white/70 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
               {BLUE_COLLAR_DATA.header.description}
             </p>
           </div>
@@ -323,17 +393,17 @@ export default function ForBusinessesPage() {
             {BLUE_COLLAR_DATA.disciplines.map((d) => (
               <div
                 key={d.title}
-                className="p-6 bg-white/[0.03] border border-white/10 space-y-3"
+                className="p-6 bg-white border border-black/8 space-y-3"
               >
-                <h3 className="text-base font-bold uppercase tracking-tight text-white">
+                <h3 className="text-base font-bold uppercase tracking-tight text-[#111]">
                   {d.title}
                 </h3>
-                <p className="text-xs text-white/60 font-light">{d.desc}</p>
+                <p className="text-xs text-gray-500 font-light">{d.desc}</p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   {d.roles.slice(0, 6).map((r) => (
                     <span
                       key={r}
-                      className="px-2 py-1 border border-white/15 text-[10px] uppercase tracking-wide text-white/70"
+                      className="px-2 py-1 border border-black/10 text-[10px] uppercase tracking-wide text-gray-600"
                     >
                       {r}
                     </span>
@@ -345,9 +415,9 @@ export default function ForBusinessesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {BLUE_COLLAR_DATA.models.map((m) => (
-              <div key={m.title} className="space-y-2 border-t border-white/10 pt-4">
-                <h4 className="text-sm font-bold uppercase text-white">{m.title}</h4>
-                <p className="text-xs text-white/60 font-light leading-relaxed">
+              <div key={m.title} className="space-y-2 border-t border-black/8 pt-4">
+                <h4 className="text-sm font-bold uppercase text-[#111]">{m.title}</h4>
+                <p className="text-xs text-gray-500 font-light leading-relaxed">
                   {m.desc}
                 </p>
               </div>

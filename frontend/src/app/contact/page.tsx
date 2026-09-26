@@ -74,7 +74,7 @@ export default function ContactPage() {
       <Navbar onOpenModal={handleOpenModal} />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0A0C10] text-white overflow-hidden border-b border-white/10">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-premium-light text-[#111111] overflow-hidden border-b border-black/8">
         <div className="absolute inset-0 japanese-grid-pattern opacity-25 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#A71728]/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -94,7 +94,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight uppercase leading-[1.02] text-white"
+              className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight uppercase leading-[1.02] text-[#111]"
             >
               Connect with Country&apos;s <br />
               <span className="text-[#A71728]">Premier HR & Talent Partners.</span>
@@ -104,7 +104,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-3xl"
+              className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-3xl"
             >
               Japanese-standard HR operations. Local market expertise. Dedicated support. Whether you are an enterprise looking to hire exceptional talent or a professional seeking your next career opportunity, Kawaii Japan Career & HR provides a clear, responsive path forward.
             </motion.p>
