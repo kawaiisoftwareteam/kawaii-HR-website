@@ -6,6 +6,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { DualAudience } from "@/components/sections/DualAudience";
+import { AboutSection } from "@/components/sections/AboutSection";
 import { ProductModules } from "@/components/sections/ProductModules";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -42,6 +43,9 @@ export default function HomePage() {
 
       {/* 3. Pick a path → /for-businesses | /for-job-seekers */}
       <DualAudience />
+
+      {/* 3.5. About Us Profile & Headquarters */}
+      <AboutSection onOpenModal={handleOpenModal} />
 
       {/* 4. What we offer → /services */}
       <ProductModules onOpenModal={handleOpenModal} />

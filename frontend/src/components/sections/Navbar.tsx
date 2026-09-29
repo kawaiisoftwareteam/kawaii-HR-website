@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,10 +16,10 @@ interface NavbarProps {
 
 const primaryLinks = [
   { label: "Home", href: "/" },
+  { label: "About us", href: "/about" },
   { label: "For Businesses", href: "/for-businesses" },
   { label: "For Job Seekers", href: "/for-job-seekers" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -30,11 +31,16 @@ function isLinkActive(href: string, pathname: string): boolean {
 export function Navbar({ onOpenModal: _onOpenModal }: NavbarProps) {
   const pathname = usePathname();
   const { employee } = useAuth();
+  const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const servicesActive = pathname === "/services" || pathname.startsWith("/services/");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8);
@@ -60,7 +66,7 @@ export function Navbar({ onOpenModal: _onOpenModal }: NavbarProps) {
       active ? "text-[#A71728]" : "text-[#2a2a2a] hover:text-[#A71728]"
     }`;
 
-  return (
+  const navbar = (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b transition-shadow duration-300 ${
@@ -296,4 +302,7 @@ export function Navbar({ onOpenModal: _onOpenModal }: NavbarProps) {
       </AnimatePresence>
     </>
   );
+
+  if (mounted) return createPortal(navbar, document.body);
+  return navbar;
 }

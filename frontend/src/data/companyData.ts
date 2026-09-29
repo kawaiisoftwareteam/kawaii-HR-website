@@ -2040,31 +2040,55 @@ export const BLUE_COLLAR_DATA = {
 /** Master Document: About Page Data */
 export const ABOUT_PAGE_DATA = {
   header: {
+    badge: "Sister Concern of Kawaii Group (Japan)",
     title: "Redefining Talent Acquisition with Japanese Standard",
-    subtitle: "Connecting Bangladesh's leading organizations with high-caliber talent through precision, integrity, and a commitment to long-term success.",
+    subtitle: "A Proud Sister Concern of Kawaii Group • Bridging Tokyo Precision with Bangladesh's Premier Human Capital",
     description:
-      "Kawaii Japan Career & HR is a domestic HR and Talent Acquisition division of Kawaii Group, dedicated to helping organizations across Bangladesh build stronger teams and helping professionals discover meaningful career opportunities. We combine deep local talent-market reach with Japanese principles of precision, reliability, structural discipline, continuous improvement, and quality control.",
+      "Kawaii Japan Career & HR Solutions is a specialized human resources, executive search, and workforce solutions company operating as a proud sister concern of the esteemed Kawaii Group (Japan). Backed by the global infrastructure, corporate discipline, and international heritage of Kawaii Group, we bring Tokyo's renowned recruitment precision, structural discipline, and Kaizen-driven quality benchmarks to empower organizations and ambitious professionals across Bangladesh and beyond.",
+  },
+  groupHeritage: {
+    title: "The Kawaii Group Corporate Ecosystem",
+    subtitle: "Global Vision. Japanese Precision. Sister Concern Strength.",
+    description:
+      "As an integral sister concern of the multinational Kawaii Group headquartered in Tokyo, Japan, Kawaii Japan Career & HR Solutions benefits from decades of combined expertise across cross-border enterprise solutions, software architecture, bilateral trade, and human resource engineering. Our shared lineage ensures that every recruitment mandate is executed with unyielding ethical rigor, structured governance, and long-term organizational value.",
+    pillars: [
+      {
+        title: "Kawaii Group Backing",
+        desc: "Direct corporate synergy, strategic governance, and resource backing from the parent Kawaii Group network in Japan.",
+        tag: "Corporate Heritage",
+      },
+      {
+        title: "Bilateral Tokyo × Dhaka Desk",
+        desc: "Seamless cross-border executive alignment connecting Japanese multinational standards with Bangladesh's top 1% talent pool.",
+        tag: "Global Synergy",
+      },
+      {
+        title: "Kaizen & Quality Standards",
+        desc: "Proprietary candidate assessment frameworks built upon Japanese industrial discipline, technical vetting, and cultural harmony.",
+        tag: "Operational Rigor",
+      },
+    ],
   },
   story: {
-    title: "Born From a Need for Greater Precision in Domestic Recruitment",
-    desc: "While Bangladesh has a growing pool of talented engineers, IT professionals, executives, and skilled specialists, organizations often face challenges in identifying candidates who truly match technical requirements and organizational culture. Our response combines Bangladesh's talent market understanding with Japanese operational precision.",
+    title: "Born From a Sister Concern Vision for Absolute HR Reliability",
+    desc: "Established as a dedicated sister concern of Kawaii Group, Kawaii Japan Career & HR Solutions was founded to solve a critical market gap: the disconnect between rapid industrial expansion and high-fidelity talent matching. By infusing authentic Japanese management ethics into Bangladesh's talent landscape, we provide corporations with reliable, verified, and culturally aligned leaders.",
   },
   japaneseStandards: [
-    { title: "Methodical Screening", desc: "We look beyond a candidate's CV to understand relevant experience, technical capabilities, professional competencies, and role suitability." },
-    { title: "Structured Operations", desc: "Clearly defined recruitment stages create consistency, accountability, and efficiency throughout the hiring process." },
-    { title: "Integrity & Professionalism", desc: "Honest communication, responsible candidate representation, and strict confidentiality of recruitment data." },
-    { title: "Quality Control (Kaizen)", desc: "Continuous review and refinement of recruitment processes reflecting the Japanese philosophy of Kaizen." },
-    { title: "Long-Term Thinking", desc: "Placements designed to create lasting organizational stability and sustained professional career growth." },
+    { title: "Methodical Screening", desc: "Multi-tiered evaluation assessing verified technical proficiency, leadership maturity, and cultural alignment under Japanese evaluation standards." },
+    { title: "Structured Operations (Hou-Ren-Sou)", desc: "Transparent reporting, communication discipline, and documented milestone tracking throughout every stage of recruitment." },
+    { title: "Integrity & Professionalism", desc: "Uncompromising data confidentiality, zero candidate exploitation, and strict compliance with international corporate ethics." },
+    { title: "Quality Control (Kaizen)", desc: "Systematic refinement of our talent sourcing pipelines, feedback integration, and continuous placement performance optimization." },
+    { title: "Long-Term Retention Focus", desc: "Prioritizing organizational retention and mutual growth rather than short-term transactional placements." },
   ],
   visionMission: {
-    vision: "To be Bangladesh's most trusted partner for corporate staffing, executive search, and career growth.",
-    mission: "Empowering local enterprises with top-tier talent while guiding professionals toward fulfilling, high-impact careers in Bangladesh.",
+    vision: "To stand as Bangladesh's foremost benchmark for Japanese-standard HR precision, executive search, and bilateral talent bridges as the flagship HR sister concern of Kawaii Group.",
+    mission: "To empower visionary enterprises with vetted, high-performing human capital and enable career-defining pathways for professionals through ethical, transparent, and structured Japanese methodologies.",
   },
   kawaiiAdvantages: [
-    { number: "01", title: "Methodical Talent Vetting", desc: "Multi-stage evaluation considering technical knowledge, functional competencies, behavioral suitability, and motivation." },
-    { number: "02", title: "Industry-Specific Expertise", desc: "Recruitment informed by the distinct technical demands of IT, Engineering, Manufacturing, and Corporate sectors." },
-    { number: "03", title: "Ethical & Transparent Practices", desc: "Strict adherence to Bangladesh labor standards, transparent communication, and zero hidden candidate fees." },
-    { number: "04", title: "Continuous Partnership", desc: "Post-placement onboarding coordination, retention tracking, and ongoing talent alignment." },
+    { number: "01", title: "Kawaii Group Sister Concern", desc: "Backed by the institutional strength, global standards, and bilateral trust of Kawaii Group, Japan." },
+    { number: "02", title: "Methodical Talent Vetting", desc: "Rigorous 360-degree competency evaluation covering technical depth, problem-solving, and professional integrity." },
+    { number: "03", title: "Industry-Specific Expertise", desc: "Deep domain competence across IT/Software, Garments/Textiles, Engineering, Pharma, and Corporate Leadership." },
+    { number: "04", title: "Post-Placement Harmony", desc: "Active onboarding assistance, 90-day retention guarantee, and long-term talent performance alignment." },
   ],
 };
 

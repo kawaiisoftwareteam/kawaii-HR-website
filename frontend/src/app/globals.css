@@ -196,3 +196,43 @@
 .animate-float {
   animation: floatGentle 5s ease-in-out infinite;
 }
+
+/* Falling Sakura Petal Animations */
+@keyframes sakuraFall {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+@keyframes sakuraSway {
+  0% {
+    transform: translateX(-24px) rotate(-15deg);
+  }
+  50% {
+    transform: translateX(24px) rotate(15deg);
+  }
+  100% {
+    transform: translateX(-24px) rotate(-15deg);
+  }
+}
+
+@keyframes sakuraSpin {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+

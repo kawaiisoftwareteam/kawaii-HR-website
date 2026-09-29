@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Globe, Compass } from "lucide-react";
+import { ChevronRight, Globe, Compass, Sparkles } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
+import { SakuraPetals } from "../ui/SakuraPetals";
 
 export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | "jobseeker") => void }) {
   const [activeTab, setActiveTab] = useState<"profile" | "vision">("profile");
@@ -12,32 +13,70 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
 
   return (
     <section id="about" className="relative py-24 md:py-36 bg-premium-light text-[#111111] overflow-hidden border-b border-black/5">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      {/* Background Image Layer with atmospheric gradient */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/images/about_hero_bg.jpg"
+          alt="Kawaii Group Japan Tokyo Headquarters"
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-30 filter saturate-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/94 to-white/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white" />
+        <div className="absolute inset-0 japanese-grid-pattern opacity-30" />
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#A71728]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#FFB7C5]/20 rounded-full blur-3xl" />
+      </div>
+
+      {/* Falling Sakura Flower Petals Animation */}
+      <SakuraPetals count={32} speed="medium" />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-10 z-20">
         <div className="space-y-12 lg:space-y-14">
-          {/* Horizontal company image */}
-          <div className="relative w-full overflow-hidden shadow-xl bg-white border border-gray-200" data-cursor="image">
-            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full">
+          {/* Horizontal company image with premium frame */}
+          <div
+            className="relative w-full overflow-hidden shadow-2xl bg-white border-2 border-black/10 group rounded-xs transition-all duration-500 hover:border-[#A71728]/40 hover:shadow-[0_20px_50px_rgba(167,23,40,0.12)]"
+            data-cursor="image"
+          >
+            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full bg-neutral-900 overflow-hidden">
               <Image
-                src="/about/kawaii.png"
+                src="/kawaii.png"
                 alt="Kawaii Group Japan — Japan-Bangladesh joint venture headquarters"
                 fill
+                priority
                 sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover object-center"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
 
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/90 backdrop-blur-sm px-4 py-2 border border-gray-200 text-[#111] flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-[#A71728]" />
-                <span className="text-[10px] tracking-[0.2em] uppercase font-bold">
+              {/* Japanese Decorative Corner Stamps */}
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/95 backdrop-blur-md px-4 py-2 border border-black/10 text-[#111] flex items-center space-x-2 shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#A71728] animate-pulse" />
+                <span className="text-[11px] tracking-[0.2em] uppercase font-bold text-[#111]">
                   TOKYO × DHAKA HEADQUARTERS
                 </span>
               </div>
 
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-5 sm:p-6 text-white">
-                <div className="text-[11px] tracking-widest text-[#A71728] font-bold uppercase mb-1">
-                  ESTABLISHED 2025
-                </div>
-                <div className="text-sm font-semibold tracking-wide">
-                  Joint Venture & Sister Concern of Kawaii Group
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-black/75 backdrop-blur-md px-3.5 py-1.5 border border-white/20 text-white flex items-center space-x-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#FFB7C5]" />
+                <span className="text-[10px] tracking-widest uppercase font-semibold text-[#FFB7C5]">
+                  桜 SAKURA STANDARD
+                </span>
+              </div>
+
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent p-5 sm:p-7 text-white">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+                  <div>
+                    <div className="text-[11px] tracking-widest text-[#FF8DA1] font-bold uppercase mb-1">
+                      ESTABLISHED 2025 • JAPAN × BANGLADESH
+                    </div>
+                    <div className="text-base sm:text-lg font-bold tracking-wide">
+                      Kawaii Japan Career & HR Solutions — Sister Concern of Kawaii Group (Japan)
+                    </div>
+                  </div>
+                  <div className="text-xs text-white/80 font-mono tracking-wider">
+                    東京都 × ダッカ
+                  </div>
                 </div>
               </div>
             </div>
@@ -48,11 +87,11 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <span className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
-                  02 — COMPANY PROFILE
+                  02 — SISTER CONCERN PROFILE
                 </span>
                 <span className="text-gray-300">/</span>
                 <span className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                  About Kawaii Japan
+                  Kawaii Group Japan Lineage
                 </span>
               </div>
 
@@ -72,7 +111,7 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
                     : "border-transparent text-gray-400 hover:text-gray-700"
                 }`}
               >
-                Our Identity
+                Sister Concern Lineage
               </button>
               <button
                 onClick={() => setActiveTab("vision")}
@@ -91,10 +130,10 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
               {activeTab === "profile" && (
                 <div className="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
                   <p>
-                    In Bangladesh, <strong className="text-black font-semibold">Kawaii Japan Career & HR Solutions</strong> is a renowned career matching and HR solutions company. As a proud sister concern of the prestigious <strong className="text-black font-semibold">Kawaii Group</strong>, we are committed to revolutionizing employment ecosystems across both nations.
+                    <strong className="text-black font-semibold">Kawaii Japan Career & HR Solutions</strong> operates as the premier human resources and talent solutions sister concern of the prestigious <strong className="text-black font-semibold">Kawaii Group (Tokyo, Japan)</strong>. Operating under the visionary ecosystem of Kawaii Group, we are committed to bridging international corporate excellence with Bangladesh&apos;s high-caliber workforce.
                   </p>
                   <p>
-                    We operate with the foundational philosophy that genuine organizational growth stems from precise cultural harmony, continuous discipline, and technical excellence.
+                    Backed by Kawaii Group&apos;s cross-border heritage, we bring Japanese precision, Kaizen-driven operational discipline, and strict bilateral compliance to every talent engagement — creating seamless synergies between top employers and exceptional professionals.
                   </p>
 
                   <AnimatePresence>
