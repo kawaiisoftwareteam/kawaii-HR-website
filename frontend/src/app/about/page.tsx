@@ -14,6 +14,7 @@ import {
   HeartHandshake,
   Layers,
   Globe,
+  Sparkles,
 } from "lucide-react";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -283,52 +284,133 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story & Philosophy */}
-      <section className="relative py-20 md:py-28 bg-premium-light border-b border-black/5 overflow-hidden">
-        <SakuraPetals count={20} speed="slow" />
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10 z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
-                Origins & Purpose
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-black">
-                {ABOUT_PAGE_DATA.story.title}
-              </h2>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-                {ABOUT_PAGE_DATA.story.desc}
-              </p>
-              <div className="p-6 bg-white border border-gray-200 space-y-2">
-                <div className="text-xs uppercase font-bold text-[#A71728] tracking-wider">
-                  The Formula
-                </div>
-                <div className="text-base sm:text-lg font-bold text-gray-900">
-                  Bangladesh&apos;s Talent Market Understanding <br className="hidden sm:inline" />
-                  + Japanese Standards of Precision & Discipline <br className="hidden sm:inline" />
-                  = A More Reliable Approach to HR
-                </div>
-              </div>
-            </div>
+      {/* Story & Philosophy - Curved System Color Section */}
+      <section className="relative overflow-hidden bg-white">
+        {/* Top Wave Curve Transition */}
+        <div className="w-full overflow-hidden leading-none pointer-events-none -mb-[1px]">
+          <svg
+            viewBox="0 0 1440 100"
+            preserveAspectRatio="none"
+            className="w-full h-12 sm:h-20 md:h-24 fill-[#A71728]"
+          >
+            <path d="M0,0 C320,85 880,105 1440,20 L1440,100 L0,100 Z" />
+          </svg>
+        </div>
 
-            <div className="lg:col-span-6 bg-white text-[#111] p-8 sm:p-10 border border-black/8 space-y-6">
-              <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
-                Our Core Philosophy
+        {/* Main Curved Section Body in System Brand Colors */}
+        <div className="relative py-16 md:py-24 bg-gradient-to-br from-[#A71728] via-[#8E1321] to-[#3B070D] text-white overflow-hidden">
+          {/* Ambient Lighting & Pattern Accents */}
+          <div className="absolute inset-0 japanese-grid-pattern-dark opacity-15 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/30 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Falling Sakura Petals Animation */}
+          <SakuraPetals count={24} speed="slow" />
+
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 z-20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* Left Column: Origins & Purpose */}
+              <div className="lg:col-span-6 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 backdrop-blur-md border border-white/25 rounded-full text-white text-xs font-bold uppercase tracking-widest">
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                  <span>Origins & Purpose</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
+                  {ABOUT_PAGE_DATA.story.title}
+                </h2>
+
+                <p className="text-sm sm:text-base text-white/90 leading-relaxed font-light">
+                  {ABOUT_PAGE_DATA.story.desc}
+                </p>
+
+                {/* The Formula Frosted Glass Card */}
+                <div className="p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl space-y-3 shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs uppercase font-extrabold text-[#FFEAA7] tracking-widest flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>The Strategic Formula</span>
+                    </span>
+                    <span className="text-[10px] font-mono text-white/70">公式</span>
+                  </div>
+
+                  <div className="text-sm sm:text-base font-bold text-white space-y-1.5 leading-snug">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                      <span>Bangladesh Talent Market Understanding</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                      <span>+ Japanese Standards of Precision & Discipline</span>
+                    </div>
+                    <div className="pt-1 text-[#FFEAA7] text-base sm:text-lg font-extrabold border-t border-white/15">
+                      = A More Reliable Approach to HR
+                    </div>
+                  </div>
+                </div>
               </div>
-              <blockquote className="text-lg sm:text-xl font-medium leading-relaxed italic border-l-2 border-[#A71728] pl-4">
-                &ldquo;Japanese precision does not mean making recruitment complicated. It means making every important step intentional.&rdquo;
-              </blockquote>
-              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                We view recruitment not merely as filling vacancies, but as the beginning of a lasting relationship between an organization and the person who shapes its future.
-              </p>
+
+              {/* Right Column: Our Core Philosophy Glass Card */}
+              <div className="lg:col-span-6 bg-white/10 backdrop-blur-2xl p-8 sm:p-10 border border-white/20 rounded-2xl space-y-6 shadow-2xl relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 text-white/5 font-sans font-black text-9xl select-none pointer-events-none">
+                  哲学
+                </div>
+
+                <div className="space-y-4 relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 border border-white/25 rounded-full text-xs font-bold text-white uppercase tracking-widest">
+                    <span>Our Core Philosophy</span>
+                  </div>
+
+                  <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed italic border-l-4 border-[#FFEAA7] pl-4 text-white">
+                    &ldquo;Japanese precision does not mean making recruitment complicated. It means making every important step intentional.&rdquo;
+                  </blockquote>
+
+                  <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed">
+                    We view recruitment not merely as filling vacancies, but as the beginning of a lasting relationship between an organization and the person who shapes its future.
+                  </p>
+
+                  <div className="pt-4 border-t border-white/15 grid grid-cols-2 gap-3 text-xs text-white/90">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span>Ethical Governance</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span>Sustainable Career Growth</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span>Kaizen Methodology</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span>100% Transparency</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
+        </div>
+
+        {/* Bottom Wave Curve Transition */}
+        <div className="w-full overflow-hidden leading-none pointer-events-none -mt-[1px]">
+          <svg
+            viewBox="0 0 1440 100"
+            preserveAspectRatio="none"
+            className="w-full h-12 sm:h-20 md:h-24 fill-[#3B070D]"
+          >
+            <path d="M0,0 L1440,0 C960,85 480,85 0,0 Z" />
+          </svg>
         </div>
       </section>
 
       {/* The Japanese Standard of HR (5 Principles) */}
-      <section className="py-24 md:py-32 bg-white border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="max-w-3xl mb-16 space-y-3">
+      <section className="py-20 md:py-28 bg-white border-b border-black/5 overflow-hidden">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
+          <div className="max-w-3xl mb-12 md:mb-14 space-y-3">
             <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
               The Standard
             </div>
@@ -340,21 +422,33 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6 lg:gap-7">
             {ABOUT_PAGE_DATA.japaneseStandards.map((std, idx) => (
               <div
                 key={idx}
-                className="p-6 bg-[#F8F9FA] border border-gray-200 hover:border-[#A71728] transition-all space-y-3 group"
+                className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-5 flex flex-col justify-between group relative overflow-hidden min-h-[310px]"
               >
-                <div className="text-xs font-bold text-[#A71728] tracking-widest uppercase">
+                {/* Subtle Japanese Watermark on Hover */}
+                <div className="absolute -bottom-4 -right-4 text-white/5 font-mono font-black text-7xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
                   0{idx + 1}
                 </div>
-                <h3 className="text-lg font-bold uppercase tracking-tight text-black group-hover:text-[#A71728] transition-colors">
-                  {std.title}
-                </h3>
-                <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  {std.desc}
-                </p>
+
+                <div className="space-y-3.5 relative z-10">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
+                    <span>STEP 0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-white leading-snug">
+                    {std.title}
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-white/90 font-light leading-relaxed">
+                    {std.desc}
+                  </p>
+                </div>
+
+                <div className="pt-3.5 border-t border-white/15 text-[10px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
+                  <span>STANDARD</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
+                </div>
               </div>
             ))}
           </div>
@@ -362,40 +456,66 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 md:py-28 bg-premium-light text-[#111] border-b border-black/8">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="p-8 bg-white border border-black/8 space-y-4">
-              <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
-                Our Vision
+      <section className="py-20 md:py-28 bg-[#FAFAFA] border-b border-black/8 overflow-hidden">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {/* Vision Card */}
+            <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-5 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute -bottom-6 -right-6 text-white/5 font-sans font-black text-8xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
+                VISION
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-[#111]">
-                {ABOUT_PAGE_DATA.visionMission.vision}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                Recognized as the benchmark for professional HR and talent acquisition in Bangladesh through reliability, talent quality, and long-term value creation.
-              </p>
+
+              <div className="space-y-4 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>OUR VISION</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white leading-snug">
+                  {ABOUT_PAGE_DATA.visionMission.vision}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed">
+                  Recognized as the benchmark for professional HR and talent acquisition in Bangladesh through reliability, talent quality, and long-term value creation.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-white/15 text-[11px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
+                <span>BILATERAL STRATEGY</span>
+                <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
+              </div>
             </div>
 
-            <div className="p-8 bg-white border border-black/8 space-y-4">
-              <div className="text-xs font-bold text-[#A71728] uppercase tracking-widest">
-                Our Mission
+            {/* Mission Card */}
+            <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-5 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute -bottom-6 -right-6 text-white/5 font-sans font-black text-8xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
+                MISSION
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-[#111]">
-                {ABOUT_PAGE_DATA.visionMission.mission}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                Building an ecosystem where organizations gain capable talent, professionals access credible career paths, and recruitment decisions are backed by structured evaluation.
-              </p>
+
+              <div className="space-y-4 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
+                  <Target className="w-3.5 h-3.5" />
+                  <span>OUR MISSION</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white leading-snug">
+                  {ABOUT_PAGE_DATA.visionMission.mission}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed">
+                  Building an ecosystem where organizations gain capable talent, professionals access credible career paths, and recruitment decisions are backed by structured evaluation.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-white/15 text-[11px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
+                <span>ETHICAL ECOSYSTEM</span>
+                <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* The Kawaii Advantage */}
-      <section className="py-20 md:py-28 bg-white border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="max-w-3xl mb-16 space-y-2">
+      <section className="py-20 md:py-28 bg-white border-b border-black/5 overflow-hidden">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
+          <div className="max-w-3xl mb-12 md:mb-14 space-y-2">
             <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
               Distinct Value
             </div>
@@ -404,16 +524,33 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7">
             {ABOUT_PAGE_DATA.kawaiiAdvantages.map((adv) => (
-              <div key={adv.number} className="p-7 bg-gray-50 border border-gray-200 space-y-3">
-                <span className="text-2xl font-black text-[#A71728]">{adv.number}</span>
-                <h4 className="text-lg font-bold uppercase text-black">
-                  {adv.title}
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                  {adv.desc}
-                </p>
+              <div
+                key={adv.number}
+                className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-4 flex flex-col justify-between min-h-[290px] relative overflow-hidden group"
+              >
+                {/* Subtle Japanese Watermark */}
+                <div className="absolute -bottom-4 -right-4 text-white/5 font-mono font-black text-7xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
+                  {adv.number}
+                </div>
+
+                <div className="space-y-3.5 relative z-10">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
+                    <span>ADVANTAGE {adv.number}</span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-white leading-snug">
+                    {adv.title}
+                  </h4>
+                  <p className="text-xs sm:text-[13px] text-white/90 font-light leading-relaxed">
+                    {adv.desc}
+                  </p>
+                </div>
+
+                <div className="pt-3.5 border-t border-white/15 text-[10px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
+                  <span>KAWAII QUALITY</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
+                </div>
               </div>
             ))}
           </div>
