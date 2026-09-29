@@ -19,9 +19,13 @@ import { Footer } from "@/components/sections/Footer";
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTab, setModalTab] = useState<"employer" | "jobseeker">("employer");
+  const [modalIndustry, setModalIndustry] = useState<string>("");
 
-  const handleOpenModal = (tab: "employer" | "jobseeker") => {
+  const handleOpenModal = (tab: "employer" | "jobseeker", industry?: string) => {
     setModalTab(tab);
+    if (industry) {
+      setModalIndustry(industry);
+    }
     setModalOpen(true);
   };
 
@@ -29,8 +33,12 @@ export default function HomePage() {
     <main className="relative min-h-screen bg-premium-white text-black selection:bg-[#A71728] selection:text-white font-sans overflow-x-hidden">
       <ApplicationModal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          setModalIndustry("");
+        }}
         initialTab={modalTab}
+        initialIndustry={modalIndustry}
       />
 
       <Navbar onOpenModal={handleOpenModal} />

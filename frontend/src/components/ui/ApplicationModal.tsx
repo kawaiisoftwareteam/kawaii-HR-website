@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, Building2, User, ArrowRight, Upload } from "lucide-react";
 import { RedButton } from "./RedButton";
@@ -9,20 +10,34 @@ interface ApplicationModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialTab?: "employer" | "jobseeker";
+  initialIndustry?: string;
 }
 
 export function ApplicationModal({
   isOpen,
   onClose,
   initialTab = "employer",
+  initialIndustry = "",
 }: ApplicationModalProps) {
   const [activeTab, setActiveTab] = useState<"employer" | "jobseeker">(initialTab);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [selectedIndustry, setSelectedIndustry] = useState(initialIndustry);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setActiveTab(initialTab);
   }, [initialTab]);
+
+  useEffect(() => {
+    if (initialIndustry) {
+      setSelectedIndustry(initialIndustry);
+    }
+  }, [initialIndustry]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -54,17 +69,19 @@ export function ApplicationModal({
     onClose();
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md cursor-pointer"
           />
 
           {/* Modal Card */}
@@ -73,10 +90,10 @@ export function ApplicationModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-2xl bg-white border border-black/10 text-[#111] p-6 md:p-10 shadow-2xl z-10 my-auto"
+            className="relative w-full max-w-2xl bg-white rounded-3xl border border-black/10 text-[#111] p-6 sm:p-8 md:p-10 shadow-2xl z-10 my-auto overflow-hidden"
           >
             {/* Red Accent Header Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-[#A71728]" />
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#A71728] via-[#8E1321] to-[#680C17]" />
 
             {/* Close Button */}
             <button
@@ -200,7 +217,9 @@ export function ApplicationModal({
                           </label>
                           <select
                             required
-                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors"
+                            value={selectedIndustry}
+                            onChange={(e) => setSelectedIndustry(e.target.value)}
+                            className="w-full bg-[#F7F7F8] border border-black/12 px-3 py-2.5 text-sm text-[#111] focus:outline-none focus:border-[#A71728] transition-colors rounded-xl"
                           >
                             <option value="">Select Industry</option>
                             <option value="it">Information Technology</option>
@@ -313,6 +332,7 @@ export function ApplicationModal({
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
