@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Globe, Compass, Sparkles } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
-import { SakuraPetals } from "../ui/SakuraPetals";
 
 export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | "jobseeker") => void }) {
   const [activeTab, setActiveTab] = useState<"profile" | "vision">("profile");
@@ -20,7 +19,7 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
           alt="Kawaii Group Japan Tokyo Headquarters"
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-30 filter saturate-90"
+          className="object-cover object-center opacity-25 filter saturate-90"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/94 to-white/80" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white" />
@@ -29,61 +28,58 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#FFB7C5]/20 rounded-full blur-3xl" />
       </div>
 
-      {/* Falling Sakura Flower Petals Animation */}
-      <SakuraPetals count={32} speed="medium" />
+      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left: Horizontal company image with premium rounded-2xl frame */}
+          <div className="lg:col-span-7">
+            <div
+              className="relative w-full overflow-hidden shadow-2xl bg-white border border-black/10 group rounded-2xl transition-all duration-500 hover:border-[#A71728]/40 hover:shadow-[0_24px_60px_rgba(167,23,40,0.14)]"
+              data-cursor="image"
+            >
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-neutral-900 overflow-hidden">
+                <Image
+                  src="/kawaii.png"
+                  alt="Kawaii Group Japan — Japan-Bangladesh joint venture headquarters"
+                  fill
+                  priority
+                  sizes="(max-width: 1280px) 100vw, 800px"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10 z-20">
-        <div className="space-y-12 lg:space-y-14">
-          {/* Horizontal company image with premium frame */}
-          <div
-            className="relative w-full overflow-hidden shadow-2xl bg-white border-2 border-black/10 group rounded-xs transition-all duration-500 hover:border-[#A71728]/40 hover:shadow-[0_20px_50px_rgba(167,23,40,0.12)]"
-            data-cursor="image"
-          >
-            <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full bg-neutral-900 overflow-hidden">
-              <Image
-                src="/kawaii.png"
-                alt="Kawaii Group Japan — Japan-Bangladesh joint venture headquarters"
-                fill
-                priority
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-              />
+                {/* Japanese Decorative Badges */}
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full border border-black/10 text-[#111] flex items-center space-x-2 shadow-md">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#A71728] animate-pulse" />
+                  <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-bold text-[#111]">
+                    TOKYO × DHAKA HEADQUARTERS
+                  </span>
+                </div>
 
-              {/* Japanese Decorative Corner Stamps */}
-              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/95 backdrop-blur-md px-4 py-2 border border-black/10 text-[#111] flex items-center space-x-2 shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#A71728] animate-pulse" />
-                <span className="text-[11px] tracking-[0.2em] uppercase font-bold text-[#111]">
-                  TOKYO × DHAKA HEADQUARTERS
-                </span>
-              </div>
-
-              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-black/75 backdrop-blur-md px-3.5 py-1.5 border border-white/20 text-white flex items-center space-x-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFB7C5]" />
-                <span className="text-[10px] tracking-widest uppercase font-semibold text-[#FFB7C5]">
-                  桜 SAKURA STANDARD
-                </span>
-              </div>
-
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent p-5 sm:p-7 text-white">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-                  <div>
-                    <div className="text-[11px] tracking-widest text-[#FF8DA1] font-bold uppercase mb-1">
-                      ESTABLISHED 2025 • JAPAN × BANGLADESH
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 sm:p-8 text-white">
+                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div>
+                      <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/40 border border-white/20 text-[#FFEAA7] text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
+                        <span>ESTABLISHED 2025</span>
+                        <span>•</span>
+                        <span>JAPAN × BANGLADESH</span>
+                      </div>
+                      <div className="text-lg sm:text-xl font-bold tracking-wide">
+                        Kawaii Japan Career & HR Solutions
+                      </div>
+                      <div className="text-xs text-gray-300 font-light mt-0.5">
+                        Sister Concern of Kawaii Group (Tokyo, Japan)
+                      </div>
                     </div>
-                    <div className="text-base sm:text-lg font-bold tracking-wide">
-                      Kawaii Japan Career & HR Solutions — Sister Concern of Kawaii Group (Japan)
+                    <div className="text-xs text-white/80 font-mono tracking-wider bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10 self-start sm:self-auto">
+                      東京都 × ダッカ
                     </div>
-                  </div>
-                  <div className="text-xs text-white/80 font-mono tracking-wider">
-                    東京都 × ダッカ
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Editorial content */}
-          <div className="max-w-4xl space-y-8">
+          {/* Right: Editorial content */}
+          <div className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <span className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
@@ -95,9 +91,11 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-black uppercase leading-[0.98]">
+              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-black uppercase leading-[0.98]">
                 MORE THAN <br />
-                <span className="text-[#A71728]">RECRUITMENT.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A71728] via-[#8E1321] to-[#C92A3E]">
+                  RECRUITMENT.
+                </span>
               </h2>
             </div>
 
@@ -130,10 +128,10 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
               {activeTab === "profile" && (
                 <div className="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
                   <p>
-                    <strong className="text-black font-semibold">Kawaii Japan Career & HR Solutions</strong> operates as the premier human resources and talent solutions sister concern of the prestigious <strong className="text-black font-semibold">Kawaii Group (Tokyo, Japan)</strong>. Operating under the visionary ecosystem of Kawaii Group, we are committed to bridging international corporate excellence with Bangladesh&apos;s high-caliber workforce.
+                    <strong className="text-black font-semibold">Kawaii Japan Career & HR Solutions</strong> operates as the premier human resources and executive talent solutions sister concern of the prestigious <strong className="text-black font-semibold">Kawaii Group (Tokyo, Japan)</strong>. Operating under the visionary ecosystem of Kawaii Group, we bridge international corporate excellence with Bangladesh&apos;s top-tier talent.
                   </p>
-                  <p>
-                    Backed by Kawaii Group&apos;s cross-border heritage, we bring Japanese precision, Kaizen-driven operational discipline, and strict bilateral compliance to every talent engagement — creating seamless synergies between top employers and exceptional professionals.
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    Backed by Kawaii Group&apos;s cross-border heritage, we bring Japanese precision, Kaizen-driven operational discipline, and strict bilateral compliance to every talent engagement.
                   </p>
 
                   <AnimatePresence>
@@ -143,10 +141,10 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.4 }}
-                        className="space-y-3 pt-2 text-gray-600 text-xs sm:text-sm border-t border-gray-200 mt-4"
+                        className="space-y-3 pt-3 text-gray-600 text-xs sm:text-sm border-t border-gray-200 mt-3"
                       >
                         <p>
-                          Our specialized executive search and talent acquisition methodology is engineered to solve modern staffing bottlenecks. Whether matching bilingual Japanese engineers, garment supply chain directors, or pharmaceutical leaders, we guarantee unmatched fidelity in every candidate match.
+                          Our specialized executive search and talent acquisition methodology solves modern staffing bottlenecks. Whether placing bilingual Japanese engineers, garment supply chain directors, or pharmaceutical leaders, we guarantee unmatched fidelity in every candidate match.
                         </p>
                       </motion.div>
                     )}
@@ -154,7 +152,7 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
 
                   <button
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="inline-flex items-center space-x-1.5 text-xs font-bold tracking-wider uppercase text-[#A71728] hover:text-black transition-colors pt-2"
+                    className="inline-flex items-center space-x-1.5 text-xs font-bold tracking-wider uppercase text-[#A71728] hover:text-black transition-colors pt-1"
                   >
                     <span>{isExpanded ? "Show Less" : "Read Full Profile"}</span>
                     <ChevronRight className={`w-3.5 h-3.5 transform transition-transform ${isExpanded ? "rotate-90" : ""}`} />
@@ -164,32 +162,41 @@ export function AboutSection({ onOpenModal }: { onOpenModal: (tab: "employer" | 
 
               {activeTab === "vision" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="p-5 bg-white border border-gray-200 space-y-2">
-                    <div className="text-xs font-bold tracking-widest text-[#A71728] uppercase flex items-center space-x-2">
-                      <Compass className="w-4 h-4" />
+                  {/* System Color Vision Card */}
+                  <div className="p-6 rounded-2xl bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl border border-white/15 space-y-3 relative overflow-hidden group">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-black/25 border border-white/20 text-[11px] font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
+                      <Compass className="w-3 h-3" />
                       <span>Our Vision</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
-                      To become the most reliable and influential bilateral HR and talent acquisition bridge between Japan and Bangladesh, admired globally for integrity and precision.
+                    <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                      To become the benchmark for professional HR and talent acquisition in Bangladesh, admired globally for integrity and Japanese precision.
                     </p>
+                    <div className="pt-3 border-t border-white/15 text-[10px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between">
+                      <span>STANDARD</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
+                    </div>
                   </div>
 
-                  <div className="p-5 bg-white border border-gray-200 space-y-2">
-                    <div className="text-xs font-bold tracking-widest text-[#A71728] uppercase flex items-center space-x-2">
-                      <Globe className="w-4 h-4" />
+                  {/* System Color Mission Card */}
+                  <div className="p-6 rounded-2xl bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl border border-white/15 space-y-3 relative overflow-hidden group">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-black/25 border border-white/20 text-[11px] font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
+                      <Globe className="w-3 h-3" />
                       <span>Our Mission</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
-                      To empower visionary organizations with exceptional human capital and guide ambitious professionals toward fulfilling global careers through ethical Japanese methodologies.
+                    <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                      To empower organizations with capable talent and guide professionals toward fulfilling global careers through ethical Japanese methodologies.
                     </p>
+                    <div className="pt-3 border-t border-white/15 text-[10px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between">
+                      <span>ETHICAL ECOSYSTEM</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
+                    </div>
                   </div>
                 </div>
               )}
-
             </div>
 
             {/* CTAs */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <RedButton
                 variant="primary"
                 onClick={() => onOpenModal("employer")}

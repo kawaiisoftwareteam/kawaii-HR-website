@@ -32,9 +32,12 @@ export function FaqAccordion({
   const [openItem, setOpenItem] = React.useState<string | null>(null);
 
   return (
-    <div className={cn("p-4", className)}>
+    <div className={cn("p-2 sm:p-4", className)}>
       {timestamp && (
-        <div className="mb-4 text-sm text-muted-foreground">{timestamp}</div>
+        <div className="mb-5 text-xs font-mono font-bold text-[#A71728] uppercase tracking-wider flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#A71728] animate-pulse" />
+          <span>{timestamp}</span>
+        </div>
       )}
 
       <Accordion.Root
@@ -47,48 +50,34 @@ export function FaqAccordion({
           <Accordion.Item
             value={item.id.toString()}
             key={item.id}
-            className="mb-2"
+            className="mb-3"
           >
             <Accordion.Header>
-              <Accordion.Trigger className="flex w-full items-center justify-start gap-x-4">
+              <Accordion.Trigger className="flex w-full items-center justify-between gap-x-4 group cursor-pointer">
                 <div
                   className={cn(
-                    "relative flex items-center space-x-2 rounded-xl p-2 transition-colors",
+                    "relative flex items-center space-x-2 rounded-2xl p-3 sm:p-3.5 transition-all duration-300 border text-left",
                     openItem === item.id.toString()
-                      ? "bg-primary/20 text-primary"
-                      : "bg-muted hover:bg-primary/10",
+                      ? "bg-[#A71728]/10 border-[#A71728] text-black font-bold shadow-xs"
+                      : "bg-gray-50/80 border-gray-200 hover:border-[#A71728]/50 hover:bg-white text-gray-800",
                     questionClassName
                   )}
                 >
-                  {item.icon && (
-                    <span
-                      className={cn(
-                        "absolute bottom-6",
-                        item.iconPosition === "right" ? "right-0" : "left-0"
-                      )}
-                      style={{
-                        transform:
-                          item.iconPosition === "right"
-                            ? "rotate(7deg)"
-                            : "rotate(-4deg)",
-                      }}
-                    >
-                      {item.icon}
-                    </span>
-                  )}
-                  <span className="font-medium text-left">{item.question}</span>
+                  <span className="font-semibold text-xs sm:text-sm">{item.question}</span>
                 </div>
 
                 <span
                   className={cn(
-                    "shrink-0 text-muted-foreground",
-                    openItem === item.id.toString() && "text-primary"
+                    "shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 border",
+                    openItem === item.id.toString()
+                      ? "bg-[#A71728] text-white border-[#A71728]"
+                      : "bg-gray-50 border-gray-200 text-gray-500 group-hover:border-[#A71728] group-hover:text-[#A71728]"
                   )}
                 >
                   {openItem === item.id.toString() ? (
-                    <Minus className="h-5 w-5" />
+                    <Minus className="h-4 w-4" />
                   ) : (
-                    <Plus className="h-5 w-5" />
+                    <Plus className="h-4 w-4" />
                   )}
                 </span>
               </Accordion.Trigger>
@@ -101,13 +90,13 @@ export function FaqAccordion({
                   open: { opacity: 1, height: "auto" },
                   collapsed: { opacity: 0, height: 0 },
                 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="ml-7 mt-1 md:ml-16">
+                <div className="mt-2.5 mb-2 pl-2">
                   <div
                     className={cn(
-                      "relative max-w-md rounded-2xl bg-primary px-4 py-2 text-primary-foreground text-sm leading-relaxed",
+                      "relative rounded-2xl bg-gradient-to-r from-[#A71728] via-[#8E1321] to-[#680C17] p-4 sm:p-5 text-white text-xs sm:text-sm leading-relaxed shadow-md border border-white/15",
                       answerClassName
                     )}
                   >

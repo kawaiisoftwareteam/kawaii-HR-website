@@ -3,8 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowUp, MapPin, Mail, Phone } from "lucide-react";
+import { ArrowUp, MapPin, Mail, Phone, ArrowUpRight, ShieldCheck, Globe, Sparkles } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyData";
 
 const exploreLinks = [
@@ -13,28 +12,19 @@ const exploreLinks = [
   { label: "For Job Seekers", href: "/for-job-seekers" },
   { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
-  { label: "News", href: "/news" },
-  { label: "Contact", href: "/contact" },
+  { label: "News & Insights", href: "/news" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const serviceLinks = [
-  { label: "Recruitment & Talent", href: "/services/recruitment" },
-  { label: "Payroll & Workforce", href: "/services/payroll" },
-  { label: "Managed Service", href: "/services/managed-service" },
-  { label: "PEO & EOR", href: "/services/peo-eor" },
-  { label: "HR Outsourcing", href: "/services/hr-outsourcing" },
-  { label: "BPO & RPO", href: "/services/bpo-rpo" },
-  { label: "Immigration & Visa", href: "/services/immigration" },
-  { label: "Remote Staffing", href: "/services/remote-staffing" },
-];
-
-const audienceLinks = [
-  { label: "Hire Talent", href: "/for-businesses" },
-  { label: "White Collar", href: "/for-businesses#white-collar" },
-  { label: "Blue Collar", href: "/for-businesses#blue-collar" },
-  { label: "Find a Role", href: "/for-job-seekers" },
-  { label: "Employer Inquiry", href: "/for-businesses#inquiry-form" },
-  { label: "Candidate Register", href: "/for-job-seekers#register-form" },
+  { label: "Executive Search & Talent", href: "/services/recruitment" },
+  { label: "Managed Payroll & Compliance", href: "/services/payroll" },
+  { label: "Managed Service Operations", href: "/services/managed-service" },
+  { label: "Global PEO & EOR Solutions", href: "/services/peo-eor" },
+  { label: "Strategic HR Outsourcing", href: "/services/hr-outsourcing" },
+  { label: "Bilateral BPO & RPO Hub", href: "/services/bpo-rpo" },
+  { label: "Immigration & Technical Visa", href: "/services/immigration" },
+  { label: "Dedicated Remote Staffing", href: "/services/remote-staffing" },
 ];
 
 export function Footer() {
@@ -43,72 +33,101 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-premium-light text-[#111111] overflow-hidden border-t border-black/5 select-none">
-      {/* Soft brand wash + grid */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `
-              radial-gradient(ellipse 70% 50% at 0% 0%, rgba(167,23,40,0.06), transparent 55%),
-              radial-gradient(ellipse 50% 40% at 100% 100%, rgba(0,0,0,0.03), transparent 50%)
-            `,
-          }}
-        />
-        <div className="absolute inset-0 japanese-grid-pattern opacity-35" />
+    <footer className="relative bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#3B070D] text-white overflow-hidden select-none">
+      {/* Top Wave Curve Transition in System Color */}
+      <div className="w-full overflow-hidden leading-none pointer-events-none -mb-[1px] bg-transparent">
+        <svg
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="w-full h-10 sm:h-16 md:h-20 fill-[#A71728]"
+        >
+          <path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" />
+        </svg>
       </div>
 
-      {/* Top accent rule */}
-      <div className="relative h-px w-full bg-gradient-to-r from-transparent via-[#A71728]/60 to-transparent" />
+      {/* Ambient background lighting and Japanese grid */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-white/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[300px] bg-black/30 rounded-full blur-[140px]" />
+        <div className="absolute inset-0 japanese-grid-pattern-dark opacity-15" />
+      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-10">
-        {/* Brand row */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-14 border-b border-black/8"
-        >
-          <div className="space-y-4 max-w-xl">
-            <Image
-              src="/kawaiihrlogo.webp"
-              alt="Kawaii Japan Career & HR"
-              width={280}
-              height={84}
-              className="h-11 sm:h-12 w-auto object-contain"
-            />
-            <p className="text-sm text-gray-700 font-light leading-relaxed">
-              The Right Talent. The Right Role. The Right Fit. Japanese-standard HR precision, built for Bangladesh.
-            </p>
-            <p className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-black">
-              People. Precision. <span className="text-[#A71728]">Partnership.</span>
-            </p>
-          </div>
-
-          <div className="text-xs uppercase tracking-[0.2em] text-gray-500 font-medium lg:text-right">
-            <div>Sister Concern of {COMPANY_INFO.group}</div>
-            <div className="mt-1 text-[#A71728] font-bold tracking-[0.25em]">
-              Est. {COMPANY_INFO.establishedYear}
+      {/* Main Footer Container */}
+      <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 pt-8 md:pt-12 pb-10">
+        
+        {/* Top Highlight Banner: Sister Concern of Kawaii Group */}
+        <div className="mb-14 p-6 sm:p-8 rounded-2xl bg-black/25 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-white text-[#A71728] flex items-center justify-center shrink-0 shadow-lg">
+              <ShieldCheck className="w-6 h-6" />
             </div>
-            <div className="mt-1 text-[11px] text-gray-400">
-              Response SLA: Within 24 Business Hours
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#FFEAA7]">
+                  OFFICIAL SISTER CONCERN
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
+              </div>
+              <h4 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white mt-0.5">
+                Kawaii Group (Tokyo, Japan) Corporate Backing
+              </h4>
             </div>
           </div>
-        </motion.div>
 
-        {/* Link + contact grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 py-14 border-b border-black/8">
-          <div className="lg:col-span-3 space-y-4">
-            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
-              Explore
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-3 py-1.5 rounded-full bg-black/30 border border-white/20 text-xs font-mono text-white">
+              🇯🇵 Tokyo Headquarters
+            </span>
+            <span className="px-3 py-1.5 rounded-full bg-black/30 border border-white/20 text-xs font-mono text-white">
+              🇧🇩 Dhaka Executive Hub
+            </span>
+            <Link
+              href="/about"
+              className="px-4 py-1.5 rounded-full bg-[#FFEAA7] hover:bg-white text-[#8E1321] text-xs font-bold tracking-wider uppercase inline-flex items-center gap-1.5 transition-colors shadow-md"
+            >
+              <span>Our Heritage</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Brand Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pb-14 border-b border-white/15">
+          <div className="lg:col-span-5 space-y-5">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/kawaiihrlogo-white.webp"
+                alt="Kawaii Japan Career & HR"
+                width={260}
+                height={78}
+                className="h-10 sm:h-11 w-auto object-contain brightness-110"
+              />
+            </Link>
+            <p className="text-sm text-white/90 font-light leading-relaxed max-w-md">
+              Connecting Bangladesh&apos;s high-caliber talent with visionary enterprises through Japanese recruitment precision, Kaizen structural discipline, and absolute integrity.
+            </p>
+            <div className="pt-2 flex flex-wrap items-center gap-2">
+              <span className="px-3 py-1 rounded-full bg-black/30 border border-white/25 text-[#FFEAA7] text-[11px] font-mono font-bold">
+                可愛いグループ・公式
+              </span>
+              <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-mono">
+                SLA: 24h Response
+              </span>
+            </div>
+          </div>
+
+          {/* Quick Links Column */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFEAA7] flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Explore</span>
             </div>
             <ul className="space-y-2.5">
               {exploreLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
+                    className="text-xs sm:text-sm text-white/85 hover:text-[#FFEAA7] hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -117,16 +136,18 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Services Column */}
           <div className="lg:col-span-3 space-y-4">
-            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
-              Services
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFEAA7] flex items-center gap-1.5">
+              <Globe className="w-3.5 h-3.5" />
+              <span>HR Services</span>
             </div>
             <ul className="space-y-2.5">
-              {serviceLinks.map((link) => (
+              {serviceLinks.slice(0, 6).map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
+                    className="text-xs sm:text-sm text-white/85 hover:text-[#FFEAA7] hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -135,82 +156,57 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Contact Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
-              Audiences
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFEAA7] flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Head Office</span>
             </div>
-            <ul className="space-y-2.5">
-              {audienceLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-700 hover:text-[#A71728] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-4 space-y-4">
-            <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#A71728]">
-              Head Office
-            </div>
-            <div className="space-y-4 text-sm text-gray-700">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#A71728] shrink-0 mt-0.5" />
-                <span className="font-light leading-relaxed">{COMPANY_INFO.address}</span>
+            <div className="space-y-3.5 text-xs text-white/90 font-light leading-relaxed">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#FFEAA7] shrink-0 mt-0.5" />
+                <span>{COMPANY_INFO.address}</span>
               </div>
-              {!COMPANY_INFO.email.includes("[") && (
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#A71728] shrink-0" />
-                  <span className="font-light">{COMPANY_INFO.email}</span>
-                </div>
-              )}
-              {!COMPANY_INFO.phone.includes("[") && (
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#A71728] shrink-0" />
-                  <span className="font-light">{COMPANY_INFO.phone}</span>
-                </div>
-              )}
-              <div className="pt-1 text-xs text-gray-500 font-light leading-relaxed">
-                Chairman: {COMPANY_INFO.chairman}
-                <span className="mx-2 text-black/20">·</span>
-                Banking Partner: {COMPANY_INFO.bank}
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                <span className="text-white font-medium">{COMPANY_INFO.email}</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                <span className="text-white font-medium">{COMPANY_INFO.phone}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5 pt-8">
-          <p className="text-xs text-gray-500 text-center sm:text-left">
-            © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
+          <p className="text-xs text-white/75 text-center sm:text-left font-light">
+            © {new Date().getFullYear()} {COMPANY_INFO.name}. A proud sister concern of {COMPANY_INFO.group}. All rights reserved.
           </p>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-3 text-gray-600 hover:text-black transition-colors cursor-pointer"
+            className="group flex items-center gap-3 text-white/85 hover:text-[#FFEAA7] transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span className="text-[10px] uppercase font-bold tracking-[0.22em]">
               Back to top
             </span>
-            <span className="w-9 h-9 rounded-full border border-black/12 bg-white flex items-center justify-center shadow-sm group-hover:border-[#A71728] group-hover:bg-[#A71728] group-hover:text-white transition-all">
+            <span className="w-9 h-9 rounded-full border border-white/30 bg-black/30 flex items-center justify-center shadow-sm group-hover:bg-[#FFEAA7] group-hover:text-[#8E1321] transition-all">
               <ArrowUp className="w-3.5 h-3.5" />
             </span>
           </button>
         </div>
       </div>
 
-      {/* Soft watermark */}
+      {/* Subtle Japanese Kanji Watermark */}
       <div
-        className="absolute right-0 bottom-0 text-[120px] md:text-[180px] font-extrabold text-black/[0.03] leading-none pointer-events-none select-none tracking-tighter"
+        className="absolute right-0 bottom-0 text-[140px] md:text-[200px] font-black text-white/[0.04] leading-none pointer-events-none select-none tracking-tighter"
         aria-hidden="true"
       >
-        KAWAII
+        可愛い
       </div>
     </footer>
   );

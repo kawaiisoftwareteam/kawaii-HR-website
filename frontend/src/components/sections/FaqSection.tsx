@@ -19,7 +19,7 @@ export function FaqSection() {
     >
       <div className="absolute inset-0 japanese-grid-pattern opacity-40 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -33,9 +33,11 @@ export function FaqSection() {
               <span>16 — FAQ</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-[0.95] text-black">
-              QUESTIONS,{" "}
-              <span className="text-[#A71728]">ANSWERED.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase leading-[0.95] text-black">
+              QUESTIONS, <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A71728] via-[#8E1321] to-[#C92A3E]">
+                ANSWERED.
+              </span>
             </h2>
 
             <p className="text-sm sm:text-base text-gray-700 font-light leading-relaxed max-w-md">
@@ -51,13 +53,14 @@ export function FaqSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <div className="rounded-2xl border border-black/8 bg-white/80 backdrop-blur-sm shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)]">
+            <div className="rounded-3xl border-2 border-[#A71728] bg-white shadow-[0_20px_50px_rgba(167,23,40,0.12)] p-3 sm:p-4 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#A71728]/5 rounded-full blur-2xl pointer-events-none" />
               <FaqAccordion
                 data={faqData}
-                timestamp="Updated for employers & candidates"
-                className="max-w-none p-5 sm:p-8"
+                timestamp="Updated for employers & candidates • Kawaii HR"
+                className="max-w-none p-4 sm:p-6"
                 questionClassName="text-sm sm:text-base"
-                answerClassName="max-w-lg text-sm sm:text-[15px]"
+                answerClassName="max-w-xl text-sm sm:text-[15px]"
               />
             </div>
           </motion.div>
