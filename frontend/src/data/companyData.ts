@@ -2024,6 +2024,11 @@ export const BLUE_COLLAR_DATA = {
       desc: "People who keep goods and operations moving.",
       roles: ["Warehouse Workers", "Warehouse Supervisors", "Loading & Unloading Teams", "Inventory Support", "Material Handling", "Fleet Operations", "Drivers and Operators", "Logistics Coordinators"],
     },
+    {
+      title: "Facility Management, Cleaning & Commercial Housekeeping",
+      desc: "Trained sanitation, janitorial, and commercial facility housekeeping crews for corporate offices, hospitals, and industrial premises.",
+      roles: ["Commercial Cleaners", "Housekeeping Supervisors", "Sanitation Crews", "Office Attendants", "Janitorial Staff", "Facility Caretakers", "Deep Clean Specialists"],
+    },
   ],
   qaPillars: [
     { title: "Practical Trade Testing", desc: "Hands-on assessment examining tool familiarity, work-method knowledge, execution accuracy, and safety compliance before placement." },

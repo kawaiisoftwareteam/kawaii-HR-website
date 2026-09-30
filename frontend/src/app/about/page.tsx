@@ -41,9 +41,9 @@ export default function AboutPage() {
       />
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* Hero with Background Image & Sakura Petals */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden border-b border-black/10">
-        {/* Background Image Layer - High Visibility */}
+      {/* Hero with Background Image & Sakura Petals - Soft Cinematic Shade */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden border-b border-black/20 bg-[#161618]">
+        {/* Background Image Layer - Crisp Tokyo Skyline & Sakura with Subtle Black Tint */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src="/images/about_hero_bg.jpg"
@@ -51,191 +51,190 @@ export default function AboutPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter brightness-95 contrast-105"
+            className="object-cover object-center filter brightness-95 contrast-105 opacity-75"
           />
-          {/* Subtle cinematic gradient so Tokyo skyline and sakura blossoms are crisp & visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+          {/* Subtle soft black gradient overlay for cinematic depth without being pitch black */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25" />
         </div>
 
         {/* Falling Sakura Petals Animation */}
         <SakuraPetals count={40} speed="medium" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Glass Card: Eye-Catching Main Editorial */}
+            {/* Left Column: Seamless Integrated Editorial on Soft Dark Background */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-7 bg-white/95 backdrop-blur-2xl p-6 sm:p-8 md:p-10 rounded-2xl border border-white/80 shadow-[0_25px_70px_rgba(0,0,0,0.35)] flex flex-col justify-between space-y-6"
+              className="lg:col-span-7 space-y-6 text-white"
             >
-              <div className="space-y-5">
-                {/* Header Pills & Seal */}
-                <div className="flex flex-wrap items-center gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#A71728]/10 border border-[#A71728]/30 rounded-full shadow-xs">
-                    <span className="w-2 h-2 rounded-full bg-[#A71728] animate-pulse" />
-                    <span className="text-[#A71728] text-[11px] font-extrabold uppercase tracking-wider">
-                      SISTER CONCERN OF KAWAII GROUP (JAPAN)
-                    </span>
-                  </div>
-                  <span className="px-2.5 py-0.5 bg-black/5 text-[#111] text-[10px] font-mono font-bold tracking-widest uppercase rounded-full border border-black/10">
-                    TOKYO × DHAKA
+              {/* Header Pills & Seal */}
+              <div className="flex flex-wrap items-center gap-2.5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#A71728] border border-[#A71728] shadow-sm rounded-none text-white">
+                  <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest">
+                    SISTER CONCERN OF KAWAII GROUP (JAPAN)
                   </span>
                 </div>
+                <span className="px-3 py-1.5 bg-black/40 backdrop-blur-md text-[#FFEAA7] text-[10px] font-mono font-bold tracking-widest uppercase rounded-none border border-white/20">
+                  TOKYO ⇄ DHAKA
+                </span>
+              </div>
 
-                {/* Main Heading */}
-                <h1 className="text-[clamp(1.85rem,3.8vw,3.4rem)] font-extrabold tracking-tight uppercase leading-[1.02] text-[#111]">
-                  Redefining Talent Acquisition <br />
-                  with <span className="text-[#A71728] underline decoration-[#A71728]/25 underline-offset-4">Japanese Standard.</span>
-                </h1>
+              {/* Main Headline */}
+              <h1 className="text-[clamp(2.1rem,4.4vw,3.9rem)] font-extrabold tracking-tight uppercase leading-[1.04] text-white">
+                Redefining Talent Acquisition <br />
+                with <span className="text-[#FFEAA7] underline decoration-[#A71728] underline-offset-8">Japanese Standard.</span>
+              </h1>
 
-                {/* Short, punchy description */}
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
-                  Operating as the official human resources and executive search sister concern of <strong className="text-black font-semibold">Kawaii Group (Tokyo, Japan)</strong>, we bridge international corporate rigor with Bangladesh&apos;s premier talent pool.
-                </p>
+              {/* Punchy Narrative Description */}
+              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+                Operating as the official human resources and executive search sister concern of <strong className="text-white font-semibold">Kawaii Group (Tokyo, Japan)</strong>, we bridge international corporate rigor with Bangladesh&apos;s premier talent pool.
+              </p>
 
-                {/* Eye-catching Feature Highlights */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-                  <div className="p-3 bg-[#FBFBFC] rounded-xl border border-gray-200/80 hover:border-[#A71728]/40 transition-colors">
-                    <div className="text-[#A71728] text-xs font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                      <span>Group Backing</span>
-                    </div>
-                    <p className="text-[11px] text-gray-600 leading-snug">
-                      Powered by Kawaii Group Tokyo infrastructure.
-                    </p>
+              {/* 3 Frosted Feature Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3.5 bg-black/35 backdrop-blur-md border border-white/20 hover:border-[#FFEAA7]/60 hover:bg-black/45 transition-all rounded-none shadow-sm">
+                  <div className="text-[#FFEAA7] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-[#FFEAA7]" />
+                    <span>Group Backing</span>
                   </div>
+                  <p className="text-[11px] text-white/80 leading-snug font-light">
+                    Powered by Kawaii Group Tokyo infrastructure.
+                  </p>
+                </div>
 
-                  <div className="p-3 bg-[#FBFBFC] rounded-xl border border-gray-200/80 hover:border-[#A71728]/40 transition-colors">
-                    <div className="text-[#A71728] text-xs font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1.5">
-                      <Target className="w-3.5 h-3.5" />
-                      <span>Kaizen Vetting</span>
-                    </div>
-                    <p className="text-[11px] text-gray-600 leading-snug">
-                      Rigorous 4-tier skill & cultural evaluation.
-                    </p>
+                <div className="p-3.5 bg-black/35 backdrop-blur-md border border-white/20 hover:border-[#FFEAA7]/60 hover:bg-black/45 transition-all rounded-none shadow-sm">
+                  <div className="text-[#FFEAA7] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <Target className="w-4 h-4 text-[#FFEAA7]" />
+                    <span>Kaizen Vetting</span>
                   </div>
+                  <p className="text-[11px] text-white/80 leading-snug font-light">
+                    Rigorous 4-tier skill & cultural evaluation.
+                  </p>
+                </div>
 
-                  <div className="p-3 bg-[#FBFBFC] rounded-xl border border-gray-200/80 hover:border-[#A71728]/40 transition-colors">
-                    <div className="text-[#A71728] text-xs font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1.5">
-                      <HeartHandshake className="w-3.5 h-3.5" />
-                      <span>100% Ethical</span>
-                    </div>
-                    <p className="text-[11px] text-gray-600 leading-snug">
-                      Zero candidate fee & full labor compliance.
-                    </p>
+                <div className="p-3.5 bg-black/35 backdrop-blur-md border border-white/20 hover:border-[#FFEAA7]/60 hover:bg-black/45 transition-all rounded-none shadow-sm">
+                  <div className="text-[#FFEAA7] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <HeartHandshake className="w-4 h-4 text-[#FFEAA7]" />
+                    <span>100% Ethical</span>
                   </div>
+                  <p className="text-[11px] text-white/80 leading-snug font-light">
+                    Zero candidate fee & full labor compliance.
+                  </p>
                 </div>
               </div>
 
               {/* CTAs & Micro-Stats footer */}
-              <div className="pt-2 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+              <div className="pt-3 border-t border-white/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <RedButton
                     variant="primary"
                     size="md"
                     onClick={() => handleOpenModal("employer")}
-                    className="text-xs sm:text-sm font-bold shadow-lg shadow-[#A71728]/20"
+                    className="text-xs sm:text-sm font-bold rounded-none shadow-lg shadow-[#A71728]/35"
                   >
                     Partner With Us Today
                   </RedButton>
                   <RedButton
-                    variant="outline"
+                    variant="white"
                     size="md"
                     onClick={() => handleOpenModal("jobseeker")}
-                    className="text-xs sm:text-sm font-bold bg-white/80 hover:bg-white"
+                    className="text-xs sm:text-sm font-bold rounded-none bg-white text-black hover:bg-gray-100 shadow-sm"
                   >
                     Talk to Our HR Experts
                   </RedButton>
                 </div>
-                <div className="text-right hidden sm:block">
-                  <span className="text-[10px] font-mono uppercase text-gray-500 block">Placement Standard</span>
-                  <span className="text-xs font-bold text-[#A71728]">100% Verified Talents</span>
+                <div className="text-left sm:text-right">
+                  <span className="text-[10px] font-mono uppercase text-white/70 block tracking-wider">Placement Standard</span>
+                  <span className="text-xs font-bold text-[#FFEAA7] font-mono">100% Verified Talents</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Glass Card: Interactive Sister Concern Visual Panel */}
+            {/* Right Column: Tokyo System Gradient Card */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-5 bg-white/95 backdrop-blur-2xl p-6 sm:p-8 rounded-2xl border border-white/80 shadow-[0_25px_70px_rgba(0,0,0,0.35)] flex flex-col justify-between relative overflow-hidden"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="lg:col-span-5 bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white p-7 sm:p-8 rounded-none border-2 border-white/20 shadow-2xl space-y-5 relative overflow-hidden"
             >
-              <div className="absolute -top-10 -right-10 w-36 h-36 bg-[#A71728]/10 rounded-full blur-2xl pointer-events-none" />
+              {/* Subtle Japanese Watermark */}
+              <div className="absolute -bottom-6 -right-6 text-white/5 font-mono font-black text-9xl select-none pointer-events-none">
+                東京
+              </div>
 
-              <div className="space-y-5">
-                {/* Parent Group Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-gray-200/80">
-                  <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#A71728] block">
-                      PARENT HEADQUARTERS
-                    </span>
-                    <h3 className="text-xl font-extrabold uppercase tracking-tight text-black">
-                      Kawaii Group (Japan)
-                    </h3>
+              {/* Parent Group Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-white/20 relative z-10">
+                <div>
+                  <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-[#FFEAA7] block">
+                    PARENT HEADQUARTERS
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white">
+                    Kawaii Group (Japan)
+                  </h3>
+                </div>
+                <div className="px-3 py-1 bg-black/30 border border-white/20 text-[#FFEAA7] text-xs font-bold rounded-none shadow-xs flex items-center gap-1.5">
+                  <span>🇯🇵</span>
+                  <span className="font-mono">可愛いグループ</span>
+                </div>
+              </div>
+
+              {/* 3 Eye-Catching Feature Rows */}
+              <div className="space-y-3 relative z-10">
+                <div className="p-3.5 bg-black/25 rounded-none border border-white/20 hover:border-[#FFEAA7]/40 transition-all flex items-start gap-3.5">
+                  <div className="w-8 h-8 rounded-none bg-[#FFEAA7] text-[#A71728] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <Building2 className="w-4 h-4" />
                   </div>
-                  <div className="px-3 py-1 bg-gradient-to-r from-[#A71728]/10 to-[#FFB7C5]/20 text-[#A71728] text-xs font-bold border border-[#A71728]/30 rounded-lg shadow-xs flex items-center gap-1.5">
-                    <span>🇯🇵</span>
-                    <span className="font-mono">可愛いグループ</span>
+                  <div>
+                    <div className="text-xs font-bold text-white uppercase tracking-tight">
+                      Official HR Sister Concern
+                    </div>
+                    <div className="text-xs text-white/90 font-light mt-0.5 leading-relaxed">
+                      Dedicated bilateral talent engine directly backed by Kawaii Group&apos;s corporate governance.
+                    </div>
                   </div>
                 </div>
 
-                {/* 3 Eye-Catching Feature Rows */}
-                <div className="space-y-3">
-                  <div className="p-3.5 bg-gradient-to-r from-[#FFF5F5] to-white rounded-xl border border-[#A71728]/15 hover:border-[#A71728]/30 transition-all flex items-start gap-3.5 shadow-xs">
-                    <div className="w-8 h-8 rounded-lg bg-[#A71728] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                      <Building2 className="w-4 h-4" />
+                <div className="p-3.5 bg-black/25 rounded-none border border-white/20 hover:border-[#FFEAA7]/40 transition-all flex items-start gap-3.5">
+                  <div className="w-8 h-8 rounded-none bg-black/40 border border-white/20 text-[#FFEAA7] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <Globe className="w-4 h-4 text-[#FFEAA7]" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-white uppercase tracking-tight">
+                      Bilateral Tokyo × Dhaka Desk
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-black uppercase tracking-tight">
-                        Official HR Sister Concern
-                      </div>
-                      <div className="text-xs text-gray-600 font-light mt-0.5 leading-relaxed">
-                        Dedicated bilateral talent engine directly backed by Kawaii Group&apos;s corporate governance.
-                      </div>
+                    <div className="text-xs text-white/90 font-light mt-0.5 leading-relaxed">
+                      Direct connection to Japanese multinational standards, high-tier placements, and cultural fit.
                     </div>
                   </div>
+                </div>
 
-                  <div className="p-3.5 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-200/80 hover:border-[#A71728]/30 transition-all flex items-start gap-3.5 shadow-xs">
-                    <div className="w-8 h-8 rounded-lg bg-black text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                      <Globe className="w-4 h-4 text-[#FFB7C5]" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-black uppercase tracking-tight">
-                        Bilateral Tokyo × Dhaka Desk
-                      </div>
-                      <div className="text-xs text-gray-600 font-light mt-0.5 leading-relaxed">
-                        Direct connection to Japanese multinational standards, high-tier placements, and cultural fit.
-                      </div>
-                    </div>
+                <div className="p-3.5 bg-black/25 rounded-none border border-white/20 hover:border-[#FFEAA7]/40 transition-all flex items-start gap-3.5">
+                  <div className="w-8 h-8 rounded-none bg-black/40 border border-white/20 text-[#FFEAA7] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#FFEAA7]" />
                   </div>
-
-                  <div className="p-3.5 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-200/80 hover:border-[#A71728]/30 transition-all flex items-start gap-3.5 shadow-xs">
-                    <div className="w-8 h-8 rounded-lg bg-[#A71728]/10 text-[#A71728] flex items-center justify-center shrink-0 shadow-sm mt-0.5 border border-[#A71728]/25">
-                      <CheckCircle2 className="w-4 h-4 text-[#A71728]" />
+                  <div>
+                    <div className="text-xs font-bold text-white uppercase tracking-tight">
+                      Kaizen Quality Assurance
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-black uppercase tracking-tight">
-                        Kaizen Quality Assurance
-                      </div>
-                      <div className="text-xs text-gray-600 font-light mt-0.5 leading-relaxed">
-                        Multi-phase vetting ensuring zero candidate misalignments and guaranteed retention.
-                      </div>
+                    <div className="text-xs text-white/90 font-light mt-0.5 leading-relaxed">
+                      Multi-phase vetting ensuring zero candidate misalignments and guaranteed retention.
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Bottom Live Indicator Bar */}
-              <div className="mt-5 pt-3.5 border-t border-gray-200/80 flex items-center justify-between text-[11px] font-mono text-gray-600">
+              <div className="pt-3.5 border-t border-white/20 flex items-center justify-between text-[11px] font-mono text-white/90 relative z-10">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-semibold text-gray-800">Tokyo & Dhaka Live Desks</span>
+                  <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
+                  <span className="font-semibold text-white">Tokyo & Dhaka Live Desks</span>
                 </div>
-                <span className="text-[#A71728] font-bold tracking-wider">EST. 2025</span>
+                <span className="text-[#FFEAA7] font-bold tracking-wider">EST. 2025</span>
               </div>
             </motion.div>
 

@@ -36,12 +36,13 @@ import {
   COMPANY_INFO,
 } from "@/data/companyData";
 
-// Extended industry items with rich imagery
+// Extended industry items with rich imagery & icons
 const INDUSTRY_CARDS = [
   {
     id: "it-software",
     title: "Information Technology & Software Engineering",
     category: "Tech & Innovation",
+    icon: Zap,
     image: "/images/it_industry.jpg",
     desc: "Targeted sourcing for high-demand engineering teams, from Full-Stack & DevOps to AI researchers and technical leadership.",
     roles: [
@@ -52,12 +53,14 @@ const INDUSTRY_CARDS = [
       "Engineering Managers",
     ],
     highlight: "Pre-screened tech coding & architecture assessment",
+    stat: "1,200+ Vetted Engineers in Pool",
   },
   {
     id: "civil-infra",
     title: "Civil Engineering, Construction & Infrastructure",
     category: "Engineering",
-    image: "/images/manufacturing_industry.jpg",
+    icon: Building2,
+    image: "/images/skilled_trade_technicians.jpg",
     desc: "Vetted civil, structural, and MEP engineers ready for mega-projects, site management, and technical supervision across Bangladesh.",
     roles: [
       "Civil & Structural Engineers",
@@ -67,11 +70,13 @@ const INDUSTRY_CARDS = [
       "Safety Officers (HSE)",
     ],
     highlight: "Strict credential and on-site readiness verification",
+    stat: "45+ Infrastructure Projects Staffed",
   },
   {
     id: "garments-manufacturing",
     title: "Garments, Textiles & Industrial Manufacturing",
     category: "Manufacturing",
+    icon: Layers,
     image: "/images/garments_industry.jpg",
     desc: "Industrial veterans and production specialists who drive factory compliance, lean manufacturing, and operational excellence.",
     roles: [
@@ -82,11 +87,13 @@ const INDUSTRY_CARDS = [
       "Factory General Managers",
     ],
     highlight: "Kaizen 5S and compliance-trained candidates",
+    stat: "100% Factory Compliance Trained",
   },
   {
     id: "corporate-finance",
     title: "Corporate Operations, Finance & Administration",
     category: "Corporate",
+    icon: Briefcase,
     image: "/images/banking_industry.jpg",
     desc: "Strategic leaders and functional professionals who bring financial discipline, corporate governance, and operational scale.",
     roles: [
@@ -97,11 +104,13 @@ const INDUSTRY_CARDS = [
       "HR Business Partners",
     ],
     highlight: "Executive leadership & strategic background checks",
+    stat: "Top 5% Executive Leadership Network",
   },
   {
     id: "healthcare-pharma",
     title: "Healthcare, Pharmaceuticals & BPO Services",
     category: "Healthcare & BPO",
+    icon: ShieldCheck,
     image: "/images/healthcare_industry.jpg",
     desc: "Qualified healthcare managers, clinical research coordinators, pharma specialists, and multilingual BPO professionals.",
     roles: [
@@ -112,11 +121,13 @@ const INDUSTRY_CARDS = [
       "Customer Experience Heads",
     ],
     highlight: "Domain-specific regulatory and language fluency check",
+    stat: "Multilingual & DGDA Certified Pool",
   },
   {
     id: "energy-power",
     title: "Oil, Gas, Power & Renewable Energy",
     category: "Energy",
+    icon: Globe2,
     image: "/images/japan_bangladesh_partnership.jpg",
     desc: "Technical plant specialists, power generation engineers, and HSE experts aligned with rigorous Japanese safety standards.",
     roles: [
@@ -127,6 +138,7 @@ const INDUSTRY_CARDS = [
       "Commissioning Specialists",
     ],
     highlight: "Site discipline and international standard compliance",
+    stat: "Japanese HSE & Power Plant Aligned",
   },
 ];
 
@@ -165,8 +177,11 @@ export default function ForBusinessesPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTab, setModalTab] = useState<"employer" | "jobseeker">("employer");
   const [activeDivision, setActiveDivision] = useState<"white-collar" | "blue-collar">("white-collar");
-  const [activeIndustryFilter, setActiveIndustryFilter] = useState<string>("All");
+  const [selectedIndustryId, setSelectedIndustryId] = useState<string>("it-software");
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const selectedIndustry =
+    INDUSTRY_CARDS.find((item) => item.id === selectedIndustryId) || INDUSTRY_CARDS[0];
 
   // Corporate inquiry form state
   const [formData, setFormData] = useState({
@@ -192,21 +207,6 @@ export default function ForBusinessesPage() {
     e.preventDefault();
     setFormSubmitted(true);
   };
-
-  const filteredIndustries =
-    activeIndustryFilter === "All"
-      ? INDUSTRY_CARDS
-      : INDUSTRY_CARDS.filter((item) => item.category === activeIndustryFilter);
-
-  const categories = [
-    "All",
-    "Tech & Innovation",
-    "Engineering",
-    "Manufacturing",
-    "Corporate",
-    "Healthcare & BPO",
-    "Energy",
-  ];
 
   return (
     <main className="relative min-h-screen bg-white text-[#111111] font-sans selection:bg-[#A71728] selection:text-white overflow-x-hidden">
@@ -494,127 +494,216 @@ export default function ForBusinessesPage() {
 
 
       {/* =========================================================================
-          SECTION: INDUSTRY-SPECIALIZED TALENT SOLUTIONS (About Style System Cards)
+          SECTION: INDUSTRY-SPECIALIZED TALENT SOLUTIONS (Interactive Split Showcase)
          ========================================================================= */}
       <section className="py-24 md:py-32 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           
-          {/* Header & Filter Controls */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div className="max-w-3xl space-y-3">
-              <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
-                Sector Expertise
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-black">
-                Industry-Specialized <span className="text-[#A71728]">Talent Solutions</span>
-              </h2>
-              <p className="text-sm sm:text-base text-gray-600 font-light">
-                Tailored recruitment strategies aligned with the technical and operational realities of Bangladesh&apos;s primary growth drivers.
-              </p>
+          {/* Section Header */}
+          <div className="max-w-3xl mb-14 space-y-3">
+            <div className="text-xs font-bold tracking-[0.25em] text-[#A71728] uppercase">
+              Sector Expertise
             </div>
-
-            {/* Square Category Filter Tabs */}
-            <div className="flex flex-wrap gap-1.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveIndustryFilter(cat)}
-                  className={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider border rounded-none transition-all ${
-                    activeIndustryFilter === cat
-                      ? "bg-[#A71728] border-[#A71728] text-white shadow-sm"
-                      : "bg-[#F9FAFB] border-gray-200 text-gray-700 hover:bg-gray-100"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-black">
+              Industry-Specialized <span className="text-[#A71728]">Talent Solutions</span>
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 font-light">
+              Tailored recruitment strategies aligned with the technical and operational realities of Bangladesh&apos;s primary growth drivers. Select a sector below to explore specialized sourcing capabilities.
+            </p>
           </div>
 
-          {/* Square System Gradient Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence mode="popLayout">
-              {filteredIndustries.map((spec, idx) => (
+          {/* Interactive Split Showcase Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: 6 Interactive Sector Selectors */}
+            <div className="lg:col-span-5 space-y-3">
+              <div className="text-xs font-mono font-bold uppercase tracking-wider text-gray-500 pb-1">
+                Select Industry Sector:
+              </div>
+
+              {INDUSTRY_CARDS.map((item, idx) => {
+                const isSelected = item.id === selectedIndustryId;
+                const ItemIcon = item.icon;
+
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setSelectedIndustryId(item.id)}
+                    className={`w-full text-left p-4 sm:p-5 border-2 transition-all duration-300 rounded-none flex items-center justify-between group relative overflow-hidden ${
+                      isSelected
+                        ? "bg-gradient-to-r from-[#A71728] via-[#8E1321] to-[#680C17] text-white border-[#A71728] shadow-lg translate-x-1"
+                        : "bg-[#FAFAFA] border-gray-200 text-gray-800 hover:border-[#A71728] hover:bg-white"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3.5 relative z-10">
+                      <div
+                        className={`w-10 h-10 flex items-center justify-center font-mono font-bold text-xs shrink-0 rounded-none border ${
+                          isSelected
+                            ? "bg-black/30 border-white/20 text-[#FFEAA7]"
+                            : "bg-white border-gray-300 text-gray-700 group-hover:border-[#A71728] group-hover:text-[#A71728]"
+                        }`}
+                      >
+                        <ItemIcon className="w-5 h-5" />
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+                              isSelected ? "text-[#FFEAA7]" : "text-gray-500"
+                            }`}
+                          >
+                            SECTOR 0{idx + 1} • {item.category}
+                          </span>
+                        </div>
+                        <h3
+                          className={`text-sm sm:text-base font-bold uppercase leading-snug tracking-tight ${
+                            isSelected ? "text-white" : "text-gray-900 group-hover:text-[#A71728]"
+                          }`}
+                        >
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="relative z-10 shrink-0 ml-2">
+                      <ChevronRight
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          isSelected
+                            ? "text-[#FFEAA7] translate-x-1"
+                            : "text-gray-400 group-hover:text-[#A71728] group-hover:translate-x-1"
+                        }`}
+                      />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right Column: Featured Sector Detail Showcase Card */}
+            <div className="lg:col-span-7">
+              <AnimatePresence mode="wait">
                 <motion.div
-                  layout
+                  key={selectedIndustry.id}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 15 }}
-                  transition={{ duration: 0.3 }}
-                  key={spec.id}
-                  className="bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white border border-white/20 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group rounded-none relative overflow-hidden"
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35 }}
+                  className="bg-white border-2 border-gray-300 shadow-xl rounded-none overflow-hidden"
                 >
-                  {/* Watermark Index Number */}
-                  <div className="absolute -bottom-4 -right-4 text-white/5 font-mono font-black text-8xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
-                    0{idx + 1}
-                  </div>
-
-                  {/* Square Image Box with Dark Overlay */}
-                  <div className="relative h-48 w-full border-b border-white/20 overflow-hidden bg-black/40">
+                  {/* Top Showcase Image Banner */}
+                  <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-black/80">
                     <img
-                      src={spec.image}
-                      alt={spec.title}
-                      className="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-95 transition-all duration-500"
+                      src={selectedIndustry.image}
+                      alt={selectedIndustry.title}
+                      className="w-full h-full object-cover opacity-85"
                     />
-                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-mono font-bold uppercase tracking-wider text-[#FFEAA7]">
-                      {spec.category}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20" />
+
+                    {/* Floating Badges */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                      <div className="px-3 py-1 bg-black/70 backdrop-blur-sm border border-white/20 text-xs font-mono font-bold uppercase text-[#FFEAA7]">
+                        {selectedIndustry.category}
+                      </div>
+
+                      <div className="px-3 py-1 bg-[#A71728] text-white text-xs font-bold uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
+                        <span>Active Pipeline</span>
+                      </div>
+                    </div>
+
+                    {/* Bottom Title on Banner */}
+                    <div className="absolute bottom-4 left-4 right-4 space-y-1">
+                      <div className="text-[11px] font-mono text-[#FFEAA7] uppercase tracking-widest">
+                        PRECISION SOURCING PRACTICE
+                      </div>
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase text-white tracking-tight leading-tight">
+                        {selectedIndustry.title}
+                      </h3>
                     </div>
                   </div>
 
-                  {/* Card Content in System Style */}
-                  <div className="p-7 flex-1 flex flex-col justify-between space-y-5 relative z-10">
-                    <div className="space-y-2.5">
-                      <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-[#FFEAA7]">
-                        <span>VERTICAL SECTOR 0{idx + 1}</span>
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-8 space-y-6">
+                    
+                    {/* Sourcing Narrative */}
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                      {selectedIndustry.desc}
+                    </p>
+
+                    {/* Quality Vetting Highlight Box */}
+                    <div className="p-4 bg-[#FBFBFB] border-l-4 border-[#A71728] border-y border-r border-gray-200 rounded-none space-y-1">
+                      <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#A71728] flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Kaizen Vetting Benchmark</span>
                       </div>
-                      <h3 className="text-lg font-extrabold uppercase tracking-tight text-white leading-snug">
-                        {spec.title}
-                      </h3>
-                      <p className="text-xs sm:text-[13px] text-white/90 font-light leading-relaxed">
-                        {spec.desc}
+                      <p className="text-xs sm:text-sm font-semibold text-gray-900">
+                        {selectedIndustry.highlight}
                       </p>
                     </div>
 
-                    {/* Square Role Badges in System Gold / Frosted Style */}
-                    <div className="pt-3 border-t border-white/15 space-y-2">
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#FFEAA7]">
-                        Key Positions Recruited:
+                    {/* Key Positions Recruited */}
+                    <div className="space-y-3">
+                      <div className="text-xs font-mono font-bold uppercase tracking-wider text-gray-600">
+                        Frequently Placed Positions:
                       </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {spec.roles.map((r) => (
-                          <span
-                            key={r}
-                            className="px-2.5 py-1 bg-black/25 border border-white/20 text-[11px] font-medium text-white/95 rounded-none"
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {selectedIndustry.roles.map((role) => (
+                          <div
+                            key={role}
+                            className="p-2.5 bg-[#F9FAFB] border border-gray-200 text-xs font-semibold text-gray-900 flex items-center gap-2 rounded-none"
                           >
-                            {r}
-                          </span>
+                            <CheckCircle2 className="w-4 h-4 text-[#A71728] shrink-0" />
+                            <span>{role}</span>
+                          </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Action Link & Live Indicator */}
-                    <div className="pt-3 border-t border-white/15 flex items-center justify-between text-[11px] font-mono text-[#FFEAA7]">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
-                        <span className="uppercase tracking-widest">KAIZEN VETTED</span>
+                    {/* Key Sector Metrics Row */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                      <div className="p-3 bg-[#FAFAFA] border border-gray-200 text-center">
+                        <div className="text-[10px] font-mono uppercase text-gray-500">Talent Pool</div>
+                        <div className="text-xs font-bold text-[#A71728] mt-0.5">{selectedIndustry.stat}</div>
                       </div>
-                      <button
+                      <div className="p-3 bg-[#FAFAFA] border border-gray-200 text-center">
+                        <div className="text-[10px] font-mono uppercase text-gray-500">Service SLA</div>
+                        <div className="text-xs font-bold text-gray-900 mt-0.5">24h Candidate Turnaround</div>
+                      </div>
+                      <div className="p-3 bg-[#FAFAFA] border border-gray-200 text-center">
+                        <div className="text-[10px] font-mono uppercase text-gray-500">Assurance</div>
+                        <div className="text-xs font-bold text-gray-900 mt-0.5">90-Day Free Replacement</div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Actions */}
+                    <div className="pt-4 border-t border-gray-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                      <RedButton
+                        variant="primary"
+                        size="sm"
                         onClick={() => {
-                          setFormData((prev) => ({ ...prev, industry: spec.title }));
+                          setFormData((prev) => ({ ...prev, industry: selectedIndustry.title }));
                           const formElement = document.getElementById("inquiry-form");
                           formElement?.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className="text-xs font-bold text-white hover:text-[#FFEAA7] flex items-center gap-1 uppercase tracking-wider transition-colors"
+                        className="text-xs font-bold uppercase tracking-wider rounded-none shadow-sm"
                       >
-                        <span>Request Profiles</span>
-                        <ChevronRight className="w-3.5 h-3.5" />
+                        Request Talent in this Sector
+                      </RedButton>
+
+                      <button
+                        onClick={() => handleOpenModal("employer")}
+                        className="px-5 py-2.5 bg-white border border-gray-300 hover:border-[#A71728] hover:text-[#A71728] text-gray-800 text-xs font-bold uppercase tracking-wider rounded-none transition-colors"
+                      >
+                        Consult Sector Specialist
                       </button>
                     </div>
 
                   </div>
                 </motion.div>
-              ))}
-            </AnimatePresence>
+              </AnimatePresence>
+            </div>
+
           </div>
 
         </div>
@@ -789,12 +878,28 @@ export default function ForBusinessesPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 border-2 border-white/30 bg-black/20 p-2 rounded-none">
-                  <img
-                    src="/images/manufacturing_industry.jpg"
-                    alt="Blue Collar Industrial Team"
-                    className="w-full h-64 object-cover"
-                  />
+                <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="border-2 border-white/30 bg-black/20 p-1.5 rounded-none shadow-2xl relative group overflow-hidden">
+                    <img
+                      src="/images/blue_collar_workforce.jpg"
+                      alt="Industrial Factory & Assembly Line"
+                      className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-2 left-2 right-2 px-2 py-1 bg-black/80 backdrop-blur-sm border border-white/20 text-[10px] font-mono font-bold uppercase text-[#FFEAA7] text-center">
+                      Industrial & Assembly
+                    </div>
+                  </div>
+
+                  <div className="border-2 border-white/30 bg-black/20 p-1.5 rounded-none shadow-2xl relative group overflow-hidden">
+                    <img
+                      src="/images/commercial_cleaning_staff.jpg"
+                      alt="Commercial Cleaning & Facility Housekeeping"
+                      className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-2 left-2 right-2 px-2 py-1 bg-black/80 backdrop-blur-sm border border-white/20 text-[10px] font-mono font-bold uppercase text-[#FFEAA7] text-center">
+                      Facility & Cleaning
+                    </div>
+                  </div>
                 </div>
               </div>
 
