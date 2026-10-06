@@ -1,3 +1,17 @@
+export interface ServiceSection {
+  id: string;
+  badge?: string;
+  h2: string;
+  h3: string;
+  paragraphs: string[];
+  ctaText: string;
+  ctaAction?: "employer" | "jobseeker";
+  image: string;
+  imageAlt: string;
+  features?: string[];
+  stats?: { value: string; label: string }[];
+}
+
 export interface ServiceOffering {
   title: string;
   desc: string;
@@ -9,10 +23,18 @@ export interface ServiceCategory {
   number: string;
   navLabel: string;
   title: string;
+  headerBrand?: string;
+  headerBadge?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  heroHeadline?: string;
+  heroSubheadline?: string;
+  heroCtaText?: string;
   tagline: string;
   summary: string;
   overview: string;
   body: string[];
+  sections?: ServiceSection[];
   whoFor: string[];
   heroImage: string;
   gallery: { src: string; alt: string }[];
@@ -30,22 +52,82 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     slug: "recruitment",
     number: "01",
-    navLabel: "Recruitment & Talent",
-    title: "Recruitment & Talent Acquisition",
-    tagline: "Sourcing, headhunting, and leadership search — with a ~30-day executive mandate.",
+    navLabel: "Recruitment Services",
+    headerBrand: "Kawaii Career — Recruitment, Payroll & Immigration Solutions in Bangladesh",
+    headerBadge: "SECTION 1 — RECRUITMENT SERVICES",
+    metaTitle: "Recruitment Agency in Bangladesh | Kawaii Career",
+    metaDescription:
+      "Kawaii Career provides recruitment, executive search, manpower supply and HR solutions in Bangladesh for MNCs, Japanese companies and local enterprises.",
+    title: "Recruitment Agency in Bangladesh for Strategic Workforce Growth",
+    heroHeadline: "Recruitment Agency in Bangladesh for Strategic Workforce Growth",
+    heroCtaText: "Hire Top Talent Today",
+    tagline:
+      "Structured talent sourcing, executive search, and end-to-end workforce solutions designed around the specific requirements of employers in Bangladesh.",
     summary:
-      "Talent sourcing, recruitment solutions, executive search, coaching, corporate staffing, and energy-sector hiring for employers across Bangladesh.",
+      "Kawaii Career provides recruitment, executive search, manpower supply and HR solutions in Bangladesh for MNCs, Japanese companies and local enterprises.",
     overview:
-      "Hiring fails when the brief is vague and the shortlist is a CV dump. We start with a written role matrix — must-haves, seniority, culture, and commercial constraints — then source both active candidates and passive people who are not on job boards. Every name you see has already passed skill, behavior, and reference gates.",
+      "Bangladesh’s expanding manufacturing, technology, infrastructure, energy, services, and corporate sectors are creating new demand for qualified talent. Finding people with the right technical capabilities, leadership experience, cultural fit, and availability can be challenging—particularly when companies are entering a new market or scaling rapidly.",
     body: [
-      "Executive search for C-level and VP roles is a confidential mandate, not a public ad. Typical mapping-to-first-shortlist window is around 30 days, depending on how rare the profile is and how quiet the replacement must stay. We approach sitting leaders discreetly, benchmark compensation, and stay on the file through offer and the first 90 days.",
-      "The same desk runs corporate staffing, contractual manpower, and shared-service hiring for Dhaka and nationwide sites. Oil, Gas, Power & Energy is a named sector line: plant operations, project controls, HSE, and commissioning talent for operators, EPCs, and utilities. Same method whether the hire is a CTO in Gulshan or a shift lead on a power site.",
+      "Kawaii Career provides structured recruitment and workforce solutions designed around the specific requirements of employers in Bangladesh. From specialist hiring and executive search to contractual staffing and large-scale manpower deployment, our approach combines market knowledge, candidate assessment, verification, and recruitment technology.",
+      "Our objective is not simply to fill vacancies. We help organizations build workforces that support operational continuity, business expansion, and long-term organizational performance.",
+    ],
+    sections: [
+      {
+        id: "talent-sourcing",
+        badge: "Sourcing Strategy",
+        h2: "Talent Sourcing",
+        h3: "Data-Driven Talent Sourcing in Bangladesh",
+        paragraphs: [
+          "Kawaii Career uses structured sourcing strategies to identify qualified Bangladeshi and international professionals across multiple industries. Our recruitment teams combine candidate databases, professional networks, targeted searches, referrals, and sector-specific talent mapping.",
+          "For employers, this means access to a broader candidate pool without requiring internal HR teams to spend extensive time identifying and approaching potential applicants.",
+          "Our screening process considers qualifications, professional experience, technical competencies, communication capabilities, career history, and role-specific requirements before suitable candidates are presented.",
+        ],
+        ctaText: "Start Your Talent Search",
+        ctaAction: "employer",
+        image: "/images/executive_interview.jpg",
+        imageAlt: "Data-Driven Talent Sourcing in Bangladesh",
+        features: [
+          "Candidate databases & sector-specific talent mapping across Bangladesh",
+          "Discreet passive candidate outreach & executive search pipelines",
+          "Comprehensive screening: technical competency, leadership, and communication",
+          "Accelerated hiring velocity while eliminating internal HR administrative load",
+        ],
+        stats: [
+          { value: "12,000+", label: "Vetted Profiles" },
+          { value: "5-Tier", label: "Screening Gate" },
+        ],
+      },
+      {
+        id: "recruitment-solution",
+        badge: "Complete Lifecycle",
+        h2: "Recruitment Solution",
+        h3: "End-to-End Recruitment Solutions",
+        paragraphs: [
+          "A successful recruitment process extends beyond publishing a vacancy. Kawaii Career can support employers throughout the talent acquisition lifecycle—from workforce requirement analysis and job profiling to sourcing, screening, interviews, reference verification, selection, and onboarding coordination.",
+          "Our recruitment solutions can be configured for individual vacancies, recurring hiring requirements, new business launches, or large-scale workforce expansion.",
+          "This allows companies to use a consistent recruitment framework while maintaining flexibility as their workforce requirements change.",
+        ],
+        ctaText: "Discuss Your Recruitment Requirements",
+        ctaAction: "employer",
+        image: "/images/japanese_office_team.jpg",
+        imageAlt: "End-to-End Recruitment Solutions in Bangladesh",
+        features: [
+          "Full talent acquisition lifecycle from requirement analysis to onboarding",
+          "Configurable for one-off specialist hires, recurring needs, or rapid expansion",
+          "Multi-level reference verification and background validation",
+          "Consistent recruitment framework with high operational agility",
+        ],
+        stats: [
+          { value: "98.4%", label: "Placement Retention" },
+          { value: "30 Days", label: "Executive Mandate" },
+        ],
+      },
     ],
     whoFor: [
-      "MNCs and local groups filling specialist or leadership seats",
-      "Energy, manufacturing, IT, and infrastructure employers",
-      "Boards running a confidential C-level or VP replacement",
-      "HR teams that want a shortlist, not an inbox of unfiltered CVs",
+      "MNCs, Japanese enterprises & local groups filling specialist or leadership seats",
+      "Expanding manufacturing, technology, infrastructure, energy & corporate sectors",
+      "Boards running confidential C-level, VP, or specialist leadership replacements",
+      "HR teams seeking vetted, scored shortlists rather than unfiltered CV dumps",
     ],
     heroImage: img("photo-1521737711867-e3b97375f902"),
     gallery: [
@@ -96,46 +178,50 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     process: [
       {
         step: "01",
-        title: "Role brief",
+        title: "Requirement Analysis & Brief",
         desc: "Headcount, must-haves vs nice-to-haves, culture, reporting line, and commercial constraints go into one written intake. We do not start sourcing from a one-line job title.",
       },
       {
         step: "02",
-        title: "Map & source",
-        desc: "Active database plus discreet outreach to passive talent. For leadership roles this is a market map, not a LinkedIn blast.",
+        title: "Data-Driven Sourcing & Mapping",
+        desc: "Active candidate databases plus discreet outreach and sector talent mapping to reach qualified professionals across Bangladesh and internationally.",
       },
       {
         step: "03",
-        title: "Screen",
-        desc: "Technical or trade test, behavioral interview, and reference checks. Only people who clear the matrix reach your calendar.",
+        title: "Screening & Reference Gate",
+        desc: "Technical assessment, behavioral interviews, communication tests, and reference verification. Only candidates clearing the matrix reach your calendar.",
       },
       {
         step: "04",
-        title: "Present & place",
-        desc: "Compared dossiers, interview coordination, offer support, join tracking, and a 90-day check-in so the hire actually sticks.",
+        title: "Selection & Onboarding Coordination",
+        desc: "Compared dossiers, interview coordination, offer negotiation support, onboarding coordination, and 90-day placement follow-up to ensure long-term retention.",
       },
     ],
     faqs: [
+      {
+        q: "What industries do you recruit for in Bangladesh?",
+        a: "We recruit across manufacturing, technology & software engineering, civil & infrastructure, oil & gas, power & energy, corporate finance & operations, garments & textiles, and services sectors.",
+      },
       {
         q: "How fast is executive search?",
         a: "For a clearly scoped C-level or VP mandate we typically complete mapping and a first shortlist inside about 30 days. Highly specialized or confidential replacements can take longer — we say so at intake, not after week four.",
       },
       {
-        q: "Do you staff energy projects?",
-        a: "Yes. Oil, Gas, Power & Energy is a dedicated sector desk: plant operations, project controls, HSE, commissioning, and technical specialists for operators, EPCs, and utilities.",
+        q: "How does data-driven talent sourcing work at Kawaii Career?",
+        a: "We combine proprietary candidate databases, professional networks, targeted searches, referrals, and sector-specific talent mapping to identify top talent with exact technical competencies and cultural fit.",
       },
       {
         q: "What does the employer actually receive?",
-        a: "A written brief confirmation, a scored shortlist (usually 3–5 names), interview support, and offer/join tracking. You keep the hire decision. We keep the pipeline moving.",
+        a: "A written brief confirmation, a scored shortlist (usually 3–5 names), interview support, reference check dossiers, and offer/join tracking. You keep the hire decision; we keep the pipeline moving.",
       },
       {
-        q: "Is there a replacement if someone leaves early?",
-        a: "Permanent placements carry a written replacement window (typically 90 days). Contract and manpower assignments use faster swap cover. Exact terms sit in the assignment letter.",
+        q: "Is there a replacement guarantee if someone leaves early?",
+        a: "Yes. Permanent placements carry a written replacement window (typically 90 days). Contract and manpower assignments use faster swap cover. Exact terms sit in the assignment letter.",
       },
     ],
     cta: {
-      title: "Brief a search",
-      desc: "Send the role, seniority, location, and timeline. We reply within 24 business hours with a proposed search path.",
+      title: "Hire Top Talent Today",
+      desc: "Tell us your role requirements, seniority, and target start date. Our recruitment specialists will get back within 24 business hours with a proposed sourcing path.",
       employer: true,
     },
   },

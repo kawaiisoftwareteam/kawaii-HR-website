@@ -14,13 +14,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const category = getServiceCategory(slug);
-  if (!category) return { title: "Services" };
+  if (!category) return { title: "Services | Kawaii Career" };
+  const pageTitle = category.metaTitle || `${category.title} | Kawaii Career`;
+  const pageDesc = category.metaDescription || category.summary;
   return {
-    title: `${category.title} | Kawaii Japan Career & HR`,
-    description: category.summary,
+    title: pageTitle,
+    description: pageDesc,
     openGraph: {
-      title: category.title,
-      description: category.summary,
+      title: pageTitle,
+      description: pageDesc,
       images: [{ url: category.heroImage, width: 1200, height: 630, alt: category.title }],
     },
   };
