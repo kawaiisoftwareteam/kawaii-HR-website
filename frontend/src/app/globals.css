@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --font-jost: 'Jost', sans-serif;
   --color-brand-red: #A71728;
   --color-brand-red-hover: #8e1321;
   --color-brand-black: #000000;
@@ -19,6 +18,7 @@
 
 /* shadcn-compatible theme tokens (FAQ accordion + future UI) */
 @theme inline {
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --color-primary: #A71728;
   --color-primary-foreground: #FFFFFF;
   --color-muted: #EBEDF0;

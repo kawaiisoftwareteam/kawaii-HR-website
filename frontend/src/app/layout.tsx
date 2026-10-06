@@ -7,7 +7,6 @@ import "./globals.css";
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -107,7 +106,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${jost.variable} scroll-smooth antialiased`}>
+    <html lang="en" className={`${jost.variable} ${jost.className} scroll-smooth antialiased`}>
       <head>
         <script
           type="application/ld+json"

@@ -237,105 +237,154 @@ export function ServiceCategoryView({ category }: { category: ServiceCategory })
 
       {/* Dedicated Deep-Dive Sections (H2 & H3) */}
       {category.sections && category.sections.length > 0 && (
-        <section id="sections" className="py-16 md:py-24 bg-[#FAFAFA] space-y-20">
-          <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-20">
-            {category.sections.map((sec, idx) => {
-              const isEven = idx % 2 === 1;
-              return (
-                <div
-                  key={sec.id}
-                  id={sec.id}
-                  className="bg-white border-2 border-[#F0A8AE] p-6 sm:p-10 md:p-12 shadow-sm rounded-none scroll-mt-28"
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                    {/* Content Column */}
-                    <div className={`space-y-6 ${isEven ? "lg:col-span-7 lg:order-2" : "lg:col-span-7"}`}>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FFF5F5] border border-[#F0A8AE] text-xs font-bold uppercase tracking-wider text-[#A71728]">
-                        <Sparkles className="w-3.5 h-3.5 text-[#A71728]" />
-                        {sec.badge || `Pillar ${idx + 1}`}
-                      </div>
+        <section id="sections" className="py-20 md:py-28 bg-[#F8F9FA] border-b border-gray-200/60 scroll-mt-20">
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-16 md:space-y-20">
+            {/* Section Header */}
+            <div className="text-center max-w-3xl mx-auto space-y-3.5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF0F2] border border-[#F0A8AE]/70 text-xs font-bold tracking-widest uppercase text-[#A71728]">
+                <Sparkles className="w-3.5 h-3.5 text-[#A71728]" />
+                Specialized Service Capabilities
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-gray-950 uppercase leading-tight">
+                Workforce &amp; Recruitment Disciplines
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                Precision-engineered talent acquisition, specialized headhunting, and flexible manpower supply configured for business growth.
+              </p>
+            </div>
 
-                      {/* H2 */}
-                      <h2 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-[#A71728]">
-                        {sec.h2}
-                      </h2>
+            {/* Pillar Cards */}
+            <div className="space-y-14 md:space-y-16">
+              {category.sections.map((sec, idx) => {
+                const isEven = idx % 2 === 1;
+                const pillarNumber = String(idx + 1).padStart(2, "0");
+                return (
+                  <div
+                    key={sec.id}
+                    id={sec.id}
+                    className="relative bg-white rounded-3xl border border-gray-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(167,23,40,0.08)] hover:border-[#F0A8AE] transition-all duration-500 overflow-hidden scroll-mt-28"
+                  >
+                    {/* Top gradient accent line */}
+                    <div className="h-1.5 w-full bg-gradient-to-r from-[#A71728] via-[#D12B3E] to-[#F0A8AE]" />
 
-                      {/* H3 */}
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-950 tracking-tight leading-tight">
-                        {sec.h3}
-                      </h3>
+                    <div className="p-6 sm:p-10 md:p-12 relative">
+                      {/* Watermark Pillar Number */}
+                      <span className="absolute top-4 right-6 sm:top-6 sm:right-10 text-6xl sm:text-8xl font-black text-gray-100/80 select-none pointer-events-none tracking-tighter">
+                        {pillarNumber}
+                      </span>
 
-                      {/* Paragraphs */}
-                      <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed">
-                        {sec.paragraphs.map((p, pIdx) => (
-                          <p key={pIdx} className="leading-relaxed">
-                            {p}
-                          </p>
-                        ))}
-                      </div>
-
-                      {/* Feature Checklist */}
-                      {sec.features && sec.features.length > 0 && (
-                        <div className="pt-2 space-y-2.5">
-                          {sec.features.map((feat) => (
-                            <div key={feat} className="flex items-start gap-3 text-sm sm:text-base text-gray-800">
-                              <Check className="w-4 h-4 text-[#A71728] shrink-0 mt-1" strokeWidth={3} />
-                              <span>{feat}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* CTA Button */}
-                      <div className="pt-4 flex flex-wrap gap-4 items-center">
-                        <button
-                          type="button"
-                          onClick={() => openModal(sec.ctaAction || "employer")}
-                          className="inline-flex items-center gap-2 px-7 py-4 text-sm sm:text-base font-bold uppercase tracking-wider text-white bg-[#A71728] hover:bg-[#8e1321] transition-all shadow-[0_4px_15px_rgba(167,23,40,0.25)] cursor-pointer"
-                        >
-                          {sec.ctaText}
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Image & Stats Column */}
-                    <div className={`space-y-4 ${isEven ? "lg:col-span-5 lg:order-1" : "lg:col-span-5"}`}>
-                      <div className="relative aspect-[4/3] w-full overflow-hidden border-2 border-gray-100 bg-gray-100 group">
-                        <Image
-                          src={sec.image}
-                          alt={sec.imageAlt || sec.h3}
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 40vw"
-                          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity" />
-                        <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 border border-white/40">
-                          <div className="text-xs font-bold uppercase tracking-wider text-[#A71728]">
-                            Kawaii Quality Standard
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+                        {/* Content Column */}
+                        <div className={`space-y-6 ${isEven ? "lg:col-span-7 lg:order-2" : "lg:col-span-7"}`}>
+                          <div className="flex flex-wrap items-center gap-2.5">
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF5F6] border border-[#F0A8AE]/70 text-[11px] font-bold uppercase tracking-wider text-[#A71728]">
+                              <Sparkles className="w-3 h-3 text-[#A71728]" />
+                              {sec.badge || `Pillar ${idx + 1}`}
+                            </span>
+                            <span className="text-xs font-black tracking-[0.2em] uppercase text-[#A71728]/80">
+                              / {sec.h2}
+                            </span>
                           </div>
-                          <div className="text-sm font-semibold text-gray-900 mt-0.5">
-                            {sec.h2} Discipline
+
+                          {/* H2 & H3 */}
+                          <div>
+                            <h2 className="text-xs sm:text-sm font-black tracking-[0.22em] uppercase text-[#A71728] mb-2 flex items-center gap-2">
+                              <span className="w-5 h-0.5 bg-[#A71728]" />
+                              {sec.h2}
+                            </h2>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-950 tracking-tight leading-[1.2]">
+                              {sec.h3}
+                            </h3>
+                          </div>
+
+                          {/* Paragraphs */}
+                          <div className="space-y-3.5 text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
+                            {sec.paragraphs.map((p, pIdx) => (
+                              <p key={pIdx} className="leading-relaxed">
+                                {p}
+                              </p>
+                            ))}
+                          </div>
+
+                          {/* Feature Checklist */}
+                          {sec.features && sec.features.length > 0 && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                              {sec.features.map((feat) => (
+                                <div
+                                  key={feat}
+                                  className="flex items-start gap-2.5 p-3 rounded-xl bg-gray-50/80 border border-gray-100/90 text-xs sm:text-sm text-gray-800 leading-snug hover:bg-[#FFF5F6] hover:border-[#F0A8AE]/50 transition-colors"
+                                >
+                                  <div className="w-5 h-5 rounded-full bg-[#A71728] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                                    <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                  </div>
+                                  <span className="font-medium">{feat}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* CTA Button */}
+                          <div className="pt-4 flex flex-wrap gap-4 items-center">
+                            <button
+                              type="button"
+                              onClick={() => openModal(sec.ctaAction || "employer")}
+                              className="inline-flex items-center gap-2.5 px-8 py-4 text-sm sm:text-base font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#A71728] to-[#8e1321] hover:from-[#8e1321] hover:to-[#6d0d18] rounded-xl shadow-[0_6px_20px_rgba(167,23,40,0.25)] hover:shadow-[0_8px_25px_rgba(167,23,40,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+                            >
+                              <span>{sec.ctaText}</span>
+                              <ArrowRight className="w-4 h-4" />
+                            </button>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Stats row */}
-                      {sec.stats && sec.stats.length > 0 && (
-                        <div className="grid grid-cols-2 gap-3 pt-1">
-                          {sec.stats.map((st) => (
-                            <div key={st.label} className="p-4 bg-white border border-gray-200">
-                              <div className="text-xl sm:text-2xl font-black text-[#A71728]">{st.value}</div>
-                              <div className="text-xs text-gray-600 uppercase tracking-wide mt-1">{st.label}</div>
+                        {/* Image & Stats Column */}
+                        <div className={`space-y-4 ${isEven ? "lg:col-span-5 lg:order-1" : "lg:col-span-5"}`}>
+                          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200/90 bg-gray-100 group/img shadow-md">
+                            <Image
+                              src={sec.image}
+                              alt={sec.imageAlt || sec.h3}
+                              fill
+                              sizes="(max-width: 1024px) 100vw, 40vw"
+                              className="object-cover object-center group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-40 transition-opacity" />
+                            <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md px-4 py-3 rounded-xl border border-white/60 shadow-lg">
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#A71728]">
+                                    Kawaii Quality Standard
+                                  </div>
+                                  <div className="text-sm font-bold text-gray-950 mt-0.5">
+                                    {sec.h2} Discipline
+                                  </div>
+                                </div>
+                                <span className="w-2.5 h-2.5 rounded-full bg-[#A71728] animate-pulse" />
+                              </div>
                             </div>
-                          ))}
+                          </div>
+
+                          {/* Stats row */}
+                          {sec.stats && sec.stats.length > 0 && (
+                            <div className="grid grid-cols-2 gap-3.5 pt-1">
+                              {sec.stats.map((st) => (
+                                <div
+                                  key={st.label}
+                                  className="p-4 rounded-xl bg-white border border-gray-200/90 shadow-sm hover:border-[#F0A8AE] transition-colors"
+                                >
+                                  <div className="text-xl sm:text-2xl font-black text-[#A71728]">{st.value}</div>
+                                  <div className="text-[11px] font-semibold text-gray-600 uppercase tracking-wide mt-1">
+                                    {st.label}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </section>
       )}
