@@ -1,20 +1,55 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { DualAudience } from "@/components/sections/DualAudience";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { ProductModules } from "@/components/sections/ProductModules";
-import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { FaqSection } from "@/components/sections/FaqSection";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
+
+const AboutSection = dynamic(
+  () => import("@/components/sections/AboutSection").then((m) => m.AboutSection),
+  { ssr: true },
+);
+const ProductModules = dynamic(
+  () =>
+    import("@/components/sections/ProductModules").then((m) => m.ProductModules),
+  { ssr: true },
+);
+const IndustriesSection = dynamic(
+  () =>
+    import("@/components/sections/IndustriesSection").then(
+      (m) => m.IndustriesSection,
+    ),
+  { ssr: true },
+);
+const ProcessSection = dynamic(
+  () =>
+    import("@/components/sections/ProcessSection").then((m) => m.ProcessSection),
+  { ssr: true },
+);
+const WhyChooseUs = dynamic(
+  () => import("@/components/sections/WhyChooseUs").then((m) => m.WhyChooseUs),
+  { ssr: true },
+);
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/sections/TestimonialsSection").then(
+      (m) => m.TestimonialsSection,
+    ),
+  { ssr: true },
+);
+const FaqSection = dynamic(
+  () => import("@/components/sections/FaqSection").then((m) => m.FaqSection),
+  { ssr: true },
+);
+const ContactSection = dynamic(
+  () =>
+    import("@/components/sections/ContactSection").then((m) => m.ContactSection),
+  { ssr: true },
+);
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);

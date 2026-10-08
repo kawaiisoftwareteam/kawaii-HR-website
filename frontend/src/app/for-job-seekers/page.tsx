@@ -22,6 +22,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { RedButton } from "@/components/ui/RedButton";
+import { LazyBackgroundVideo } from "@/components/ui/LazyBackgroundVideo";
 import { JOB_SEEKER_DATA } from "@/data/companyData";
 
 const DOMAIN_ICONS = [Code2, Building2, Target, Briefcase];
@@ -90,16 +91,12 @@ export default function ForJobSeekersPage() {
       {/* Hero — video + system card + curved wave */}
       <section className="relative pt-32 md:pt-40 text-white overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <LazyBackgroundVideo
+            src="/for%20job%20seker/jobseeker.mp4"
             poster="/for%20job%20seker/seeker.png"
             className="w-full h-full object-cover object-center"
-          >
-            <source src="/for%20job%20seker/jobseeker.mp4" type="video/mp4" />
-          </video>
+            rootMargin="400px 0px"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/45 to-black/25" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
         </div>

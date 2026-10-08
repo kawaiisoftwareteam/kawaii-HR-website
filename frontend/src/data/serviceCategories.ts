@@ -695,6 +695,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     slug: "hr-outsourcing",
     number: "05",
     navLabel: "HR Outsourcing",
+    metaTitle: "HR Outsourcing Bangladesh | Kawaii HR Solutions",
+    metaDescription:
+      "HR outsourcing and career outsourcing from Kawaii Japan HR Solutions — RPO, strategic HR, compliance advisory, and end-to-end HR solutions in Bangladesh.",
     title: "HR Outsourcing & Advisory",
     tagline: "Strategic HR, RPO, background checks, and Bangladesh corporate advisory.",
     summary:

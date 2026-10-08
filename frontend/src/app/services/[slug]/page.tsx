@@ -20,6 +20,17 @@ export async function generateMetadata({
   return {
     title: pageTitle,
     description: pageDesc,
+    keywords: [
+      category.navLabel,
+      category.title,
+      "Kawaii HR",
+      "Kawaii Japan HR Solutions",
+      "HR Solutions",
+      "Career Solutions",
+      "HR Outsourcing",
+      "Career Outsourcing",
+      `${category.navLabel} Bangladesh`,
+    ],
     openGraph: {
       title: pageTitle,
       description: pageDesc,

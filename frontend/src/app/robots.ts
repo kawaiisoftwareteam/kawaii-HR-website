@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://kawaiijapan-hr.com/sitemap.xml",
+    sitemap: "https://www.kawaiicareer.com/sitemap.xml",
   };
 }

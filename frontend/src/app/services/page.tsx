@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -18,6 +18,7 @@ import {
 import { ApplicationModal } from "@/components/ui/ApplicationModal";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { LazyBackgroundVideo } from "@/components/ui/LazyBackgroundVideo";
 import {
   INDUSTRIES_LIST,
   PRODUCT_MODULES,
@@ -37,7 +38,6 @@ export default function ServicesPage() {
     "jobseeker"
   );
   const [activeModule, setActiveModule] = useState(PRODUCT_MODULES[0].id);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleOpenModal = (tab: "employer" | "jobseeker") => {
     setModalTab(tab);
@@ -67,19 +67,12 @@ export default function ServicesPage() {
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0 pointer-events-none"
         >
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
+          <LazyBackgroundVideo
+            src="/Create_a_premium_cinematic_cor.mp4"
+            poster="/images/tokyo_skyline.jpg"
             className="w-full h-full object-cover object-center"
-          >
-            <source
-              src="/Create_a_premium_cinematic_cor.mp4"
-              type="video/mp4"
-            />
-          </video>
+            rootMargin="400px 0px"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-black/15" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15" />
         </motion.div>

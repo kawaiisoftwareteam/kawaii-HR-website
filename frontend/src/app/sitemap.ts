@@ -24,7 +24,7 @@ const SERVICE_SLUGS = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kawaiijapan-hr.com";
+  const baseUrl = "https://www.kawaiicareer.com";
   const lastModified = new Date();
 
   return [

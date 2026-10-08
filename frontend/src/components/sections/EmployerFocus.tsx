@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { RedButton } from "../ui/RedButton";
+import { LazyBackgroundVideo } from "../ui/LazyBackgroundVideo";
 
 export function EmployerFocus({
   onOpenModal,
 }: {
   onOpenModal: (tab: "employer" | "jobseeker") => void;
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const capabilities = [
     "End-to-end recruitment pipelines",
@@ -32,19 +32,11 @@ export function EmployerFocus({
       className="relative py-28 md:py-36 text-white overflow-hidden select-none border-b border-white/10"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
+        <LazyBackgroundVideo
+          src="/for%20employee/for%20emploee_gwr_video_mvp.mp4"
+          poster="/images/executive_interview.jpg"
           className="w-full h-full object-cover object-center"
-        >
-          <source
-            src="/for%20employee/for%20emploee_gwr_video_mvp.mp4"
-            type="video/mp4"
-          />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-black/25" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(167,23,40,0.12),transparent_55%)]" />

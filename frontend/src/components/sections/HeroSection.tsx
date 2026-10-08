@@ -48,6 +48,7 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
           muted
           loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover object-[center_30%]"
         >
           <source src="/Create_a_premium_cinematic_bac.mp4" type="video/mp4" />
