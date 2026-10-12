@@ -71,14 +71,15 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
             className="inline-flex items-center gap-3 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-white/85 mb-3 sm:mb-4"
           >
             <span className="w-8 sm:w-10 h-0.5 bg-[#A71728]" />
-            Kawaii Japan Career &amp; HR
+            Kawaii HR · Kawaii Solutions
           </motion.p>
 
           <motion.h1
             variants={itemVariants}
             className="text-[clamp(2.2rem,5.5vw,5.2rem)] font-black tracking-[-0.03em] uppercase leading-[1.02] text-white"
           >
-            The Right Talent. <br className="hidden sm:inline" />
+            The Right Talent.{" "}
+            <br className="hidden sm:inline" />
             The Right <span className="text-[#A71728]">Fit.</span>
           </motion.h1>
 
@@ -86,7 +87,8 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
             variants={itemVariants}
             className="mt-3 sm:mt-4 text-base sm:text-xl text-white/85 max-w-xl font-light leading-relaxed"
           >
-            Japanese-standard HR precision, built for Bangladesh.
+            Kawaii Japan Career &amp; HR Solutions — Japanese-standard HR
+            outsourcing and career solutions in Bangladesh.
           </motion.p>
 
           <motion.div

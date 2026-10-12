@@ -20,18 +20,20 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   title: {
-    // ~48 chars — topic first, brand after (SERP-safe length)
-    default: "HR Outsourcing & Career Solutions | Kawaii HR",
+    // Brand-first so “Kawaii HR / Kawaii Solutions” queries match (~46 chars)
+    default: "Kawaii HR | Outsourcing & Career Solutions",
     template: "%s | Kawaii HR",
   },
   description:
-    "Japanese-standard HR outsourcing and career solutions in Bangladesh. Recruitment, staffing & executive search — Kawaii HR.",
+    "Kawaii HR (Kawaii Solutions) — Japanese-standard HR outsourcing, career solutions & recruitment in Bangladesh.",
   keywords: [
     // Primary brand + user targets
     "HR Outsourcing",
     "Career Outsourcing",
     "HR Solutions",
     "Kawaii HR",
+    "Kawaii Solutions",
+    "Kawaii HR Solutions",
     "Kawaii Japan HR Solutions",
     "Career Solutions",
     "Kawaii Japan Career & HR Solutions",
@@ -82,9 +84,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "HR Outsourcing & Career Solutions | Kawaii HR",
+    title: "Kawaii HR | Outsourcing & Career Solutions",
     description:
-      "Japanese-standard HR outsourcing and career solutions in Bangladesh. Recruitment, staffing & executive search.",
+      "Kawaii HR (Kawaii Solutions) — Japanese-standard HR outsourcing and career solutions in Bangladesh.",
     url: "https://www.kawaiicareer.com",
     siteName: "Kawaii HR",
     images: [
@@ -100,9 +102,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HR Outsourcing & Career Solutions | Kawaii HR",
+    title: "Kawaii HR | Outsourcing & Career Solutions",
     description:
-      "Japanese-standard HR outsourcing and career solutions in Bangladesh.",
+      "Kawaii HR (Kawaii Solutions) — HR outsourcing and career solutions in Bangladesh.",
     images: ["/images/japanese_office_team.jpg"],
   },
   robots: {
@@ -132,6 +134,8 @@ export default function RootLayout({
         name: "Kawaii Japan Career & HR Solutions BD",
         alternateName: [
           "Kawaii HR",
+          "Kawaii Solutions",
+          "Kawaii HR Solutions",
           "Kawaii Japan HR",
           "Kawaii Japan HR Solutions",
           "Kawaii Career",
