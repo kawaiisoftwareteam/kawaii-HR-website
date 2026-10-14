@@ -53,6 +53,10 @@
     font-family: var(--font-jost), sans-serif;
     letter-spacing: -0.02em;
   }
+
+  html.locale-bn [data-nav] {
+    font-family: var(--font-bn), var(--font-jost), sans-serif;
+  }
 }
 
 /* Custom Scrollbar */

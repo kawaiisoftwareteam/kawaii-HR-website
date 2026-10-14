@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import { Jost, Noto_Sans_Bengali } from "next/font/google";
 import Script from "next/script";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import { LanguageProvider } from "@/lib/language";
 import { Chatbot } from "@/components/ui/Chatbot";
 import "./globals.css";
 
@@ -10,6 +11,13 @@ const GA_MEASUREMENT_ID = "G-RH9WSHF53S";
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const notoBengali = Noto_Sans_Bengali({
+  variable: "--font-bn",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -230,7 +238,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${jost.variable} ${jost.className} scroll-smooth antialiased`}>
+    <html lang="en" className={`${jost.variable} ${notoBengali.variable} ${jost.className} scroll-smooth antialiased`}>
       <head>
         <script
           type="application/ld+json"
@@ -250,10 +258,12 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
-        <AuthProvider>
-          {children}
-          <Chatbot />
-        </AuthProvider>
+        <LanguageProvider>
+          <AuthProvider>
+            {children}
+            <Chatbot />
+          </AuthProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
