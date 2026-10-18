@@ -107,7 +107,7 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
               variant="outline"
               size="lg"
               onClick={() => onOpenModal("jobseeker")}
-              className="!border-white/50 backdrop-blur-md bg-white/10 hover:!bg-white/20 !py-4 !px-6 text-xs sm:text-sm font-bold tracking-wider text-white"
+              className="border-white/50 bg-white/10 hover:bg-white/20 hover:text-white hover:border-white/70 !py-4 !px-6 text-xs sm:text-sm font-bold tracking-wider text-white"
             >
               Explore Careers
             </RedButton>

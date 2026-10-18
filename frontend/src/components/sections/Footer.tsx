@@ -8,7 +8,7 @@ import { COMPANY_INFO } from "@/data/companyData";
 
 const exploreLinks = [
   { label: "Home", href: "/" },
-  { label: "For Businesses", href: "/for-businesses" },
+  { label: "For Company", href: "/for-businesses" },
   { label: "For Job Seekers", href: "/for-job-seekers" },
   { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
@@ -33,25 +33,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#3B070D] text-white overflow-hidden select-none">
-      {/* Top Wave Curve Transition in System Color */}
-      <div className="w-full overflow-hidden leading-none pointer-events-none -mb-[1px] bg-transparent">
-        <svg
-          viewBox="0 0 1440 80"
-          preserveAspectRatio="none"
-          className="w-full h-10 sm:h-16 md:h-20 fill-[#A71728]"
-        >
-          <path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" />
-        </svg>
-      </div>
-
-      {/* Ambient background lighting and Japanese grid */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-white/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[300px] bg-black/30 rounded-full blur-[140px]" />
-        <div className="absolute inset-0 japanese-grid-pattern-dark opacity-15" />
-      </div>
-
+    <footer className="relative bg-[#3D151A] text-white overflow-hidden select-none">
       {/* Main Footer Container */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 pt-8 md:pt-12 pb-10">
         
@@ -63,10 +45,10 @@ export function Footer() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#FFEAA7]">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/80">
                   OFFICIAL SISTER CONCERN
                 </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               </div>
               <h4 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white mt-0.5">
                 Kawaii Group (Tokyo, Japan) Corporate Backing
@@ -83,7 +65,7 @@ export function Footer() {
             </span>
             <Link
               href="/about"
-              className="px-4 py-1.5 rounded-full bg-[#FFEAA7] hover:bg-white text-[#8E1321] text-xs font-bold tracking-wider uppercase inline-flex items-center gap-1.5 transition-colors shadow-md"
+              className="px-4 py-1.5 rounded-full bg-white hover:bg-white text-[#8E1321] text-xs font-bold tracking-wider uppercase inline-flex items-center gap-1.5 transition-colors shadow-md"
             >
               <span>Our Heritage</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -107,7 +89,7 @@ export function Footer() {
               Connecting Bangladesh&apos;s high-caliber talent with visionary enterprises through Japanese recruitment precision, Kaizen structural discipline, and absolute integrity.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-black/30 border border-white/25 text-[#FFEAA7] text-[11px] font-mono font-bold">
+              <span className="px-3 py-1 rounded-full bg-black/30 border border-white/25 text-white/80 text-[11px] font-mono font-bold">
                 可愛いグループ・公式
               </span>
               <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-mono">
@@ -118,7 +100,7 @@ export function Footer() {
 
           {/* Quick Links Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFEAA7] flex items-center gap-1.5">
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-white/80 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Explore</span>
             </div>
@@ -127,7 +109,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-white/85 hover:text-[#FFEAA7] hover:translate-x-1 inline-block transition-all"
+                    className="text-xs sm:text-sm text-white/85 hover:text-white hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -138,7 +120,7 @@ export function Footer() {
 
           {/* Services Column */}
           <div className="lg:col-span-3 space-y-4">
-            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFEAA7] flex items-center gap-1.5">
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-white/80 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5" />
               <span>HR Services</span>
             </div>
@@ -147,7 +129,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-white/85 hover:text-[#FFEAA7] hover:translate-x-1 inline-block transition-all"
+                    className="text-xs sm:text-sm text-white/85 hover:text-white hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -158,21 +140,21 @@ export function Footer() {
 
           {/* Contact Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFEAA7] flex items-center gap-1.5">
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-white/80 flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5" />
               <span>Head Office</span>
             </div>
             <div className="space-y-3.5 text-xs text-white/90 font-light leading-relaxed">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#FFEAA7] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-white/80 shrink-0 mt-0.5" />
                 <span>{COMPANY_INFO.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                <Mail className="w-4 h-4 text-white/80 shrink-0" />
                 <span className="text-white font-medium">{COMPANY_INFO.email}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                <Phone className="w-4 h-4 text-white/80 shrink-0" />
                 <span className="text-white font-medium">{COMPANY_INFO.phone}</span>
               </div>
             </div>
@@ -188,13 +170,13 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-3 text-white/85 hover:text-[#FFEAA7] transition-colors cursor-pointer"
+            className="group flex items-center gap-3 text-white/85 hover:text-white transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span className="text-[10px] uppercase font-bold tracking-[0.22em]">
               Back to top
             </span>
-            <span className="w-9 h-9 rounded-full border border-white/30 bg-black/30 flex items-center justify-center shadow-sm group-hover:bg-[#FFEAA7] group-hover:text-[#8E1321] transition-all">
+            <span className="w-9 h-9 rounded-full border border-white/30 bg-black/30 flex items-center justify-center shadow-sm group-hover:bg-white group-hover:text-[#8E1321] transition-all">
               <ArrowUp className="w-3.5 h-3.5" />
             </span>
           </button>

@@ -17,7 +17,7 @@ const navCopy = {
   en: {
     home: "Home",
     about: "About us",
-    businesses: "For Businesses",
+    businesses: "For Company",
     jobSeekers: "For Job Seekers",
     services: "Services",
     contact: "Contact",
@@ -43,7 +43,7 @@ const navCopy = {
   bn: {
     home: "হোম",
     about: "আমাদের কথা",
-    businesses: "ব্যবসার জন্য",
+    businesses: "কোম্পানির জন্য",
     jobSeekers: "চাকরিপ্রার্থী",
     services: "সেবাসমূহ",
     contact: "যোগাযোগ",

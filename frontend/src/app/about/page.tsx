@@ -7,13 +7,8 @@ import {
   ShieldCheck,
   Compass,
   CheckCircle2,
-  Users,
   Target,
-  Building2,
-  TrendingUp,
   HeartHandshake,
-  Layers,
-  Globe,
   Sparkles,
 } from "lucide-react";
 import { Navbar } from "@/components/sections/Navbar";
@@ -41,9 +36,8 @@ export default function AboutPage() {
       />
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* Hero with Background Image & Sakura Petals - Soft Cinematic Shade */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden border-b border-black/20 bg-[#161618]">
-        {/* Background Image Layer - Crisp Tokyo Skyline & Sakura with Subtle Black Tint */}
+      {/* Hero — photo-forward, light overlay, short copy */}
+      <section className="relative min-h-[72vh] flex items-center pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src="/images/about_hero_bg.jpg"
@@ -51,194 +45,78 @@ export default function AboutPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter brightness-95 contrast-105 opacity-75"
+            className="object-cover object-center"
           />
-          {/* Subtle soft black gradient overlay for cinematic depth without being pitch black */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25" />
+          {/* Left vignette for text only — rest of photo stays open */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a0c0e]/75 via-[#1a0c0e]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a0c0e]/45 via-transparent to-[#1a0c0e]/20" />
         </div>
 
-        {/* Falling Sakura Petals Animation */}
-        <SakuraPetals count={40} speed="medium" />
+        <SakuraPetals count={16} speed="medium" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left Column: Seamless Integrated Editorial on Soft Dark Background */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-7 space-y-6 text-white"
-            >
-              {/* Header Pills & Seal */}
-              <div className="flex flex-wrap items-center gap-2.5">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#A71728] border border-[#A71728] shadow-sm rounded-none text-white">
-                  <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest">
-                    SISTER CONCERN OF KAWAII GROUP (JAPAN)
-                  </span>
-                </div>
-                <span className="px-3 py-1.5 bg-black/40 backdrop-blur-md text-[#FFEAA7] text-[10px] font-mono font-bold tracking-widest uppercase rounded-none border border-white/20">
-                  TOKYO ⇄ DHAKA
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="w-full max-w-2xl min-w-0 space-y-5 text-white"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#A71728] text-[11px] font-extrabold uppercase tracking-widest text-white">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                Sister Concern · Japan
+              </span>
+              <span className="px-3 py-1.5 bg-white/15 backdrop-blur-sm text-[#FFEAA7] text-[10px] font-mono font-bold tracking-widest uppercase border border-white/25">
+                Tokyo ⇄ Dhaka
+              </span>
+            </div>
+
+            <h1 className="text-[clamp(1.65rem,7vw,3.6rem)] font-extrabold tracking-tight uppercase leading-[1.08] drop-shadow-sm">
+              Redefining Talent Acquisition
+              <span className="mt-1 block text-[#FFEAA7]">
+                with Japanese Standard.
+              </span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-white/90 font-light max-w-lg leading-snug">
+              Official HR sister concern of Kawaii Group, Tokyo.
+            </p>
+
+            <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+              {[
+                { Icon: ShieldCheck, label: "Group Backing" },
+                { Icon: Target, label: "Kaizen Vetting" },
+                { Icon: HeartHandshake, label: "100% Ethical" },
+              ].map(({ Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex w-fit items-center gap-1.5 px-2.5 py-1.5 bg-white/15 backdrop-blur-sm border border-white/25 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-white"
+                >
+                  <Icon className="w-3.5 h-3.5 text-[#FFEAA7]" />
+                  {label}
                 </span>
-              </div>
+              ))}
+            </div>
 
-              {/* Main Headline */}
-              <h1 className="text-[clamp(2.1rem,4.4vw,3.9rem)] font-extrabold tracking-tight uppercase leading-[1.04] text-white">
-                Redefining Talent Acquisition <br />
-                with <span className="text-[#FFEAA7] underline decoration-[#A71728] underline-offset-8">Japanese Standard.</span>
-              </h1>
-
-              {/* Punchy Narrative Description */}
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
-                Operating as the official human resources and executive search sister concern of <strong className="text-white font-semibold">Kawaii Group (Tokyo, Japan)</strong>, we bridge international corporate rigor with Bangladesh&apos;s premier talent pool.
-              </p>
-
-              {/* 3 Frosted Feature Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                <div className="p-3.5 bg-black/35 backdrop-blur-md border border-white/20 hover:border-[#FFEAA7]/60 hover:bg-black/45 transition-all rounded-none shadow-sm">
-                  <div className="text-[#FFEAA7] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#FFEAA7]" />
-                    <span>Group Backing</span>
-                  </div>
-                  <p className="text-[11px] text-white/80 leading-snug font-light">
-                    Powered by Kawaii Group Tokyo infrastructure.
-                  </p>
-                </div>
-
-                <div className="p-3.5 bg-black/35 backdrop-blur-md border border-white/20 hover:border-[#FFEAA7]/60 hover:bg-black/45 transition-all rounded-none shadow-sm">
-                  <div className="text-[#FFEAA7] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                    <Target className="w-4 h-4 text-[#FFEAA7]" />
-                    <span>Kaizen Vetting</span>
-                  </div>
-                  <p className="text-[11px] text-white/80 leading-snug font-light">
-                    Rigorous 4-tier skill & cultural evaluation.
-                  </p>
-                </div>
-
-                <div className="p-3.5 bg-black/35 backdrop-blur-md border border-white/20 hover:border-[#FFEAA7]/60 hover:bg-black/45 transition-all rounded-none shadow-sm">
-                  <div className="text-[#FFEAA7] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                    <HeartHandshake className="w-4 h-4 text-[#FFEAA7]" />
-                    <span>100% Ethical</span>
-                  </div>
-                  <p className="text-[11px] text-white/80 leading-snug font-light">
-                    Zero candidate fee & full labor compliance.
-                  </p>
-                </div>
-              </div>
-
-              {/* CTAs & Micro-Stats footer */}
-              <div className="pt-3 border-t border-white/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <RedButton
-                    variant="primary"
-                    size="md"
-                    onClick={() => handleOpenModal("employer")}
-                    className="text-xs sm:text-sm font-bold rounded-none shadow-lg shadow-[#A71728]/35"
-                  >
-                    Partner With Us Today
-                  </RedButton>
-                  <RedButton
-                    variant="white"
-                    size="md"
-                    onClick={() => handleOpenModal("jobseeker")}
-                    className="text-xs sm:text-sm font-bold rounded-none bg-white text-black hover:bg-gray-100 shadow-sm"
-                  >
-                    Talk to Our HR Experts
-                  </RedButton>
-                </div>
-                <div className="text-left sm:text-right">
-                  <span className="text-[10px] font-mono uppercase text-white/70 block tracking-wider">Placement Standard</span>
-                  <span className="text-xs font-bold text-[#FFEAA7] font-mono">100% Verified Talents</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Column: Tokyo System Gradient Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="lg:col-span-5 bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white p-7 sm:p-8 rounded-none border-2 border-white/20 shadow-2xl space-y-5 relative overflow-hidden"
-            >
-              {/* Subtle Japanese Watermark */}
-              <div className="absolute -bottom-6 -right-6 text-white/5 font-mono font-black text-9xl select-none pointer-events-none">
-                東京
-              </div>
-
-              {/* Parent Group Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/20 relative z-10">
-                <div>
-                  <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-[#FFEAA7] block">
-                    PARENT HEADQUARTERS
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white">
-                    Kawaii Group (Japan)
-                  </h3>
-                </div>
-                <div className="px-3 py-1 bg-black/30 border border-white/20 text-[#FFEAA7] text-xs font-bold rounded-none shadow-xs flex items-center gap-1.5">
-                  <span>🇯🇵</span>
-                  <span className="font-mono">可愛いグループ</span>
-                </div>
-              </div>
-
-              {/* 3 Eye-Catching Feature Rows */}
-              <div className="space-y-3 relative z-10">
-                <div className="p-3.5 bg-black/25 rounded-none border border-white/20 hover:border-[#FFEAA7]/40 transition-all flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-none bg-[#FFEAA7] text-[#A71728] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <Building2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-white uppercase tracking-tight">
-                      Official HR Sister Concern
-                    </div>
-                    <div className="text-xs text-white/90 font-light mt-0.5 leading-relaxed">
-                      Dedicated bilateral talent engine directly backed by Kawaii Group&apos;s corporate governance.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3.5 bg-black/25 rounded-none border border-white/20 hover:border-[#FFEAA7]/40 transition-all flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-none bg-black/40 border border-white/20 text-[#FFEAA7] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <Globe className="w-4 h-4 text-[#FFEAA7]" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-white uppercase tracking-tight">
-                      Bilateral Tokyo × Dhaka Desk
-                    </div>
-                    <div className="text-xs text-white/90 font-light mt-0.5 leading-relaxed">
-                      Direct connection to Japanese multinational standards, high-tier placements, and cultural fit.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3.5 bg-black/25 rounded-none border border-white/20 hover:border-[#FFEAA7]/40 transition-all flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-none bg-black/40 border border-white/20 text-[#FFEAA7] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#FFEAA7]" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-white uppercase tracking-tight">
-                      Kaizen Quality Assurance
-                    </div>
-                    <div className="text-xs text-white/90 font-light mt-0.5 leading-relaxed">
-                      Multi-phase vetting ensuring zero candidate misalignments and guaranteed retention.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Live Indicator Bar */}
-              <div className="pt-3.5 border-t border-white/20 flex items-center justify-between text-[11px] font-mono text-white/90 relative z-10">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
-                  <span className="font-semibold text-white">Tokyo & Dhaka Live Desks</span>
-                </div>
-                <span className="text-[#FFEAA7] font-bold tracking-wider">EST. 2025</span>
-              </div>
-            </motion.div>
-
-          </div>
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <RedButton
+                variant="primary"
+                size="md"
+                onClick={() => handleOpenModal("employer")}
+                className="text-xs sm:text-sm font-bold"
+              >
+                Partner With Us
+              </RedButton>
+              <RedButton
+                variant="white"
+                size="md"
+                onClick={() => handleOpenModal("jobseeker")}
+                className="text-xs sm:text-sm font-bold bg-white text-black hover:bg-gray-100"
+              >
+                Talk to Our Team
+              </RedButton>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -290,14 +168,13 @@ export default function AboutPage() {
           <svg
             viewBox="0 0 1440 100"
             preserveAspectRatio="none"
-            className="w-full h-12 sm:h-20 md:h-24 fill-[#A71728]"
+            className="w-full h-12 sm:h-20 md:h-24 fill-[#3D151A]"
           >
             <path d="M0,0 C320,85 880,105 1440,20 L1440,100 L0,100 Z" />
           </svg>
         </div>
 
-        {/* Main Curved Section Body in System Brand Colors */}
-        <div className="relative py-16 md:py-24 bg-gradient-to-br from-[#A71728] via-[#8E1321] to-[#3B070D] text-white overflow-hidden">
+        <div className="relative py-16 md:py-24 bg-[#3D151A] text-white overflow-hidden">
           {/* Ambient Lighting & Pattern Accents */}
           <div className="absolute inset-0 japanese-grid-pattern-dark opacity-15 pointer-events-none" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
@@ -327,7 +204,7 @@ export default function AboutPage() {
                 {/* The Formula Frosted Glass Card */}
                 <div className="p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl space-y-3 shadow-lg">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs uppercase font-extrabold text-[#FFEAA7] tracking-widest flex items-center gap-1.5">
+                    <span className="text-xs uppercase font-extrabold text-white/80 tracking-widest flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>The Strategic Formula</span>
                     </span>
@@ -336,14 +213,14 @@ export default function AboutPage() {
 
                   <div className="text-sm sm:text-base font-bold text-white space-y-1.5 leading-snug">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                       <span>Bangladesh Talent Market Understanding</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#FFEAA7] shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                       <span>+ Japanese Standards of Precision & Discipline</span>
                     </div>
-                    <div className="pt-1 text-[#FFEAA7] text-base sm:text-lg font-extrabold border-t border-white/15">
+                    <div className="pt-1 text-white text-base sm:text-lg font-extrabold border-t border-white/15">
                       = A More Reliable Approach to HR
                     </div>
                   </div>
@@ -361,7 +238,7 @@ export default function AboutPage() {
                     <span>Our Core Philosophy</span>
                   </div>
 
-                  <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed italic border-l-4 border-[#FFEAA7] pl-4 text-white">
+                  <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed italic border-l-4 border-white/50 pl-4 text-white">
                     &ldquo;Japanese precision does not mean making recruitment complicated. It means making every important step intentional.&rdquo;
                   </blockquote>
 
@@ -371,19 +248,19 @@ export default function AboutPage() {
 
                   <div className="pt-4 border-t border-white/15 grid grid-cols-2 gap-3 text-xs text-white/90">
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <span>Ethical Governance</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <span>Sustainable Career Growth</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <span>Kaizen Methodology</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <span>100% Transparency</span>
                     </div>
                   </div>
@@ -399,7 +276,7 @@ export default function AboutPage() {
           <svg
             viewBox="0 0 1440 100"
             preserveAspectRatio="none"
-            className="w-full h-12 sm:h-20 md:h-24 fill-[#3B070D]"
+            className="w-full h-12 sm:h-20 md:h-24 fill-[#3D151A]"
           >
             <path d="M0,0 L1440,0 C960,85 480,85 0,0 Z" />
           </svg>
@@ -425,29 +302,18 @@ export default function AboutPage() {
             {ABOUT_PAGE_DATA.japaneseStandards.map((std, idx) => (
               <div
                 key={idx}
-                className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-5 flex flex-col justify-between group relative overflow-hidden min-h-[310px]"
+                className="p-7 sm:p-8 rounded-2xl bg-white border border-black/8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-4 flex flex-col relative overflow-hidden"
               >
-                {/* Subtle Japanese Watermark on Hover */}
-                <div className="absolute -bottom-4 -right-4 text-white/5 font-mono font-black text-7xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#A71728]" />
+                <div className="text-xs font-mono font-bold text-[#A71728] tracking-wider">
                   0{idx + 1}
                 </div>
-
-                <div className="space-y-3.5 relative z-10">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
-                    <span>STEP 0{idx + 1}</span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-white leading-snug">
-                    {std.title}
-                  </h3>
-                  <p className="text-xs sm:text-[13px] text-white/90 font-light leading-relaxed">
-                    {std.desc}
-                  </p>
-                </div>
-
-                <div className="pt-3.5 border-t border-white/15 text-[10px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
-                  <span>STANDARD</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
-                </div>
+                <h3 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-[#111] leading-snug">
+                  {std.title}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-gray-600 font-light leading-relaxed">
+                  {std.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -458,54 +324,32 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 bg-[#FAFAFA] border-b border-black/8 overflow-hidden">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-            {/* Vision Card */}
-            <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-5 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute -bottom-6 -right-6 text-white/5 font-sans font-black text-8xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
-                VISION
+            <div className="p-8 sm:p-10 rounded-2xl bg-white border border-black/8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#A71728]" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#A71728] tracking-wider uppercase">
+                <Compass className="w-3.5 h-3.5" />
+                Our Vision
               </div>
-
-              <div className="space-y-4 relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
-                  <Compass className="w-3.5 h-3.5" />
-                  <span>OUR VISION</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white leading-snug">
-                  {ABOUT_PAGE_DATA.visionMission.vision}
-                </h3>
-                <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed">
-                  Recognized as the benchmark for professional HR and talent acquisition in Bangladesh through reliability, talent quality, and long-term value creation.
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-white/15 text-[11px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
-                <span>BILATERAL STRATEGY</span>
-                <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
-              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-[#111] leading-snug">
+                {ABOUT_PAGE_DATA.visionMission.vision}
+              </h3>
+              <p className="text-sm text-gray-600 font-light leading-relaxed">
+                Recognized as the benchmark for professional HR and talent acquisition in Bangladesh through reliability, talent quality, and long-term value creation.
+              </p>
             </div>
 
-            {/* Mission Card */}
-            <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-5 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute -bottom-6 -right-6 text-white/5 font-sans font-black text-8xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
-                MISSION
+            <div className="p-8 sm:p-10 rounded-2xl bg-white border border-black/8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#A71728]" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#A71728] tracking-wider uppercase">
+                <Target className="w-3.5 h-3.5" />
+                Our Mission
               </div>
-
-              <div className="space-y-4 relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
-                  <Target className="w-3.5 h-3.5" />
-                  <span>OUR MISSION</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white leading-snug">
-                  {ABOUT_PAGE_DATA.visionMission.mission}
-                </h3>
-                <p className="text-xs sm:text-sm text-white/85 font-light leading-relaxed">
-                  Building an ecosystem where organizations gain capable talent, professionals access credible career paths, and recruitment decisions are backed by structured evaluation.
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-white/15 text-[11px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
-                <span>ETHICAL ECOSYSTEM</span>
-                <span className="w-2 h-2 rounded-full bg-[#FFEAA7] animate-pulse" />
-              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-[#111] leading-snug">
+                {ABOUT_PAGE_DATA.visionMission.mission}
+              </h3>
+              <p className="text-sm text-gray-600 font-light leading-relaxed">
+                Building an ecosystem where organizations gain capable talent, professionals access credible career paths, and recruitment decisions are backed by structured evaluation.
+              </p>
             </div>
           </div>
         </div>
@@ -527,29 +371,18 @@ export default function AboutPage() {
             {ABOUT_PAGE_DATA.kawaiiAdvantages.map((adv) => (
               <div
                 key={adv.number}
-                className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-[#A71728] via-[#8E1321] to-[#680C17] text-white shadow-xl hover:shadow-2xl border border-white/15 hover:-translate-y-1.5 transition-all duration-300 space-y-4 flex flex-col justify-between min-h-[290px] relative overflow-hidden group"
+                className="p-7 sm:p-8 rounded-2xl bg-white border border-black/8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-3 relative overflow-hidden"
               >
-                {/* Subtle Japanese Watermark */}
-                <div className="absolute -bottom-4 -right-4 text-white/5 font-mono font-black text-7xl select-none pointer-events-none group-hover:text-white/10 transition-colors">
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#A71728]" />
+                <div className="text-xs font-mono font-bold text-[#A71728] tracking-wider">
                   {adv.number}
                 </div>
-
-                <div className="space-y-3.5 relative z-10">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/25 border border-white/20 text-xs font-mono font-bold text-[#FFEAA7] tracking-wider uppercase">
-                    <span>ADVANTAGE {adv.number}</span>
-                  </div>
-                  <h4 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-white leading-snug">
-                    {adv.title}
-                  </h4>
-                  <p className="text-xs sm:text-[13px] text-white/90 font-light leading-relaxed">
-                    {adv.desc}
-                  </p>
-                </div>
-
-                <div className="pt-3.5 border-t border-white/15 text-[10px] font-mono text-[#FFEAA7] tracking-widest uppercase flex items-center justify-between relative z-10">
-                  <span>KAWAII QUALITY</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFEAA7] animate-pulse" />
-                </div>
+                <h4 className="text-base sm:text-lg font-extrabold uppercase tracking-tight text-[#111] leading-snug">
+                  {adv.title}
+                </h4>
+                <p className="text-xs sm:text-[13px] text-gray-600 font-light leading-relaxed">
+                  {adv.desc}
+                </p>
               </div>
             ))}
           </div>

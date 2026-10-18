@@ -60,7 +60,6 @@ export function Navbar({ onOpenModal: _onOpenModal }: NavbarProps) {
   const { employee } = useAuth();
   const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -77,12 +76,6 @@ export function Navbar({ onOpenModal: _onOpenModal }: NavbarProps) {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -105,11 +98,7 @@ export function Navbar({ onOpenModal: _onOpenModal }: NavbarProps) {
         className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-4 pointer-events-none"
       >
         <div
-          className={`pointer-events-auto mx-auto max-w-[1320px] relative flex items-center justify-between gap-4 h-[72px] pl-4 pr-2.5 sm:pl-5 sm:pr-3 rounded-[22px] border backdrop-blur-xl transition-[background,box-shadow,border-color] duration-300 ${
-            isScrolled
-              ? "bg-white/95 border-black/8 shadow-[0_10px_40px_rgba(16,16,20,0.12)]"
-              : "bg-white/82 border-white/70 shadow-[0_8px_32px_rgba(16,16,20,0.08)]"
-          }`}
+          className="pointer-events-auto mx-auto max-w-[1320px] relative flex items-center justify-between gap-4 h-[72px] pl-4 pr-2.5 sm:pl-5 sm:pr-3 rounded-[22px] border border-black/8 bg-white"
         >
           <Link
             href="/"

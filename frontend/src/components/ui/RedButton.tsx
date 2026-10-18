@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface RedButtonProps {
   children: React.ReactNode;
@@ -31,7 +32,7 @@ export function RedButton({
   };
 
   const baseClasses =
-    "group relative inline-flex items-center justify-center font-medium tracking-wider uppercase transition-all duration-500 overflow-hidden cursor-pointer select-none rounded-none";
+    "group relative inline-flex items-center justify-center font-medium tracking-wider uppercase transition-colors duration-200 cursor-pointer select-none rounded-none";
 
   const variantClasses = {
     primary:
@@ -47,39 +48,26 @@ export function RedButton({
   };
 
   const content = (
-    <>
-      {/* Background slide animation on hover */}
-      <span className="absolute inset-0 w-full h-full bg-[#A71728] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out -z-10" />
-
-      <span className="relative z-10 flex items-center space-x-2 tracking-widest font-semibold">
-        <span>{children}</span>
-        {icon && (
-          <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-        )}
-      </span>
-    </>
+    <span className="relative flex items-center space-x-2 tracking-widest font-semibold">
+      <span>{children}</span>
+      {icon && (
+        <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+      )}
+    </span>
   );
+
+  const classes = cn(baseClasses, sizeClasses[size], variantClasses[variant], className);
 
   if (href) {
     return (
-      <a
-        href={href}
-        onClick={onClick}
-        className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-        data-cursor="action"
-      >
+      <a href={href} onClick={onClick} className={classes} data-cursor="action">
         {content}
       </a>
     );
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-      data-cursor="action"
-    >
+    <button type={type} onClick={onClick} className={classes} data-cursor="action">
       {content}
     </button>
   );
