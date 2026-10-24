@@ -128,7 +128,7 @@ export default function ContactPage() {
                 For organizations seeking executive search, engineering staffing, bulk technical workforce, or HR outsourcing. Response standard: within 24 business hours.
               </p>
               <div className="pt-2 text-xs font-semibold text-black space-y-1">
-                <div>Email: corporate@kawaiihr.com</div>
+                <div>Email: kawaiihr@kawaiibd.com</div>
                 <div>Hours: Sun–Thu | 9:00 AM – 6:00 PM BST</div>
               </div>
             </div>
@@ -514,8 +514,16 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#A71728] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-black font-semibold">Office Address</strong>
+                    <strong className="block text-black font-semibold">Registered Office</strong>
                     <span>{COMPANY_INFO.address}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-[#A71728] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-black font-semibold">Corporate Office</strong>
+                    <span>{COMPANY_INFO.corporateOffice}</span>
                   </div>
                 </div>
 
@@ -542,10 +550,10 @@ export default function ContactPage() {
               <div className="aspect-video bg-gray-100 border border-gray-200 flex flex-col items-center justify-center text-center p-6 space-y-2">
                 <MapPin className="w-8 h-8 text-[#A71728]" />
                 <div className="text-sm font-bold uppercase text-black">
-                  Dhaka Headquarters Location
+                  Dhaka Corporate Office
                 </div>
                 <p className="text-xs text-gray-500 max-w-xs">
-                  Banasree, Rampura, Dhaka, Bangladesh. Appointments recommended for in-person consultations.
+                  Level-2, Taj Casilina, 25 Gulshan Ave, Dhaka 1212. Appointments recommended for in-person consultations.
                 </p>
               </div>
             </div>

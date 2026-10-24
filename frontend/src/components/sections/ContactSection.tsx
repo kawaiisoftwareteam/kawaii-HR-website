@@ -75,7 +75,17 @@ export function ContactSection({ onOpenModal }: { onOpenModal: (tab: "employer" 
                 {/* Address */}
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-4 h-4 text-[#A71728] shrink-0 mt-0.5" />
-                  <span className="font-light">{COMPANY_INFO.address}</span>
+                  <span className="font-light">
+                    <strong className="block text-[#111] font-semibold">Registered Office</strong>
+                    {COMPANY_INFO.address}
+                  </span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-4 h-4 text-[#A71728] shrink-0 mt-0.5" />
+                  <span className="font-light">
+                    <strong className="block text-[#111] font-semibold">Corporate Office</strong>
+                    {COMPANY_INFO.corporateOffice}
+                  </span>
                 </div>
 
                 {/* Established */}

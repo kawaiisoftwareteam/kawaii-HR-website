@@ -155,8 +155,8 @@ export default function RootLayout({
         description:
           "Japanese-standard HR outsourcing, career solutions, recruitment, staffing, and executive search in Bangladesh.",
         foundingDate: "2025",
-        email: "corporate@kawaiihr.com",
-        telephone: "+8801711000000",
+        email: "kawaiihr@kawaiibd.com",
+        telephone: "+8801731113110",
         knowsAbout: [
           "HR Outsourcing",
           "Career Outsourcing",
@@ -190,8 +190,8 @@ export default function RootLayout({
         contactPoint: [
           {
             "@type": "ContactPoint",
-            telephone: "+8801711000000",
-            email: "corporate@kawaiihr.com",
+            telephone: "+8801731113110",
+            email: "kawaiihr@kawaiibd.com",
             contactType: "customer service",
             areaServed: ["BD", "JP"],
             availableLanguage: ["English", "Bengali", "Japanese"],
@@ -205,22 +205,16 @@ export default function RootLayout({
         name: "Kawaii HR",
         image: "https://www.kawaiicareer.com/images/japanese_office_team.jpg",
         url: "https://www.kawaiicareer.com",
-        telephone: "+8801711000000",
-        email: "corporate@kawaiihr.com",
+        telephone: "+8801731113110",
+        email: "kawaiihr@kawaiibd.com",
         priceRange: "$$",
         address: {
           "@type": "PostalAddress",
-          streetAddress:
-            "House: 11 (2nd Floor), Block: B, Main Road, Banasree, Rampura",
+          streetAddress: "Level-2, Taj Casilina, 25 Gulshan Ave",
           addressLocality: "Dhaka",
           addressRegion: "Dhaka",
-          postalCode: "1219",
+          postalCode: "1212",
           addressCountry: "BD",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 23.7615,
-          longitude: 90.4332,
         },
         parentOrganization: {
           "@id": "https://www.kawaiicareer.com/#organization",
